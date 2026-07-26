@@ -1,0 +1,109 @@
+---
+import MediaPlaceholder from './MediaPlaceholder.astro';
+import { mediaExists } from '../utils/media';
+
+const src = '/images/igor-stazic-sajam-opremanje-odrzavanje-hotela.jpg';
+const exists = mediaExists(src);
+---
+
+<section class="section about-preview" id="o-nama">
+	<div class="container about-preview__grid">
+		<div class="about-preview__media">
+			{
+				exists ? (
+					<img
+						src={src}
+						alt="Igor Stazić na sajmu opremanja i održavanja hotela"
+						loading="lazy"
+						width="800"
+						height="600"
+					/>
+				) : (
+					<MediaPlaceholder
+						title="FOTOGRAFIJA"
+						filename="igor-stazic-sajam-opremanje-odrzavanje-hotela.jpg"
+						dimensions="1200 × 1500 px"
+						aspectRatio="4/5"
+					/>
+				)
+			}
+		</div>
+
+		<div class="about-preview__content">
+			<h2>Iskustvo, stručnost i kvaliteta bez kompromisa</h2>
+			<p>
+				Igor Stazić, vlasnik obrta FERIA i brenda Red Carpet, više od deset godina radi na
+				profesionalnom čišćenju tepisona i tapaciranog namještaja. Red Carpet specijaliziran je
+				za veće površine, zahtjevne projekte i organizaciju rada prema rasporedu klijenta.
+			</p>
+			<p>
+				Kontinuirano pratimo razvoj profesionalne opreme, metoda čišćenja i standarda održavanja
+				kako bismo pružili pouzdanu i učinkovitu uslugu.
+			</p>
+
+			<div class="about-preview__signature">
+				<span class="about-preview__signature-name">Igor Stazić</span>
+				<span class="about-preview__signature-role">Vlasnik, Red Carpet</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about-preview__grid {
+		display: grid;
+		grid-template-columns: 45fr 55fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.about-preview__media {
+		min-width: 0;
+	}
+
+	.about-preview__media img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		border-radius: var(--radius);
+	}
+
+	.about-preview__content h2 {
+		margin-bottom: 1.25rem;
+	}
+
+	.about-preview__content p + p {
+		margin-top: 1rem;
+	}
+
+	.about-preview__signature {
+		margin-top: 2rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--border);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.about-preview__signature-name {
+		font-weight: 800;
+		color: var(--black);
+	}
+
+	.about-preview__signature-role {
+		font-size: 0.88rem;
+		color: var(--gray);
+	}
+
+	@media (max-width: 900px) {
+		.about-preview__grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.about-preview__media {
+			max-width: 480px;
+			margin-inline: auto;
+		}
+	}
+</style>

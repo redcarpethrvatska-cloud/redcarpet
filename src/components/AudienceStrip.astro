@@ -1,0 +1,30 @@
+---
+const audiences = [
+	'Hoteli',
+	'Resorti',
+	'Poslovni objekti',
+	'Konferencijske sale',
+	'Restorani',
+	'Ustanove',
+	'Jahte',
+	'Veći privatni prostori',
+];
+---
+
+<section class="section section--light audience">
+	<div class="container">
+		<div class="section-heading">
+			<h2>Specijalizirani za objekte s velikim površinama tepisona</h2>
+			<p>
+				Profesionalno čistimo tepisone i tapacirani namještaj u hotelima, resortima, poslovnim
+				objektima, konferencijskim salama, restoranima, ustanovama, na jahtama i u većim
+				privatnim prostorima. Oprema i organizacija rada prilagođeni su velikim kvadraturama i
+				većim količinama namještaja.
+			</p>
+		</div>
+
+		<ul class="tag-list">
+			{audiences.map((item) => <li class="tag">{item}</li>)}
+		</ul>
+	</div>
+</section>

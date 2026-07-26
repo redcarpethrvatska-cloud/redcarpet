@@ -1,0 +1,87 @@
+---
+---
+
+<div class="topbar">
+	<div class="container topbar__inner">
+		<p class="topbar__hours">Pon–Pet 08:00–16:00</p>
+		<span class="topbar__sep" aria-hidden="true">·</span>
+		<p class="topbar__contact">
+			<a href="tel:+38598666746">+385 98 666 746</a>
+			<span class="topbar__sep" aria-hidden="true">·</span>
+			<a href="mailto:redcarpet.hrvatska@gmail.com">redcarpet.hrvatska@gmail.com</a>
+		</p>
+	</div>
+</div>
+
+<style>
+	.topbar {
+		background: var(--black);
+		color: var(--white);
+		font-size: 0.82rem;
+	}
+
+	.topbar__inner {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 0.65rem;
+		padding-block: 0.5rem;
+	}
+
+	.topbar__inner p {
+		margin: 0;
+		color: inherit;
+		white-space: nowrap;
+	}
+
+	.topbar__hours {
+		flex: none;
+		color: #c7c7c7;
+	}
+
+	.topbar__contact {
+		flex: none;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.topbar__contact a {
+		text-decoration: none;
+	}
+
+	.topbar__contact a:hover {
+		text-decoration: underline;
+	}
+
+	.topbar__sep {
+		color: #555;
+	}
+
+	@media (max-width: 640px) {
+		.topbar__inner {
+			flex-wrap: wrap;
+			justify-content: center;
+			row-gap: 0.25rem;
+			text-align: center;
+		}
+
+		.topbar__hours {
+			display: none;
+		}
+
+		.topbar__contact {
+			flex-wrap: wrap;
+			justify-content: center;
+			width: 100%;
+		}
+
+		.topbar__sep {
+			display: none;
+		}
+
+		.topbar__contact a {
+			flex-basis: 100%;
+		}
+	}
+</style>

@@ -1,0 +1,141 @@
+---
+const advantages = [
+	{
+		title: 'Više od 10 godina iskustva',
+		text: 'Iskustvo u čišćenju tepisona i tapaciranog namještaja u hotelima, poslovnim objektima, restoranima, ustanovama, na jahtama i u većim privatnim prostorima.',
+	},
+	{
+		title: 'Oprema za velike kvadrature',
+		text: 'Specijalizirani strojevi i radni doseg približno 40 do 50 metara omogućuju učinkovit rad na velikim i složenim površinama.',
+	},
+	{
+		title: 'Dva operativna tima',
+		text: 'Radove možemo organizirati s dva tima po dvije osobe, ovisno o veličini i rokovima projekta.',
+	},
+	{
+		title: 'Prilagodljivo vrijeme rada',
+		text: 'Termin se može organizirati tijekom dana, noću, vikendom ili u više etapa kako bi se što manje ometao rad objekta.',
+	},
+	{
+		title: 'Obrada mrlja u sklopu usluge',
+		text: 'Standardna obrada mrlja i nečistoća uključena je u postupak čišćenja. Kod starih mrlja i trajno promijenjenih vlakana nije moguće jamčiti potpuno uklanjanje.',
+	},
+	{
+		title: 'Pokrivenost cijele Hrvatske',
+		text: 'Usluge pružamo širom Hrvatske, uz najveću dostupnost na području Primorsko-goranske županije i Istre.',
+	},
+];
+
+const stats = [
+	{ value: '10+', label: 'godina iskustva' },
+	{ value: '2', label: 'operativna tima' },
+	{ value: '300–500 m²', label: 'dnevno' },
+	{ value: '40–50 m', label: 'radnog dosega' },
+	{ value: '6–8 h', label: 'prosječnog sušenja' },
+];
+---
+
+<section class="section why-us" id="zasto-red-carpet">
+	<div class="container">
+		<div class="section-heading">
+			<h2>Iskustvo, kapacitet i organizacija za zahtjevne projekte</h2>
+			<p>
+				Više od deset godina iskustva, profesionalna oprema i fleksibilna organizacija
+				omogućuju nam kvalitetno izvođenje radova u objektima različite namjene i veličine.
+			</p>
+		</div>
+
+		<div class="why-us__grid">
+			{
+				advantages.map((item) => (
+					<article class="why-us__card">
+						<h3>{item.title}</h3>
+						<p>{item.text}</p>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="why-us__stats">
+			{
+				stats.map((stat) => (
+					<div class="stat-card">
+						<span class="stat-card__value">{stat.value}</span>
+						<span class="stat-card__label">{stat.label}</span>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.why-us__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.75rem;
+	}
+
+	.why-us__card {
+		padding: 1.75rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+	}
+
+	.why-us__card h3 {
+		color: var(--black);
+		margin-bottom: 0.65rem;
+	}
+
+	.why-us__stats {
+		margin-top: 3rem;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1.25rem;
+	}
+
+	.stat-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		text-align: center;
+		min-width: 0;
+		padding: 2.25rem 1.5rem;
+		background: var(--black);
+		color: var(--white);
+		border-radius: var(--radius);
+	}
+
+	.stat-card__value {
+		font-size: 2.5rem;
+		font-weight: 800;
+		color: var(--red);
+	}
+
+	.stat-card__label {
+		font-size: 0.82rem;
+		color: #c7c7c7;
+	}
+
+	@media (max-width: 1024px) {
+		.why-us__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.why-us__stats {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.why-us__grid {
+			grid-template-columns: 1fr;
+		}
+
+		.why-us__stats {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

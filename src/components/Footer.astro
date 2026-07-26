@@ -1,0 +1,145 @@
+---
+const quickLinks = [
+	{ label: 'Početna', href: '/' },
+	{ label: 'Usluge', href: '#usluge' },
+	{ label: 'Kako radimo', href: '#kako-radimo' },
+	{ label: 'O nama', href: '#o-nama' },
+	{ label: 'Blog', href: '#blog' },
+	{ label: 'Kontakt', href: '#kontakt' },
+];
+
+const legalLinks = ['Politika privatnosti', 'Politika kolačića', 'Uvjeti korištenja'];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="container site-footer__grid">
+		<div class="site-footer__brand">
+			<p class="site-footer__logo">RED CARPET</p>
+			<p>
+				Profesionalno pranje tepisona i tapaciranog namještaja za velike površine i zahtjevne
+				objekte.
+			</p>
+		</div>
+
+		<div class="site-footer__col">
+			<h3>Kontakt</h3>
+			<ul>
+				<li><a href="tel:+38598666746">+385 98 666 746</a></li>
+				<li><a href="mailto:redcarpet.hrvatska@gmail.com">redcarpet.hrvatska@gmail.com</a></li>
+				<li>Nova Cesta 24a, 51410 Opatija</li>
+			</ul>
+		</div>
+
+		<div class="site-footer__col">
+			<h3>Brzi linkovi</h3>
+			<ul>
+				{
+					quickLinks.map((link) => (
+						<li>
+							<a href={link.href}>{link.label}</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<div class="site-footer__col">
+			<h3>Pravne poveznice</h3>
+			<ul>
+				{
+					legalLinks.map((label) => (
+						<li>
+							<span class="site-footer__legal" aria-disabled="true">
+								{label} <small>(uskoro)</small>
+							</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+
+	<div class="site-footer__bottom">
+		<div class="container">
+			<p>© {currentYear} Red Carpet · FERIA obrt za usluge · vlasnik Igor Stazić · OIB 72073948409</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		background: var(--black);
+		color: #c7c7c7;
+	}
+
+	.site-footer__grid {
+		display: grid;
+		grid-template-columns: 1.4fr 1fr 1fr 1fr;
+		gap: 2.5rem;
+		padding-block: 3.5rem;
+	}
+
+	.site-footer__logo {
+		color: var(--white);
+		font-size: 1.3rem;
+		font-weight: 800;
+		letter-spacing: 0.03em;
+		margin-bottom: 0.85rem;
+	}
+
+	.site-footer h3 {
+		color: var(--white);
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin-bottom: 1rem;
+	}
+
+	.site-footer__col ul {
+		display: grid;
+		gap: 0.6rem;
+	}
+
+	.site-footer__col a {
+		text-decoration: none;
+		color: #c7c7c7;
+	}
+
+	.site-footer__col a:hover {
+		color: var(--white);
+	}
+
+	.site-footer__legal {
+		color: #8a8a8a;
+	}
+
+	.site-footer__legal small {
+		font-size: 0.72rem;
+	}
+
+	.site-footer__bottom {
+		border-top: 1px solid #2c2c2c;
+	}
+
+	.site-footer__bottom p {
+		padding-block: 1.25rem;
+		font-size: 0.8rem;
+		color: #8a8a8a;
+		margin: 0;
+	}
+
+	@media (max-width: 900px) {
+		.site-footer__grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.site-footer__grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+</style>

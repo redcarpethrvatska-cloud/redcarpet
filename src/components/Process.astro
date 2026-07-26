@@ -1,0 +1,108 @@
+---
+const steps = [
+	{
+		title: 'Upit i osnovne informacije',
+		text: 'Pošaljete nam lokaciju, približnu kvadraturu, vrstu tepisona ili broj komada tapaciranog namještaja.',
+	},
+	{
+		title: 'Procjena i ponuda',
+		text: 'Na temelju podataka procjenjujemo opseg radova, potrebnu opremu, trajanje i cijenu.',
+	},
+	{
+		title: 'Dogovor termina',
+		text: 'Termin prilagođavamo rasporedu objekta. Rad je moguć tijekom dana, noću, vikendom ili u više etapa.',
+	},
+	{
+		title: 'Profesionalno čišćenje',
+		text: 'Površine čistimo odgovarajućom metodom, uz prethodnu obradu mrlja i korištenje profesionalne opreme.',
+	},
+	{
+		title: 'Sušenje i završna provjera',
+		text: 'Prosječno vrijeme sušenja iznosi 6 do 8 sati, ovisno o materijalu, temperaturi i ventilaciji prostora.',
+	},
+];
+---
+
+<section class="section section--light process" id="kako-radimo">
+	<div class="container">
+		<div class="section-heading">
+			<h2>Jasan proces od upita do potpuno čistog prostora</h2>
+			<p>
+				Svaki projekt organiziramo prema vrsti površine, veličini objekta i rasporedu klijenta.
+				Cilj je kvalitetno čišćenje uz što manje ometanja rada prostora.
+			</p>
+		</div>
+
+		<ol class="process__steps">
+			{
+				steps.map((step, index) => (
+					<li class="process__step">
+						<span class="process__number" aria-hidden="true">{index + 1}</span>
+						<h3>{step.title}</h3>
+						<p>{step.text}</p>
+					</li>
+				))
+			}
+		</ol>
+
+		<p class="process__note">
+			Površine moraju biti dostupne za rad. Lakši namještaj možemo pomaknuti, dok teške krevete,
+			ormare, stolove i slične elemente ne premještamo. Konferencijske sale i veći prostori
+			trebaju biti oslobođeni prije početka radova.
+		</p>
+	</div>
+</section>
+
+<style>
+	.process__steps {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1.75rem;
+		counter-reset: step;
+	}
+
+	.process__step {
+		background: var(--white);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 1.5rem 1.25rem;
+	}
+
+	.process__number {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		margin-bottom: 1rem;
+		background: var(--red);
+		color: var(--white);
+		font-weight: 800;
+		border-radius: 50%;
+	}
+
+	.process__step h3 {
+		color: var(--black);
+		margin-bottom: 0.5rem;
+	}
+
+	.process__note {
+		margin-top: 2.5rem;
+		padding: 1.25rem 1.5rem;
+		border-left: 3px solid var(--red);
+		background: var(--white);
+		font-size: 0.92rem;
+	}
+
+	@media (max-width: 1024px) {
+		.process__steps {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.process__steps {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

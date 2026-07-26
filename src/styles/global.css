@@ -1,0 +1,334 @@
+/* ==========================================================================
+   Red Carpet — global stylesheet
+   Plain CSS, no framework. Variables per brand spec.
+   ========================================================================== */
+
+:root {
+	--red: #e31e24;
+	--red-dark: #b9151a;
+	--black: #111111;
+	--dark: #1b1b1b;
+	--gray: #666666;
+	--light-gray: #f4f4f4;
+	--border: #e2e2e2;
+	--white: #ffffff;
+
+	--font-sans:
+		-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, 'Noto Sans',
+		sans-serif;
+
+	--container-width: 1240px;
+	--section-padding-y: 4.5rem;
+	--section-padding-y-sm: 3rem;
+	--radius: 4px;
+}
+
+/* ---- Reset ---------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	overflow-x: hidden;
+	background: var(--white);
+	color: var(--black);
+	font-family: var(--font-sans);
+	font-size: 16px;
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+video,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+	margin: 0;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	color: inherit;
+}
+
+button {
+	font-family: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+	font: inherit;
+	color: inherit;
+}
+
+/* ---- Layout helpers --------------------------------------------------- */
+
+.container {
+	width: 100%;
+	max-width: var(--container-width);
+	margin-inline: auto;
+	padding-inline: 1.5rem;
+}
+
+.section {
+	padding-block: var(--section-padding-y);
+}
+
+.section--tight {
+	padding-block: var(--section-padding-y-sm);
+}
+
+.section--light {
+	background: var(--light-gray);
+}
+
+.section--dark {
+	background: var(--black);
+	color: var(--white);
+}
+
+.section-heading {
+	max-width: 760px;
+	margin-bottom: 2.5rem;
+}
+
+.section-heading--center {
+	margin-inline: auto;
+	text-align: center;
+}
+
+.eyebrow {
+	display: inline-block;
+	color: var(--red);
+	font-weight: 700;
+	font-size: 0.8rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	margin-bottom: 0.75rem;
+}
+
+h1 {
+	font-size: clamp(2rem, 1.5rem + 2vw, 3.1rem);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+}
+
+h2 {
+	font-size: clamp(1.6rem, 1.4rem + 1vw, 2.25rem);
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+}
+
+h3 {
+	font-size: 1.15rem;
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+p {
+	color: var(--gray);
+}
+
+.section--dark p,
+.section--dark .gray {
+	color: #c7c7c7;
+}
+
+/* ---- Buttons ------------------------------------------------------- */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.85rem 1.75rem;
+	border-radius: var(--radius);
+	border: 2px solid transparent;
+	font-weight: 700;
+	font-size: 0.95rem;
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	transition:
+		background-color 0.15s ease,
+		border-color 0.15s ease,
+		color 0.15s ease;
+}
+
+.btn-primary {
+	background: var(--red);
+	border-color: var(--red);
+	color: var(--white);
+}
+
+.btn-primary:hover {
+	background: var(--red-dark);
+	border-color: var(--red-dark);
+}
+
+.btn-outline {
+	background: transparent;
+	border-color: var(--white);
+	color: var(--white);
+}
+
+.btn-outline:hover {
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-outline-dark {
+	background: transparent;
+	border-color: var(--black);
+	color: var(--black);
+}
+
+.btn-outline-dark:hover {
+	background: var(--black);
+	color: var(--white);
+}
+
+/* ---- Focus & accessibility ------------------------------------------ */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+	outline: 3px solid var(--red);
+	outline-offset: 2px;
+}
+
+.section--dark :focus-visible,
+.hero :focus-visible,
+.topbar :focus-visible,
+footer :focus-visible {
+	outline-color: var(--white);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.skip-link {
+	position: absolute;
+	top: -100px;
+	left: 1rem;
+	z-index: 1000;
+	background: var(--red);
+	color: var(--white);
+	padding: 0.75rem 1.25rem;
+	border-radius: var(--radius);
+	font-weight: 700;
+	text-decoration: none;
+	transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+	top: 1rem;
+}
+
+/* ---- Tag / pill list --------------------------------------------------- */
+
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+}
+
+.tag {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	background: var(--white);
+	color: var(--black);
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.section--light .tag {
+	background: var(--white);
+}
+
+/* ---- Simple marker list ------------------------------------------------ */
+
+.marker-list {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.marker-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.65rem;
+	color: var(--black);
+	font-weight: 600;
+}
+
+.marker-list .marker {
+	flex: none;
+	width: 10px;
+	height: 10px;
+	margin-top: 0.4em;
+	background: var(--red);
+}
+
+/* ---- Reduced motion --------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* ---- Responsive type scale for section padding on small screens ------- */
+
+@media (max-width: 640px) {
+	:root {
+		--section-padding-y: 3rem;
+		--section-padding-y-sm: 2.25rem;
+	}
+}

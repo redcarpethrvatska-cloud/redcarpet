@@ -1,0 +1,362 @@
+---
+const socialLinks = [
+	{ name: 'YouTube', initial: 'Y', href: 'https://www.youtube.com/@REDCARPET-sp6kx' },
+	{ name: 'Facebook', initial: 'F', href: 'https://www.facebook.com/profile.php?id=61565206903287' },
+	{ name: 'Instagram', initial: 'I', href: 'https://www.instagram.com/redcarpet.hr/' },
+	{ name: 'LinkedIn', initial: 'L', href: 'https://www.linkedin.com/in/igor-stazic-redcarpet/' },
+	{ name: 'TikTok', initial: 'T', href: 'https://www.tiktok.com/@redcarpet.hr' },
+];
+---
+
+<section class="section contact" id="kontakt">
+	<div class="container contact__grid">
+		<div class="contact__info">
+			<h2>Zatražite ponudu</h2>
+			<p>
+				Pošaljite nam osnovne informacije o objektu, lokaciji, približnoj kvadraturi ili broju
+				komada namještaja. Odgovaramo u pravilu unutar 24 sata tijekom radnog tjedna.
+			</p>
+
+			<dl class="contact__details">
+				<div>
+					<dt>Telefon</dt>
+					<dd><a href="tel:+38598666746">+385 98 666 746</a></dd>
+				</div>
+				<div>
+					<dt>E-mail</dt>
+					<dd><a href="mailto:redcarpet.hrvatska@gmail.com">redcarpet.hrvatska@gmail.com</a></dd>
+				</div>
+				<div>
+					<dt>Adresa</dt>
+					<dd>Nova Cesta 24a, 51410 Opatija</dd>
+				</div>
+				<div>
+					<dt>Područje rada</dt>
+					<dd>Cijela Hrvatska</dd>
+				</div>
+				<div>
+					<dt>Radno vrijeme</dt>
+					<dd>Ponedjeljak – petak, 08:00–16:00</dd>
+				</div>
+			</dl>
+
+			<ul class="contact__social" aria-label="Društvene mreže Red Carpet">
+				{
+					socialLinks.map((social) => (
+						<li>
+							<a
+								href={social.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={social.name}
+								title={social.name}
+							>
+								<span aria-hidden="true">{social.initial}</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<form class="contact__form" id="contact-form" novalidate>
+			<div class="form-row">
+				<label for="fullName">Ime i prezime <span aria-hidden="true">*</span></label>
+				<input type="text" id="fullName" name="fullName" autocomplete="name" required />
+				<p class="form-error" id="fullName-error" role="alert" hidden></p>
+			</div>
+
+			<div class="form-row form-row--split">
+				<div>
+					<label for="company">Tvrtka ili objekt</label>
+					<input type="text" id="company" name="company" autocomplete="organization" />
+				</div>
+				<div>
+					<label for="city">Grad ili lokacija</label>
+					<input type="text" id="city" name="city" autocomplete="address-level2" />
+				</div>
+			</div>
+
+			<div class="form-row form-row--split">
+				<div>
+					<label for="phone">Telefon <span aria-hidden="true">*</span></label>
+					<input type="tel" id="phone" name="phone" autocomplete="tel" required />
+					<p class="form-error" id="phone-error" role="alert" hidden></p>
+				</div>
+				<div>
+					<label for="email">E-mail</label>
+					<input type="email" id="email" name="email" autocomplete="email" />
+					<p class="form-error" id="email-error" role="alert" hidden></p>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<label for="message">Kratka poruka</label>
+				<textarea id="message" name="message" rows="4"></textarea>
+			</div>
+
+			<div class="form-row form-row--checkbox">
+				<input type="checkbox" id="gdpr" name="gdpr" required />
+				<label for="gdpr">
+					Slažem se da se moji podaci koriste isključivo za odgovor na ovaj upit.
+					<span aria-hidden="true">*</span>
+				</label>
+				<p class="form-error" id="gdpr-error" role="alert" hidden></p>
+			</div>
+
+			<button type="submit" class="btn btn-primary contact__submit">Zatražite ponudu</button>
+
+			<p class="contact__status" id="contact-status" role="status" aria-live="polite"></p>
+		</form>
+	</div>
+</section>
+
+<style>
+	.contact__grid {
+		display: grid;
+		grid-template-columns: 0.85fr 1.15fr;
+		gap: 3rem;
+	}
+
+	.contact__info h2 {
+		margin-bottom: 1.25rem;
+	}
+
+	.contact__details {
+		margin-top: 2rem;
+		display: grid;
+		gap: 1.1rem;
+	}
+
+	.contact__details dt {
+		font-size: 0.78rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--red);
+	}
+
+	.contact__details dd {
+		margin: 0.15rem 0 0;
+		font-weight: 600;
+		color: var(--black);
+	}
+
+	.contact__details a {
+		text-decoration: none;
+	}
+
+	.contact__details a:hover {
+		text-decoration: underline;
+	}
+
+	.contact__social {
+		display: flex;
+		gap: 0.75rem;
+		margin-top: 2rem;
+	}
+
+	.contact__social a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: var(--black);
+		color: var(--white);
+		font-weight: 700;
+		text-decoration: none;
+		transition: background-color 0.15s ease;
+	}
+
+	.contact__social a:hover {
+		background: var(--red);
+	}
+
+	.contact__form {
+		background: var(--light-gray);
+		border-radius: var(--radius);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.form-row {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.form-row--split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
+	}
+
+	.form-row--split > div {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	label {
+		font-weight: 700;
+		font-size: 0.9rem;
+		color: var(--black);
+	}
+
+	input[type='text'],
+	input[type='tel'],
+	input[type='email'],
+	textarea {
+		width: 100%;
+		padding: 0.7rem 0.85rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: var(--white);
+	}
+
+	input[aria-invalid='true'],
+	textarea[aria-invalid='true'] {
+		border-color: var(--red);
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	.form-row--checkbox {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		gap: 0.65rem;
+	}
+
+	.form-row--checkbox input {
+		margin-top: 0.25rem;
+		flex: none;
+		width: 18px;
+		height: 18px;
+	}
+
+	.form-row--checkbox label {
+		flex: 1;
+		font-weight: 500;
+		font-size: 0.9rem;
+	}
+
+	.form-error {
+		margin: 0;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--red-dark);
+	}
+
+	.contact__submit {
+		align-self: flex-start;
+	}
+
+	.contact__status {
+		margin: 0;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+
+	.contact__status[data-state='success'] {
+		color: var(--black);
+	}
+
+	@media (max-width: 900px) {
+		.contact__grid {
+			grid-template-columns: 1fr;
+			gap: 2.5rem;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.form-row--split {
+			grid-template-columns: 1fr;
+		}
+
+		.contact__submit {
+			align-self: stretch;
+		}
+	}
+</style>
+
+<script>
+	const form = document.getElementById('contact-form');
+	const status = document.getElementById('contact-status');
+
+	if (form && status) {
+		const fullName = document.getElementById('fullName');
+		const phone = document.getElementById('phone');
+		const email = document.getElementById('email');
+		const gdpr = document.getElementById('gdpr');
+
+		const setError = (field, errorId, message) => {
+			const errorEl = document.getElementById(errorId);
+			if (!errorEl) return;
+			if (message) {
+				errorEl.textContent = message;
+				errorEl.hidden = false;
+				field.setAttribute('aria-invalid', 'true');
+				field.setAttribute('aria-describedby', errorId);
+			} else {
+				errorEl.textContent = '';
+				errorEl.hidden = true;
+				field.removeAttribute('aria-invalid');
+			}
+		};
+
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			status.textContent = '';
+			status.removeAttribute('data-state');
+
+			let isValid = true;
+
+			if (!fullName.value.trim()) {
+				setError(fullName, 'fullName-error', 'Molimo unesite ime i prezime.');
+				isValid = false;
+			} else {
+				setError(fullName, 'fullName-error', null);
+			}
+
+			const phoneDigits = phone.value.replace(/[^0-9+]/g, '');
+			if (!phoneDigits || phoneDigits.length < 6) {
+				setError(phone, 'phone-error', 'Molimo unesite ispravan broj telefona.');
+				isValid = false;
+			} else {
+				setError(phone, 'phone-error', null);
+			}
+
+			if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+				setError(email, 'email-error', 'Molimo unesite ispravnu e-mail adresu.');
+				isValid = false;
+			} else {
+				setError(email, 'email-error', null);
+			}
+
+			if (!gdpr.checked) {
+				setError(gdpr, 'gdpr-error', 'Potrebna je suglasnost za obradu podataka.');
+				isValid = false;
+			} else {
+				setError(gdpr, 'gdpr-error', null);
+			}
+
+			if (!isValid) {
+				status.textContent = 'Molimo provjerite označena polja.';
+				status.setAttribute('data-state', 'error');
+				return;
+			}
+
+			status.textContent =
+				'Hvala na upitu! Ova forma je trenutno u razvojnoj fazi i upit nije poslan. Molimo kontaktirajte nas izravno putem telefona ili e-maila.';
+			status.setAttribute('data-state', 'success');
+			form.reset();
+		});
+	}
+</script>

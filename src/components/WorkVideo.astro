@@ -1,0 +1,73 @@
+---
+import MediaPlaceholder from './MediaPlaceholder.astro';
+import { mediaExists } from '../utils/media';
+
+const videoSrc = '/videos/profesionalno-dubinsko-ciscenje-tepisona-glavni-video.mp4';
+const posterSrc = '/images/profesionalno-dubinsko-ciscenje-tepisona-video-poster.jpg';
+const videoExists = mediaExists(videoSrc);
+
+const tags = [
+	'Profesionalna ekstrakcijska oprema',
+	'Radni doseg približno 40–50 metara',
+	'Standardna obrada mrlja uključena u postupak',
+	'Prosječno sušenje 6–8 sati',
+	'Mogućnost rada noću i vikendom',
+];
+---
+
+<section class="section work-video">
+	<div class="container">
+		<div class="section-heading section-heading--center">
+			<h2>Pogledajte kako izgleda profesionalno čišćenje velikih površina</h2>
+			<p>
+				Svaki prostor zahtijeva drugačiji pristup. Način rada prilagođavamo vrsti tepisona,
+				stupnju zaprljanja, raspoloživom vremenu i organizaciji objekta. Koristimo profesionalnu
+				opremu za dubinsko ekstrakcijsko čišćenje i rad na velikim udaljenostima od položaja
+				stroja.
+			</p>
+		</div>
+
+		<div class="work-video__frame">
+			{
+				videoExists ? (
+					<video controls playsinline preload="metadata" poster={posterSrc} width="1920" height="1080">
+						<source src={videoSrc} type="video/mp4" />
+					</video>
+				) : (
+					<MediaPlaceholder
+						title="GLAVNI VIDEO"
+						filename="profesionalno-dubinsko-ciscenje-tepisona-glavni-video.mp4"
+						dimensions="1920 × 1080 px"
+						aspectRatio="16/9"
+					/>
+				)
+			}
+		</div>
+
+		<ul class="tag-list work-video__tags">
+			{tags.map((tag) => <li class="tag">{tag}</li>)}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.work-video__frame {
+		max-width: 960px;
+		margin-inline: auto;
+		border-radius: var(--radius);
+		overflow: hidden;
+		background: var(--black);
+	}
+
+	.work-video__frame video {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+	}
+
+	.work-video__tags {
+		max-width: 960px;
+		margin: 2rem auto 0;
+		justify-content: center;
+	}
+</style>

@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Profesionalno pranje tepisona i tapaciranog namještaja | Red Carpet',
+	description = 'Profesionalno pranje tepisona i tapaciranog namještaja za velike površine, poslovne objekte, hotele, ustanove, jahte i privatne prostore širom Hrvatske.',
+} = Astro.props;
+
+const canonicalURL = 'https://redcarpet.com.hr/';
+
+const localBusinessJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'LocalBusiness',
+	name: 'Red Carpet',
+	legalName: 'FERIA obrt za usluge',
+	url: canonicalURL,
+	telephone: '+385 98 666 746',
+	email: 'redcarpet.hrvatska@gmail.com',
+	address: {
+		'@type': 'PostalAddress',
+		streetAddress: 'Nova Cesta 24a',
+		postalCode: '51410',
+		addressLocality: 'Opatija',
+		addressCountry: 'HR',
+	},
+	areaServed: 'Hrvatska',
+	openingHours: 'Mo-Fr 08:00-16:00',
+};
+---
+
+<!doctype html>
+<html lang="hr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:locale" content="hr_HR" />
+		<meta property="og:site_name" content="Red Carpet" />
+
+		<script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+	</head>
+	<body>
+		<a href="#glavni-sadrzaj" class="skip-link">Preskoči na sadržaj</a>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	html,
+	body {
+		width: 100%;
+	}
+</style>

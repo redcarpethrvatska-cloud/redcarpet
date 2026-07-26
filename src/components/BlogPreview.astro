@@ -1,0 +1,116 @@
+---
+import MediaPlaceholder from './MediaPlaceholder.astro';
+import { mediaExists } from '../utils/media';
+
+const posts = [
+	{
+		title: 'Zašto je redovito pranje tepisona važno za poslovne objekte',
+		src: '/images/pranje-tepisona-hotelska-soba-red-carpet.jpg',
+	},
+	{
+		title: 'Koliko često treba profesionalno čistiti tepisone',
+		src: '/images/dubinsko-ciscenje-velike-hotelske-sale-red-carpet.jpg',
+	},
+	{
+		title: 'Pet znakova da je vrijeme za dubinsko čišćenje tapaciranog namještaja',
+		src: '/images/ciscenje-tapaciranog-namjestaja-hotel-restoran.jpg',
+	},
+	{
+		title: 'Koliko traje sušenje nakon dubinskog pranja',
+		src: '/images/suho-ciscenje-osjetljivih-povrsina-tepih.jpg',
+	},
+	{
+		title: 'Kako pripremiti prostor za profesionalno čišćenje',
+		src: '/images/pranje-velikih-povrsina-konferencijska-sala.jpg',
+	},
+];
+---
+
+<section class="section section--light blog-preview" id="blog">
+	<div class="container">
+		<div class="section-heading">
+			<h2>Savjeti i novosti</h2>
+		</div>
+
+		<div class="blog-preview__grid">
+			{
+				posts.map((post) => {
+					const exists = mediaExists(post.src);
+					return (
+						<article class="blog-card">
+							<div class="blog-card__media">
+								{exists ? (
+									<img src={post.src} alt="" loading="lazy" width="480" height="320" />
+								) : (
+									<MediaPlaceholder
+										title="FOTOGRAFIJA BLOGA"
+										filename={post.src.replace('/images/', '')}
+										dimensions="960 × 640 px"
+										aspectRatio="3/2"
+									/>
+								)}
+							</div>
+							<h3>{post.title}</h3>
+							<span class="blog-card__badge">Uskoro</span>
+						</article>
+					);
+				})
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.blog-preview__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	.blog-card {
+		background: var(--white);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.blog-card__media img {
+		width: 100%;
+		aspect-ratio: 3 / 2;
+		object-fit: cover;
+	}
+
+	.blog-card h3 {
+		color: var(--black);
+		font-size: 1rem;
+		padding: 1.25rem 1.25rem 0;
+	}
+
+	.blog-card__badge {
+		margin: 0.85rem 1.25rem 1.25rem;
+		display: inline-flex;
+		align-self: flex-start;
+		padding: 0.25rem 0.65rem;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--gray);
+		border: 1px solid var(--border);
+		border-radius: 999px;
+	}
+
+	@media (max-width: 1024px) {
+		.blog-preview__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.blog-preview__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
