@@ -1,10 +1,6 @@
 name: Prepare dependency updates
 on:
-  pull_request:
-    branches: [main]
-  push:
-    branches:
-      - feature/b2b-web-2026-phase1
+  workflow_dispatch:
 jobs:
   update:
     runs-on: ubuntu-latest
