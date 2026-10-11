@@ -1,46 +1,31 @@
-# Astro Starter Kit: Basics
+# Red Carpet – B2B web
 
-```sh
-npm create astro@latest -- --template basics
-```
+Official website: https://redcarpet.hr
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Astro static site deployed to Cloudflare Pages project `redcarpet`.
+Production branch: `main`; build: `npm run build`; output: `dist`.
 
-## 🚀 Project Structure
+## B2B contact form
 
-Inside of your Astro project, you'll see the following folders and files:
+The contact form at `/#kontakt` submits to Cloudflare Pages Function
+`functions/api/inquiry.js`, which verifies Cloudflare Turnstile and sends
+inquiries with Resend to `redcarpet.hrvatska@gmail.com`.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Set the following variables in **Cloudflare Pages → redcarpet → Settings →
+Variables and secrets → Production**:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+| Name | Type | Purpose |
+| --- | --- | --- |
+| `PUBLIC_TURNSTILE_SITE_KEY` | Text | Public Turnstile site key; injected at build time |
+| `TURNSTILE_SECRET_KEY` | Secret | Server-side Turnstile verification |
+| `RESEND_API_KEY` | Secret | Resend sending API |
+| `RESEND_FROM` | Text | Verified sender, e.g. `Red Carpet <upiti@redcarpet.hr>` |
 
-## 🧞 Commands
+Never commit secret values. Changes to these settings require a **new
+Production deployment**, including a rebuild to embed the public Turnstile
+key. Check the deployment's success status and send an actual B2B test inquiry.
+Do not mark email delivery as working until the inbox confirms receipt.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Resend domain: `redcarpet.hr`; receiving inbox remains Gmail. The site
+serves business clients, hotels and institutions, not individual household
+carpet-cleaning requests.
