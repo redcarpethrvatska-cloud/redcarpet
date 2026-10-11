@@ -1,0 +1,28 @@
+name: Prepare dependency updates
+on:
+  push:
+    branches:
+      - feature/b2b-web-2026-phase1
+    paths:
+      - .github/workflows/dependency-preview.yml
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Resolve security advisories
+        run: npm audit fix
+      - name: Recheck vulnerabilities
+        run: npm audit --audit-level=moderate
+      - name: Compile Astro
+        run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: repaired-lockfile
+          path: |
+            package.json
+            package-lock.json
