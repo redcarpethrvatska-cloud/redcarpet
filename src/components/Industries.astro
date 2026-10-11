@@ -1,0 +1,28 @@
+---
+const links=[
+{title:'Hoteli i resorti',href:'/ciscenje-hotela',desc:'Tepisoni, sobe, lobiji i namještaj'},
+{title:'Domovi za starije',href:'/ciscenje-domova-za-starije',desc:'Fotelje, madraci i zajednički prostori'},
+{title:'Vrtići i škole',href:'/ciscenje-vrtica-i-skola',desc:'Namještaj i tekstilne površine ustanova'},
+{title:'Uredi i poslovne zgrade',href:'/ciscenje-poslovnih-prostora',desc:'Uredski tepisoni i konferencijske stolice'},
+{title:'Velike količine stolica',href:'/ciscenje-tapeciranih-stolica',desc:'Restorani, kongresni centri i dvorane'},
+{title:'Madraci za ustanove',href:'/ciscenje-madraca-za-ustanove',desc:'Smještajni objekti i veći kapaciteti'},
+{title:'Impregnacija tekstila',href:'/impregnacija-tekstila',desc:'Zaštita prikladnog tapeciranog namještaja'},
+{title:'Kooperanti',href:'/suradnja-s-kooperantima',desc:'Poslovna suradnja diljem Hrvatske'}
+];
+---
+<section class="section section--light" id="industrije">
+ <div class="container">
+  <div class="section-heading"><span class="eyebrow">Poslovni korisnici</span><h2>Profesionalno čišćenje za različite djelatnosti</h2><p>Radimo na većim površinama i projektima s velikim brojem tekstilnih površina. Za svaki objekt izrađuje se individualna procjena.</p></div>
+  <div class="industry-grid">{links.map(item=><a class="industry-card" href={item.href}><h3>{item.title} <span aria-hidden="true">↗</span></h3><p>{item.desc}</p></a>)}</div>
+ </div>
+</section>
+<style>
+.industry-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.industry-card{display:block;padding:1.45rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;transition:border-color .2s,transform .2s}
+.industry-card:hover,.industry-card:focus-visible{border-color:var(--red);transform:translateY(-2px)}
+.industry-card h3{display:flex;justify-content:space-between;gap:.5rem}
+.industry-card h3 span{color:var(--red)}
+.industry-card p{margin-top:.65rem;font-size:.9rem}
+@media(max-width:1000px){.industry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.industry-grid{grid-template-columns:1fr}}
+</style>
