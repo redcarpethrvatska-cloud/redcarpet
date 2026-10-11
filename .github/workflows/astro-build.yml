@@ -20,5 +20,7 @@ jobs:
         run: npm ci
       - name: Dependency security audit
         run: npm audit --audit-level=moderate
+      - name: Test B2B inquiry endpoint
+        run: node tests/inquiry-check.mjs
       - name: Astro build
         run: npm run build
