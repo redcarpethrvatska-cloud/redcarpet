@@ -18,11 +18,11 @@ const links=[
 </section>
 <style>
 .industry-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
-.industry-card{display:block;padding:1.45rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;transition:border-color .2s,transform .2s}
+.industry-card{display:block;padding:1.6rem;background:var(--white);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color .2s,transform .2s}
 .industry-card:hover,.industry-card:focus-visible{border-color:var(--red);transform:translateY(-2px)}
 .industry-card h3{display:flex;justify-content:space-between;gap:.5rem}
 .industry-card h3 span{color:var(--red)}
-.industry-card p{margin-top:.65rem;font-size:.9rem}
+.industry-card p{margin-top:.65rem;font-size:1rem;line-height:1.55}
 @media(max-width:1000px){.industry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:580px){.industry-grid{grid-template-columns:1fr}}
 </style>
