@@ -389,6 +389,7 @@ const socialLinks = [
           const result = await response.json();
           if (!response.ok || !result.ok) throw new Error(result.error || 'Slanje nije uspjelo.');
           status.textContent = 'Upit je uspješno poslan.';
+          if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { lead_type: 'b2b_inquiry' });
           status.setAttribute('data-state', 'success');
           form.reset();
         } catch (error) {
