@@ -10,7 +10,6 @@ const tags = [
 	'Profesionalna ekstrakcijska oprema',
 	'Radni doseg približno 40–50 metara',
 	'Standardna obrada mrlja uključena u postupak',
-	'Prosječno sušenje 6–8 sati',
 	'Mogućnost rada noću i vikendom',
 ];
 ---
@@ -52,7 +51,7 @@ const tags = [
 
 <style>
 	.work-video__frame {
-		max-width: 960px;
+		max-width: 680px;
 		margin-inline: auto;
 		border-radius: var(--radius);
 		overflow: hidden;
@@ -61,12 +60,12 @@ const tags = [
 
 	.work-video__frame video {
 		width: 100%;
-		aspect-ratio: 16 / 9;
-		object-fit: cover;
+		max-height: 480px;
+		object-fit: contain;
 	}
 
 	.work-video__tags {
-		max-width: 960px;
+		max-width: 760px;
 		margin: 2rem auto 0;
 		justify-content: center;
 	}
