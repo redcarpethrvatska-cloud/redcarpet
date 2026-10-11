@@ -20,6 +20,11 @@ jobs:
         run: npm audit --audit-level=moderate
       - name: Compile Astro
         run: npm run build
+      - name: Export repaired lockfile for repository update
+        run: |
+          echo RC_LOCK_BEGIN
+          cat package-lock.json
+          echo RC_LOCK_END
       - uses: actions/upload-artifact@v4
         with:
           name: repaired-lockfile
