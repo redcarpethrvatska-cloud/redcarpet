@@ -355,9 +355,26 @@
   },
   "ciscenje-bijelog-tepiha-500-m2": {
     "title": "500 m² bijelog tepiha – jednodnevno čišćenje",
-    "images": [],
+    "images": [
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-tepiha-hotelski-restoran/ciscenje-tepiha-hotelski-restoran-01.webp",
+        "original": "20250425-122755.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-tepiha-hotelski-restoran/ciscenje-tepiha-hotelski-restoran-02.webp",
+        "original": "20250425-120711.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-tepiha-hotelski-restoran/ciscenje-tepiha-hotelski-restoran-03.webp",
+        "original": "20250425-122752.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-tepiha-hotelski-restoran/ciscenje-tepiha-hotelski-restoran-04.webp",
+        "original": "20250425-165200.webp"
+      }
+    ],
     "videos": [],
-    "reviewStatus": "Awaiting confirmed media after incorrect assignment was moved to dubinsko-ciscenje-tepiha-jahta-brod"
+    "reviewStatus": "User confirmed photo group A on 2026-10-11"
   },
   "ciscenje-tepiha-hotelski-restoran": {
     "title": "Hotelski restoran – tvrdokorne mrlje od hrane",
