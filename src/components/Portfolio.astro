@@ -10,7 +10,7 @@ const projects = [
 ---
 <section class="section portfolio" id="projekti">
  <div class="container">
-  <div class="section-heading"><h2>Primjeri projekata i područja rada</h2><p>Šest oglednih kartica za prikaz našeg B2B portfelja. Fotografije su privremene ilustracije prostora, ne prikazuju izvedene radove Red Carpeta. Stvarne fotografije i potvrđene reference dodajemo nakon pregleda.</p></div>
+  <div class="section-heading"><h2>Primjeri projekata i područja rada</h2><p>Pregled područja u kojima pružamo usluge. Prikazane fotografije ilustrativne su i ne predstavljaju dokumentaciju izvedenih radova.</p></div>
   <div class="portfolio__grid">
    {projects.map((project)=>(
     <article class="portfolio__card">
@@ -28,12 +28,12 @@ const projects = [
 </section>
 <style>
 .portfolio__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
-.portfolio__card{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:#fff}
-.portfolio__card img{display:block;width:100%;height:210px;object-fit:cover;background:#eee}
-.portfolio__body{padding:1.35rem}
-.portfolio__body h3{margin:.45rem 0 .6rem}
+.portfolio__card{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:9px;overflow:hidden;background:#fff;box-shadow:0 5px 22px rgba(0,0,0,.045)}
+.portfolio__card img{display:block;width:100%;height:220px;object-fit:cover;background:#eee}
+.portfolio__body{display:flex;flex-direction:column;flex:1;padding:1.5rem;gap:.2rem}
+.portfolio__body h3{margin:.45rem 0 .6rem;font-size:1.28rem;line-height:1.3;min-height:3.3rem}
 .portfolio__type{color:var(--red);text-transform:uppercase;letter-spacing:.06em;font-size:.72rem;font-weight:800}
-.portfolio__sample{display:block;margin-top:1rem;font-size:.75rem;color:#666}
+.portfolio__body p{font-size:1rem;line-height:1.6}.portfolio__sample{display:block;margin-top:auto;padding-top:1.3rem;font-size:.82rem;color:#626262}
 .portfolio__action{margin-top:2rem;text-align:center}
 @media(max-width:980px){.portfolio__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.portfolio__grid{grid-template-columns:1fr}}
