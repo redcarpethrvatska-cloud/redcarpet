@@ -1,4 +1,5 @@
 ---
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 const socialLinks = [
 	{ name: 'YouTube', initial: 'Y', href: 'https://www.youtube.com/@REDCARPET-sp6kx' },
 	{ name: 'Facebook', initial: 'F', href: 'https://www.facebook.com/profile.php?id=61565206903287' },
@@ -69,11 +70,11 @@ const socialLinks = [
 			<div class="form-row form-row--split">
 				<div>
 					<label for="company">Tvrtka ili objekt</label>
-					<input type="text" id="company" name="company" autocomplete="organization" />
+					<input type="text" id="company" name="company" autocomplete="organization" required />
 				</div>
 				<div>
 					<label for="city">Grad ili lokacija</label>
-					<input type="text" id="city" name="city" autocomplete="address-level2" />
+					<input type="text" id="city" name="city" autocomplete="address-level2" required />
 				</div>
 			</div>
 
@@ -92,7 +93,7 @@ const socialLinks = [
 
 			<div class="form-row">
 				<label for="message">Kratka poruka</label>
-				<textarea id="message" name="message" rows="4"></textarea>
+				<textarea id="message" name="message" rows="4" required></textarea>
 			</div>
 
 			<div class="form-row form-row--checkbox">
@@ -104,12 +105,15 @@ const socialLinks = [
 				<p class="form-error" id="gdpr-error" role="alert" hidden></p>
 			</div>
 
-			<button type="submit" class="btn btn-primary contact__submit">Zatražite ponudu</button>
+			<div class="form-row" hidden aria-hidden="true"><label for="website">Web</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
+			{turnstileSiteKey ? <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div> : <p class="form-error">Obrazac će biti aktivan nakon konfiguracije zaštite od spama. Do tada pišite na redcarpet.hrvatska@gmail.com.</p>}
+			<button type="submit" class="btn btn-primary contact__submit" disabled={!turnstileSiteKey}>Zatražite ponudu</button>
 
 			<p class="contact__status" id="contact-status" role="status" aria-live="polite"></p>
 		</form>
 	</div>
 </section>
+{turnstileSiteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 
 <style>
 	.contact__grid {
@@ -311,7 +315,7 @@ const socialLinks = [
 			}
 		};
 
-		form.addEventListener('submit', (event) => {
+		form.addEventListener('submit', async (event) => {
 			event.preventDefault();
 			status.textContent = '';
 			status.removeAttribute('data-state');
@@ -353,10 +357,46 @@ const socialLinks = [
 				return;
 			}
 
-			status.textContent =
-				'Hvala na upitu! Ova forma je trenutno u razvojnoj fazi i upit nije poslan. Molimo kontaktirajte nas izravno putem telefona ili e-maila.';
-			status.setAttribute('data-state', 'success');
-			form.reset();
+	        const company = document.getElementById('company').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const message = document.getElementById('message').value.trim();
+        if (!company || !city || !message) {
+          status.textContent = 'Tvrtka, grad i opis posla su obvezni.';
+          status.setAttribute('data-state', 'error');
+          return;
+        }
+        const token = form.querySelector('[name="cf-turnstile-response"]')?.value || '';
+        if (!token) {
+          status.textContent = 'Molimo dovršite sigurnosnu provjeru.';
+          status.setAttribute('data-state', 'error');
+          return;
+        }
+        const submit = form.querySelector('button[type="submit"]');
+        submit.disabled = true;
+        status.textContent = 'Šaljemo upit...';
+        try {
+          const response = await fetch('/api/inquiry', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              fullName: fullName.value.trim(), company, city, phone: phone.value.trim(),
+              email: email.value.trim(), message, gdpr: gdpr.checked,
+              website: document.getElementById('website').value,
+              turnstileToken: token
+            })
+          });
+          const result = await response.json();
+          if (!response.ok || !result.ok) throw new Error(result.error || 'Slanje nije uspjelo.');
+          status.textContent = 'Upit je uspješno poslan.';
+          status.setAttribute('data-state', 'success');
+          form.reset();
+        } catch (error) {
+          status.textContent = error.message || 'Slanje nije uspjelo. Pokušajte putem e-maila.';
+          status.setAttribute('data-state', 'error');
+        } finally {
+          submit.disabled = false;
+          window.turnstile?.reset();
+        }
 		});
 	}
 </script>
