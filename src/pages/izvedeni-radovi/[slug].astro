@@ -7,22 +7,20 @@ import { radovi } from '../../data/izvedeniRadovi.js';
 export function getStaticPaths(){return radovi.map(rad=>({params:{slug:rad.slug},props:{rad}}))}
 const {rad}=Astro.props;
 ---
-<Layout noindex={true} title={rad.title+' | Primjeri radova Red Carpet'} description={rad.summary}>
+<Layout noindex={true} title={rad.title+' | Red Carpet'} description={rad.summary}>
 <TopBar/><Header/>
 <main id="glavni-sadrzaj">
  <article class="section"><div class="container article">
   <p class="article__back"><a href="/izvedeni-radovi/">← Svi primjeri radova</a></p>
-  <span class="eyebrow">{rad.category} · ogledni članak</span>
+  <span class="eyebrow">{rad.category} · izvedeni rad</span>
   <h1>{rad.title}</h1>
   <p class="lead">{rad.summary}</p>
-  <figure><img class="hero-img" src={rad.images[0]} alt={'Ilustrativna fotografija: '+rad.title} width="1200" height="680"/><figcaption>Ilustrativna fotografija – nije dokumentacija izvedenih radova Red Carpet</figcaption></figure>
+  {rad.images.length > 0 && <figure><img class="hero-img" src={rad.images[0]} alt={rad.title} width="1200" height="680"/><figcaption>Fotografija izvedenih radova Red Carpet</figcaption></figure>}
   <h2>Opis posla</h2><p>{rad.description}</p>
-  <h2>Kako se rad organizira</h2>
+  <h2>Opseg izvedenih radova</h2>
   <ol>{rad.steps.map(step=><li>{step}</li>)}</ol>
-  <h2>Fotografije</h2><div class="gallery">{rad.images.map((src,i)=><figure><img src={src} alt={'Ilustracija '+(i+1)+': '+rad.title} loading="lazy" width="800" height="520"/><figcaption>Ogledna fotografija {i+1}</figcaption></figure>)}</div>
-  <h2>Video izvedbe</h2>
-  {rad.video ? <video controls playsinline preload="metadata" src={rad.video}></video> : <p class="notice">Video sa stvarnog projekta dodat ćemo nakon odabira i potvrde materijala. Ne prikazujemo tuđe ili neprovjerene snimke kao vlastiti rad.</p>}
-  <p class="notice"><strong>U pripremi:</strong> ovo je ogledni članak za izgled portfelja, a ne potvrđena referenca klijenta. Prije javne objave zamijenit ćemo fotografije i dopuniti stvarne podatke.</p>
+  {rad.images.length > 0 && <><h2>Fotografije radova</h2><div class="gallery">{rad.images.map((src,i)=><figure><img src={src} alt={rad.title+ " – fotografija "+(i+1)} loading="lazy" width="800" height="520"/></figure>)}</div></>}
+  {rad.video && <><h2>Video izvedbe</h2><video controls muted playsinline preload="metadata" src={rad.video}></video></>}
   <a class="btn btn-primary" href="/#kontakt">Zatražite B2B ponudu</a>
  </div></article>
 </main><Footer/>
