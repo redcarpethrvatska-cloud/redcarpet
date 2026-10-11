@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 
 interface Props {
 	title?: string;
@@ -61,6 +62,7 @@ const localBusinessJsonLd = {
 	<body>
 		<a href="#glavni-sadrzaj" class="skip-link">Preskoči na sadržaj</a>
 		<slot />
+		<AnalyticsConsent />
 	</body>
 </html>
 
