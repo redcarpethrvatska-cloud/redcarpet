@@ -1,14 +1,14 @@
 ---
 const quickLinks = [
 	{ label: 'Početna', href: '/' },
-	{ label: 'Usluge', href: '#usluge' },
-	{ label: 'Kako radimo', href: '#kako-radimo' },
-	{ label: 'O nama', href: '#o-nama' },
-	{ label: 'Blog', href: '#blog' },
-	{ label: 'Kontakt', href: '#kontakt' },
+	{ label: 'Usluge', href: '/#usluge' },
+	{ label: 'Kako radimo', href: '/#kako-radimo' },
+	{ label: 'O nama', href: '/#o-nama' },
+	{ label: 'Blog', href: '/#blog' },
+	{ label: 'Kontakt', href: '/#kontakt' },
 ];
 
-const legalLinks = ['Politika privatnosti', 'Politika kolačića', 'Uvjeti korištenja'];
+const legalLinks = [{ label: 'Privatnost – radni nacrt', href: '/privatnost' }];
 
 const currentYear = new Date().getFullYear();
 ---
@@ -49,11 +49,9 @@ const currentYear = new Date().getFullYear();
 			<h3>Pravne poveznice</h3>
 			<ul>
 				{
-					legalLinks.map((label) => (
+					legalLinks.map((link) => (
 						<li>
-							<span class="site-footer__legal" aria-disabled="true">
-								{label} <small>(uskoro)</small>
-							</span>
+							<a href={link.href}>{link.label}</a>
 						</li>
 					))
 				}
