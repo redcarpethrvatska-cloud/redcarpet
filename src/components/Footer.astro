@@ -16,7 +16,7 @@ const currentYear = new Date().getFullYear();
 <footer class="site-footer">
 	<div class="container site-footer__grid">
 		<div class="site-footer__brand">
-			<p class="site-footer__logo">RED CARPET</p>
+			<div class="site-footer__logo"><img src="/red-carpet-logo.svg" alt="Red Carpet – Professional Chemical Cleaning" width="780" height="140" /></div>
 			<p>
 				Profesionalno pranje tepisona i tapaciranog namještaja za velike površine i zahtjevne
 				objekte.
@@ -79,6 +79,8 @@ const currentYear = new Date().getFullYear();
 		padding-block: 3.5rem;
 	}
 
+	.site-footer__logo {max-width:225px;margin-bottom:1rem;background:#fff;padding:.45rem .6rem;border-radius:3px}
+	.site-footer__logo img{display:block;width:100%;height:auto}
 	.site-footer__logo {
 		color: var(--white);
 		font-size: 1.3rem;
