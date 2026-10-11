@@ -15,16 +15,16 @@ const {rad}=Astro.props;
   <span class="eyebrow">{rad.category} · izvedeni rad</span>
   <h1>{rad.title}</h1>
   <p class="lead">{rad.summary}</p>
-  {rad.images.length > 0 && <figure><img class="hero-img" src={rad.images[0]} alt={rad.title} width="1200" height="680"/><figcaption>Fotografija izvedenih radova Red Carpet</figcaption></figure>}
+  {rad.images.length > 0 && <figure><img class="hero-img" src={rad.images[0]} alt={rad.title} width="1200" height="680" loading="eager" fetchpriority="high" decoding="async"/><figcaption>Fotografija izvedenih radova Red Carpet</figcaption></figure>}
   <h2>Opis posla</h2><p>{rad.description}</p>
   <h2>Opseg izvedenih radova</h2>
   <ol>{rad.steps.map(step=><li>{step}</li>)}</ol>
-  {rad.images.length > 0 && <><h2>Fotografije radova</h2><div class="gallery">{rad.images.map((src,i)=><figure><img src={src} alt={rad.title+ " – fotografija "+(i+1)} loading="lazy" width="800" height="520"/></figure>)}</div></>}
-  {rad.video && <><h2>Video izvedbe</h2><video controls muted playsinline preload="metadata" src={rad.video}></video></>}
+  {rad.images.length > 0 && <><h2>Fotografije radova</h2><div class="gallery">{rad.images.map((src,i)=><figure><img src={src} alt={rad.title+ " – fotografija "+(i+1)} loading="lazy" decoding="async" width="800" height="520"/></figure>)}</div></>}
+  {rad.video && <><h2>Video izvedbe</h2><video controls muted playsinline preload="none" poster={rad.images[0] || undefined} src={rad.video}></video></>}
   <a class="btn btn-primary" href="/#kontakt">Zatražite B2B ponudu</a>
  </div></article>
 </main><Footer/>
 </Layout>
 <style>
-.article{max-width:920px}.article h1{max-width:820px;margin:.3rem 0 1rem}.article h2{margin:2rem 0 1rem}.article p{line-height:1.7}.article__back{margin-bottom:1.5rem}.lead{font-size:1.2rem;margin-bottom:1.8rem}.article figure{margin:1.5rem 0}.article img{display:block;width:100%;object-fit:cover;border-radius:8px}.hero-img{max-height:480px}.article figcaption{font-size:.83rem;color:#666;margin-top:.5rem}.article ol{list-style:decimal;padding-left:1.5rem}.article li{margin:.65rem 0}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}.gallery img{aspect-ratio:3/2}.notice{background:#f5f5f5;border-left:3px solid #e31e24;padding:1rem;margin:1.5rem 0}.article video{max-width:100%;max-height:480px}@media(max-width:650px){.gallery{grid-template-columns:1fr}}
+.article{max-width:920px}.article h1{max-width:820px;margin:.3rem 0 1rem}.article h2{margin:2rem 0 1rem}.article p{line-height:1.7}.article__back{margin-bottom:1.5rem}.lead{font-size:1.2rem;margin-bottom:1.8rem}.article figure{margin:1.5rem 0}.article img{display:block;width:100%;object-fit:cover;border-radius:8px}.hero-img{max-height:480px}.article figcaption{font-size:.83rem;color:#666;margin-top:.5rem}.article ol{list-style:decimal;padding-left:1.5rem}.article li{margin:.65rem 0}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}.gallery img{aspect-ratio:3/2}.notice{background:#f5f5f5;border-left:3px solid #e31e24;padding:1rem;margin:1.5rem 0}.article video{display:block;width:100%;max-height:480px;aspect-ratio:16/9;object-fit:contain;background:#111}.gallery figure{content-visibility:auto;contain-intrinsic-size:auto 320px}@media(max-width:650px){.gallery{grid-template-columns:1fr}}
 </style>
