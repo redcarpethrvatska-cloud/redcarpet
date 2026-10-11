@@ -1,0 +1,33 @@
+<div id="consent-panel" class="consent-panel" hidden>
+  <p>Red Carpet koristi opcionalnu analitiku samo ako je prihvatite.</p>
+  <a href="/privatnost">Informacije o privatnosti</a>
+  <div><button id="consent-reject" type="button">Odbij</button><button id="consent-accept" type="button">Prihvati</button></div>
+</div>
+<button id="consent-open" class="consent-open" type="button">Postavke kolačića</button>
+<style>
+.consent-panel{position:fixed;bottom:1rem;left:1rem;z-index:999;max-width:500px;padding:1.2rem;background:#fff;border:2px solid #e31e24;box-shadow:0 6px 20px #0003}
+.consent-panel button{margin:.6rem .5rem .2rem 0;padding:.6rem 1rem;cursor:pointer}
+.consent-open{position:fixed;right:.5rem;bottom:.5rem;z-index:998;background:#fff;border:1px solid #777;padding:.4rem;cursor:pointer;font-size:.8rem}
+</style>
+<script>
+const panel=document.getElementById('consent-panel');
+const choiceKey='redcarpet_ga_consent';
+const stored=()=>{try{return localStorage.getItem(choiceKey)}catch{return null}};
+const save=(v)=>{try{localStorage.setItem(choiceKey,v)}catch{}};
+const enable=()=>{
+ if(document.getElementById('redcarpet-ga'))return;
+ const script=document.createElement('script');
+ script.id='redcarpet-ga';
+ script.async=true;
+ script.src='https://www.googletagmanager.com/gtag/js?id=G-1XDT181QDM';
+ document.head.appendChild(script);
+ window.dataLayer=window.dataLayer||[];
+ window.gtag=function(){window.dataLayer.push(arguments)};
+ window.gtag('js',new Date());
+ window.gtag('config','G-1XDT181QDM');
+};
+document.getElementById('consent-accept').addEventListener('click',()=>{save('yes');panel.hidden=true;enable()});
+document.getElementById('consent-reject').addEventListener('click',()=>{save('no');panel.hidden=true;location.reload()});
+document.getElementById('consent-open').addEventListener('click',()=>panel.hidden=false);
+if(stored()==='yes')enable();else if(stored()===null)panel.hidden=false;
+</script>
