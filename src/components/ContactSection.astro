@@ -1,11 +1,11 @@
 ---
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 const socialLinks = [
-	{ name: 'YouTube', initial: 'Y', href: 'https://www.youtube.com/@REDCARPET-sp6kx' },
-	{ name: 'Facebook', initial: 'F', href: 'https://www.facebook.com/profile.php?id=61565206903287' },
-	{ name: 'Instagram', initial: 'I', href: 'https://www.instagram.com/redcarpet.hr/' },
-	{ name: 'LinkedIn', initial: 'L', href: 'https://www.linkedin.com/in/igor-stazic-redcarpet/' },
-	{ name: 'TikTok', initial: 'T', href: 'https://www.tiktok.com/@redcarpet.hr' },
+	{ name: 'YouTube', icon: 'youtube', href: 'https://www.youtube.com/@REDCARPET-sp6kx' },
+	{ name: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61565206903287' },
+	{ name: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/redcarpet.hr/' },
+	{ name: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/igor-stazic-redcarpet/' },
+	{ name: 'TikTok', icon: 'tiktok', href: 'https://www.tiktok.com/@redcarpet.hr' },
 ];
 ---
 
@@ -21,7 +21,7 @@ const socialLinks = [
 			<dl class="contact__details">
 				<div>
 					<dt>Telefon</dt>
-					<dd><a href="tel:+38598666746">+385 98 666 746</a></dd>
+					<dd><a href="tel:+385913393333">+385 91 339 3333</a></dd>
 				</div>
 				<div>
 					<dt>E-mail</dt>
@@ -52,7 +52,13 @@ const socialLinks = [
 								aria-label={social.name}
 								title={social.name}
 							>
-								<span aria-hidden="true">{social.initial}</span>
+								<svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  {social.icon === 'youtube' && <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>}
+                  {social.icon === 'facebook' && <path d="M15.6 8H13V6.3c0-.8.5-1 1-1h1.5V2.2c-.7-.1-1.5-.2-2.3-.2-2.8 0-4.6 1.7-4.6 4.8V8H6v3.7h2.6V22H13V11.7h2.4L15.6 8Z"/>}
+                  {social.icon === 'instagram' && <><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2"/></>}
+                  {social.icon === 'linkedin' && <path d="M4.7 3a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2ZM3 9h3.5v12H3V9Zm6 0h3.4v1.6c.6-1 1.7-1.9 3.5-1.9 3.8 0 4.1 2.5 4.1 5.8V21h-3.6v-5.8c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9V9Z"/>}
+                  {social.icon === 'tiktok' && <path d="M16.7 2c.3 2.3 1.7 3.7 4 3.9v3.7a9 9 0 0 1-4-1.2v6.1c0 4.1-3.1 7.1-7.1 7.1a7.1 7.1 0 0 1-2.9-13.5v4.2a3.4 3.4 0 1 0 5.8 2.3V2h4.2Z"/>}
+                </svg>
 							</a>
 						</li>
 					))
@@ -165,8 +171,8 @@ const socialLinks = [
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 40px;
-		height: 40px;
+		width: 44px;
+		height: 44px;
 		border-radius: 50%;
 		background: var(--black);
 		color: var(--white);
@@ -175,6 +181,7 @@ const socialLinks = [
 		transition: background-color 0.15s ease;
 	}
 
+	.contact__social svg {width:21px;height:21px;flex:none;color:var(--white)}
 	.contact__social a:hover {
 		background: var(--red);
 	}
