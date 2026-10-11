@@ -1,0 +1,36 @@
+name: Website visual preview
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [feature/b2b-web-2026-phase1]
+  workflow_dispatch:
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Package preview build
+        uses: actions/upload-artifact@v4
+        with:
+          name: redcarpet-2026-static-preview
+          path: dist/
+      - run: npx --yes playwright install --with-deps chromium
+      - name: Capture desktop and mobile
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/rc-preview.log 2>&1 &
+          sleep 5
+          mkdir -p screenshots
+          npx --yes playwright screenshot --browser chromium --viewport-size "1440,900" --full-page http://127.0.0.1:4321/ screenshots/naslovnica-desktop.png
+          npx --yes playwright screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:4321/ screenshots/naslovnica-mobitel.png
+          npx --yes playwright screenshot --browser chromium --viewport-size "1440,900" --full-page http://127.0.0.1:4321/ciscenje-hotela/ screenshots/hoteli-desktop.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: redcarpet-2026-screenshots
+          path: screenshots/

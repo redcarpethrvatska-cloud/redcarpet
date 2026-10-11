@@ -1,14 +1,14 @@
 ---
 const quickLinks = [
 	{ label: 'Početna', href: '/' },
-	{ label: 'Usluge', href: '#usluge' },
-	{ label: 'Kako radimo', href: '#kako-radimo' },
-	{ label: 'O nama', href: '#o-nama' },
-	{ label: 'Blog', href: '#blog' },
-	{ label: 'Kontakt', href: '#kontakt' },
+	{ label: 'Usluge', href: '/#usluge' },
+	{ label: 'Kako radimo', href: '/#kako-radimo' },
+	{ label: 'O nama', href: '/#o-nama' },
+	{ label: 'Blog', href: '/#blog' },
+	{ label: 'Kontakt', href: '/#kontakt' },
 ];
 
-const legalLinks = ['Politika privatnosti', 'Politika kolačića', 'Uvjeti korištenja'];
+const legalLinks = [{ label: 'Privatnost – radni nacrt', href: '/privatnost' }];
 
 const currentYear = new Date().getFullYear();
 ---
@@ -16,7 +16,7 @@ const currentYear = new Date().getFullYear();
 <footer class="site-footer">
 	<div class="container site-footer__grid">
 		<div class="site-footer__brand">
-			<p class="site-footer__logo">RED CARPET</p>
+			<div class="site-footer__wordmark" aria-label="Red Carpet – Professional Chemical Cleaning"><span>RED CARPET</span><small>PROFESSIONAL CHEMICAL CLEANING</small></div>
 			<p>
 				Profesionalno pranje tepisona i tapaciranog namještaja za velike površine i zahtjevne
 				objekte.
@@ -26,7 +26,7 @@ const currentYear = new Date().getFullYear();
 		<div class="site-footer__col">
 			<h3>Kontakt</h3>
 			<ul>
-				<li><a href="tel:+38598666746">+385 98 666 746</a></li>
+				<li><a href="tel:+385913393333">+385 91 339 3333</a></li>
 				<li><a href="mailto:redcarpet.hrvatska@gmail.com">redcarpet.hrvatska@gmail.com</a></li>
 				<li>Nova Cesta 24a, 51410 Opatija</li>
 			</ul>
@@ -49,11 +49,9 @@ const currentYear = new Date().getFullYear();
 			<h3>Pravne poveznice</h3>
 			<ul>
 				{
-					legalLinks.map((label) => (
+					legalLinks.map((link) => (
 						<li>
-							<span class="site-footer__legal" aria-disabled="true">
-								{label} <small>(uskoro)</small>
-							</span>
+							<a href={link.href}>{link.label}</a>
 						</li>
 					))
 				}
@@ -81,13 +79,9 @@ const currentYear = new Date().getFullYear();
 		padding-block: 3.5rem;
 	}
 
-	.site-footer__logo {
-		color: var(--white);
-		font-size: 1.3rem;
-		font-weight: 800;
-		letter-spacing: 0.03em;
-		margin-bottom: 0.85rem;
-	}
+.site-footer__wordmark{display:inline-flex;flex-direction:column;align-items:stretch;max-width:235px;margin-bottom:1rem;white-space:nowrap}
+	.site-footer__wordmark span{font-size:1.65rem;font-weight:800;line-height:1.05;letter-spacing:-.035em;color:#fff}
+	.site-footer__wordmark small{font-size:.48rem;font-weight:700;letter-spacing:.065em;text-align:center;line-height:1.4;color:var(--red)}
 
 	.site-footer h3 {
 		color: var(--white);

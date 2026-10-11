@@ -4,23 +4,24 @@ import { mediaExists } from '../utils/media';
 
 const services = [
 	{
-		title: 'Pranje tepisona',
-		text: 'Dubinsko ekstrakcijsko pranje tepisona profesionalnom opremom, prilagođeno velikim površinama i intenzivno korištenim prostorima.',
+		title: 'Dubinsko čišćenje tepisona',
+		href: '/dubinsko-ciscenje-tepisona/',
+		text: 'Profesionalno dubinsko i ekstrakcijsko pranje tepisona (tapisona) na velikim površinama hotela, poslovnih zgrada i ustanova.',
 		src: '/images/pranje-tepisona-hotelska-soba-red-carpet.jpg',
 	},
 	{
-		title: 'Čišćenje tapaciranog namještaja',
-		text: 'Profesionalno čišćenje stolica, fotelja, sofa, klupa i drugog tapaciranog namještaja u poslovnim i privatnim objektima.',
+		title: 'Čišćenje tapeciranog namještaja',
+		text: 'Dubinsko čišćenje većeg broja tapeciranih stolica, fotelja i garnitura u hotelskim dvoranama, restoranima i poslovnim objektima.',
 		src: '/images/ciscenje-tapaciranog-namjestaja-hotel-restoran.jpg',
 	},
 	{
-		title: 'Čišćenje velikih površina',
-		text: 'Organizirano čišćenje velikih kvadratura u hotelima, poslovnim objektima, konferencijskim salama, restoranima, ustanovama i drugim većim prostorima.',
+		title: 'Madraci u većim količinama',
+		text: 'Organizirano dubinsko čišćenje većih količina madraca u hotelima, domovima za starije i drugim smještajnim objektima.',
 		src: '/images/pranje-velikih-povrsina-konferencijska-sala.jpg',
 	},
 	{
-		title: 'Suho čišćenje osjetljivih površina',
-		text: 'Metode čišćenja prilagođene materijalima koji ne podnose klasično dubinsko pranje ili zahtijevaju kontroliranu količinu vlage.',
+		title: 'Impregnacija i zaštita tekstila',
+		text: 'Profesionalna zaštita prikladnih fotelja, stolica i garnitura nakon potpunog sušenja ili preventivno na novom namještaju.',
 		src: '/images/suho-ciscenje-osjetljivih-povrsina-tepih.jpg',
 	},
 ];
@@ -62,7 +63,7 @@ const equipmentPoints = [
 							</div>
 							<h3>{service.title}</h3>
 							<p>{service.text}</p>
-							<a href="#kontakt" class="btn btn-outline-dark service-card__cta">Saznajte više</a>
+							<a href={service.href || "#kontakt"} class="btn btn-outline-dark service-card__cta">Saznajte više</a>
 						</article>
 					);
 				})

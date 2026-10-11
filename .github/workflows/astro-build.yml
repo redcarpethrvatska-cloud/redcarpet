@@ -1,0 +1,26 @@
+name: Astro build check
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [feature/b2b-web-2026-phase1]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Dependency security audit
+        run: npm audit --audit-level=moderate
+      - name: Test B2B inquiry endpoint
+        run: node tests/inquiry-check.mjs
+      - name: Astro build
+        run: npm run build

@@ -1,17 +1,20 @@
 ---
 import '../styles/global.css';
+import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 
 interface Props {
 	title?: string;
 	description?: string;
+  noindex?: boolean;
 }
 
 const {
-	title = 'Profesionalno pranje tepisona i tapaciranog namještaja | Red Carpet',
-	description = 'Profesionalno pranje tepisona i tapaciranog namještaja za velike površine, poslovne objekte, hotele, ustanove, jahte i privatne prostore širom Hrvatske.',
+  noindex = false,
+	title = 'Dubinsko čišćenje tepisona za hotele i tvrtke | Red Carpet',
+	description = 'Profesionalno dubinsko čišćenje tepisona (tapisona), hotelskih i poslovnih podnih površina te većih količina tapeciranog namještaja diljem Hrvatske.',
 } = Astro.props;
 
-const canonicalURL = 'https://redcarpet.com.hr/';
+const canonicalURL = new URL(Astro.url.pathname, 'https://redcarpet.hr').toString();
 
 const localBusinessJsonLd = {
 	'@context': 'https://schema.org',
@@ -19,7 +22,7 @@ const localBusinessJsonLd = {
 	name: 'Red Carpet',
 	legalName: 'FERIA obrt za usluge',
 	url: canonicalURL,
-	telephone: '+385 98 666 746',
+	telephone: '+385 91 339 3333',
 	email: 'redcarpet.hrvatska@gmail.com',
 	address: {
 		'@type': 'PostalAddress',
@@ -44,6 +47,7 @@ const localBusinessJsonLd = {
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 		<link rel="canonical" href={canonicalURL} />
 
 		<meta property="og:type" content="website" />
@@ -58,6 +62,7 @@ const localBusinessJsonLd = {
 	<body>
 		<a href="#glavni-sadrzaj" class="skip-link">Preskoči na sadržaj</a>
 		<slot />
+		<AnalyticsConsent />
 	</body>
 </html>
 

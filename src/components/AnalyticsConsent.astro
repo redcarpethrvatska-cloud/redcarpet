@@ -1,0 +1,51 @@
+<div id="consent-panel" class="consent-panel" role="dialog" aria-label="Postavke privatnosti" aria-modal="false" hidden>
+  <span class="consent-eyebrow">VAŠA PRIVATNOST</span>
+  <h2>Vaš odabir, vaša privatnost.</h2>
+  <p>Koristimo opcionalnu analitiku kako bismo poboljšali stranicu. Uključit ćemo je samo ako to dopustite.</p>
+  <a class="consent-link" href="/privatnost">Informacije o privatnosti <span aria-hidden="true">↗</span></a>
+  <div class="consent-actions">
+    <button id="consent-reject" class="consent-button consent-reject" type="button">Odbij</button>
+    <button id="consent-accept" class="consent-button consent-accept" type="button">Prihvati</button>
+  </div>
+</div>
+<button id="consent-open" class="consent-open" type="button" aria-controls="consent-panel">Postavke kolačića</button>
+<style>
+.consent-panel[hidden]{display:none!important}
+.consent-panel{position:fixed;left:24px;bottom:24px;z-index:9999;box-sizing:border-box;width:min(440px,calc(100vw - 32px));padding:26px;background:#fff;border:1px solid #e8e8e8;border-radius:16px;box-shadow:0 22px 70px rgba(0,0,0,.2);color:#171717}
+.consent-eyebrow{display:block;color:#d71d24;font-size:.7rem;font-weight:800;letter-spacing:.13em;margin-bottom:9px}
+.consent-panel h2{font-size:1.23rem;font-weight:800;line-height:1.3;margin:0 0 11px;color:#111}
+.consent-panel p{font-size:.93rem;line-height:1.65;color:#535353;margin:0 0 12px}
+.consent-link{display:inline-block;color:#242424;font-size:.86rem;font-weight:650;text-decoration:underline;text-underline-offset:3px;margin-bottom:22px}
+.consent-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.consent-button{min-height:46px;border-radius:9px;padding:11px 16px;font-size:.94rem;font-weight:750;cursor:pointer;transition:background-color .15s,transform .15s}
+.consent-button:hover{transform:translateY(-1px)}
+.consent-reject{border:1px solid #d7d7d7;color:#222;background:#f7f7f7}
+.consent-reject:hover{background:#ededed}
+.consent-accept{border:1px solid #e31e24;color:#fff;background:#e31e24}
+.consent-accept:hover{background:#c81920}
+.consent-open{position:fixed;right:13px;bottom:13px;z-index:9998;background:#fff;color:#262626;border:1px solid #dcdcdc;border-radius:999px;box-shadow:0 5px 18px rgba(0,0,0,.12);padding:8px 13px;font-size:.75rem;font-weight:700;cursor:pointer}
+.consent-open:hover{background:#f2f2f2}
+@media(max-width:600px){.consent-panel{left:12px;bottom:12px;width:calc(100vw - 24px);padding:21px;border-radius:13px}.consent-open{right:12px;bottom:12px}}
+</style>
+<script>
+const panel=document.getElementById('consent-panel');
+const choiceKey='redcarpet_ga_consent';
+const stored=()=>{try{return localStorage.getItem(choiceKey)}catch{return null}};
+const save=(v)=>{try{localStorage.setItem(choiceKey,v)}catch{}};
+const enable=()=>{
+ if(document.getElementById('redcarpet-ga'))return;
+ const script=document.createElement('script');
+ script.id='redcarpet-ga';
+ script.async=true;
+ script.src='https://www.googletagmanager.com/gtag/js?id=G-1XDT181QDM';
+ document.head.appendChild(script);
+ window.dataLayer=window.dataLayer||[];
+ window.gtag=function(){window.dataLayer.push(arguments)};
+ window.gtag('js',new Date());
+ window.gtag('config','G-1XDT181QDM');
+};
+document.getElementById('consent-accept').addEventListener('click',()=>{save('yes');panel.hidden=true;enable()});
+document.getElementById('consent-reject').addEventListener('click',()=>{save('no');panel.hidden=true});
+document.getElementById('consent-open').addEventListener('click',()=>panel.hidden=false);
+if(stored()==='yes')enable();else if(stored()===null)panel.hidden=false;
+</script>

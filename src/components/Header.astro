@@ -1,13 +1,11 @@
 ---
 const navItems = [
 	{ label: 'Početna', href: '/' },
-	{ label: 'Pranje tepisona', href: '#usluge' },
-	{ label: 'Tapacirani namještaj', href: '#tapacirani-namjestaj' },
-	{ label: 'Velike površine', href: '#oprema-organizacija' },
-	{ label: 'Reference', href: '#zasto-red-carpet' },
-	{ label: 'O nama', href: '#o-nama' },
-	{ label: 'Blog', href: '#blog' },
-	{ label: 'Kontakt', href: '#kontakt' },
+	{ label: 'B2B usluge', href: '/#usluge' },
+	{ label: 'Industrije', href: '/#industrije' },
+	{ label: 'Izvedeni radovi', href: '/izvedeni-radovi/' },
+	{ label: 'O nama', href: '/#o-nama' },
+	{ label: 'Kontakt', href: '/#kontakt' },
 ];
 ---
 
@@ -15,7 +13,7 @@ const navItems = [
 	<div class="container site-header__inner">
 		<a href="/" class="brand" aria-label="Red Carpet — početna stranica">
 			<span class="brand__name">RED CARPET</span>
-			<span class="brand__tagline">PROFESIONALNO ČIŠĆENJE</span>
+			<span class="brand__tagline">PROFESSIONAL CHEMICAL CLEANING</span>
 		</a>
 
 		<button
@@ -41,11 +39,7 @@ const navItems = [
 			</ul>
 
 			<div class="site-nav__actions">
-				<div class="lang-switch" role="group" aria-label="Odabir jezika">
-					<span class="lang-switch__option is-active" aria-current="true">HR</span>
-					<span class="lang-switch__option is-disabled" aria-disabled="true" title="Uskoro dostupno">EN</span>
-				</div>
-				<a href="#kontakt" class="btn btn-primary">Zatražite ponudu</a>
+				<a href="/#kontakt" class="btn btn-primary">Zatražite ponudu</a>
 			</div>
 		</nav>
 	</div>
@@ -77,15 +71,22 @@ const navItems = [
 	}
 
 	.brand__name {
-		font-size: 1.55rem;
+		font-family: var(--font-sans);
+		font-size: clamp(1.45rem, 2.1vw, 1.85rem);
 		font-weight: 800;
-		letter-spacing: 0.03em;
+		letter-spacing: -0.035em;
+		line-height: 1.04;
 	}
 
 	.brand__tagline {
-		font-size: 0.65rem;
+		display: block;
+		width: 100%;
+		font-family: var(--font-sans);
+		font-size: clamp(0.47rem, 0.62vw, 0.58rem);
 		font-weight: 700;
-		letter-spacing: 0.12em;
+		letter-spacing: 0.075em;
+		line-height: 1.35;
+		text-align: center;
 		color: var(--red);
 	}
 

@@ -1,0 +1,77 @@
+{
+  "status": "media ready for review; originals from Red Carpet Drive; media binaries pending GitHub transfer",
+  "projects": [
+    {
+      "number": "01",
+      "slug": "stolice-konferencijski-centar",
+      "mediaFolder": "public/media/izvedeni-radovi/stolice-konferencijski-centar/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "02",
+      "slug": "tepisoni-hotelski-hodnici",
+      "mediaFolder": "public/media/izvedeni-radovi/tepisoni-hotelski-hodnici/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "03",
+      "slug": "dubinsko-ciscenje-tepisona-hotelsko-stepeniste",
+      "mediaFolder": "public/media/izvedeni-radovi/dubinsko-ciscenje-tepisona-hotelsko-stepeniste/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "04",
+      "slug": "stolice-hotelski-restoran",
+      "mediaFolder": "public/media/izvedeni-radovi/stolice-hotelski-restoran/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "05",
+      "slug": "fotelje-hotelski-lobi",
+      "mediaFolder": "public/media/izvedeni-radovi/fotelje-hotelski-lobi/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "06",
+      "slug": "uredi-konferencijske-dvorane",
+      "mediaFolder": "public/media/izvedeni-radovi/uredi-konferencijske-dvorane/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "07",
+      "slug": "ciscenje-konferencijske-dvorane-hodnika-stepenista",
+      "mediaFolder": "public/media/izvedeni-radovi/ciscenje-konferencijske-dvorane-hodnika-stepenista/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "08",
+      "slug": "ciscenje-bijelog-tepiha-500-m2",
+      "mediaFolder": "public/media/izvedeni-radovi/ciscenje-bijelog-tepiha-500-m2/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "09",
+      "slug": "ciscenje-tepiha-hotelski-restoran",
+      "mediaFolder": "public/media/izvedeni-radovi/ciscenje-tepiha-hotelski-restoran/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "10",
+      "slug": "impregnacija-550-stolica-konferencijska-dvorana",
+      "mediaFolder": "public/media/izvedeni-radovi/impregnacija-550-stolica-konferencijska-dvorana/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "11",
+      "slug": "ciscenje-800-m2-tepisona-upravna-zgrada",
+      "mediaFolder": "public/media/izvedeni-radovi/ciscenje-800-m2-tepisona-upravna-zgrada/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    },
+    {
+      "number": "12",
+      "slug": "dubinsko-ciscenje-tepiha-jahta-brod",
+      "mediaFolder": "public/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/",
+      "video": "muted; preload none; no audio tracks in optimized versions"
+    }
+  ]
+}
