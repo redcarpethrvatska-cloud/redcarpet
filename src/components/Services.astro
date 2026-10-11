@@ -5,6 +5,7 @@ import { mediaExists } from '../utils/media';
 const services = [
 	{
 		title: 'Dubinsko čišćenje tepisona',
+		href: '/dubinsko-ciscenje-tepisona/',
 		text: 'Strojno dubinsko čišćenje velikih površina tepisona u hotelskim sobama, hodnicima, uredima, dvoranama i drugim poslovnim objektima.',
 		src: '/images/pranje-tepisona-hotelska-soba-red-carpet.jpg',
 	},
@@ -62,7 +63,7 @@ const equipmentPoints = [
 							</div>
 							<h3>{service.title}</h3>
 							<p>{service.text}</p>
-							<a href="#kontakt" class="btn btn-outline-dark service-card__cta">Saznajte više</a>
+							<a href={service.href || "#kontakt"} class="btn btn-outline-dark service-card__cta">Saznajte više</a>
 						</article>
 					);
 				})
