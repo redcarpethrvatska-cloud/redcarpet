@@ -18,7 +18,7 @@
 		sans-serif;
 
 	--container-width: 1240px;
-	--section-padding-y: 4.5rem;
+	--section-padding-y: 3.8rem;
 	--section-padding-y-sm: 3rem;
 	--radius: 4px;
 }
@@ -43,8 +43,8 @@ body {
 	background: var(--white);
 	color: var(--black);
 	font-family: var(--font-sans);
-	font-size: 16px;
-	line-height: 1.55;
+	font-size: 17px;
+	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -114,8 +114,8 @@ button {
 }
 
 .section-heading {
-	max-width: 760px;
-	margin-bottom: 2.5rem;
+	max-width: 800px;
+	margin-bottom: 2rem;
 }
 
 .section-heading--center {
@@ -148,7 +148,7 @@ h2 {
 }
 
 h3 {
-	font-size: 1.15rem;
+	font-size: 1.22rem;
 	font-weight: 700;
 	line-height: 1.35;
 }
