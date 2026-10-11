@@ -419,15 +419,71 @@
   },
   "impregnacija-550-stolica-konferencijska-dvorana": {
     "title": "Konferencijska dvorana – impregnacija 550 stolica",
-    "images": [],
-    "videos": [],
-    "reviewStatus": "Awaiting confirmed media after incorrect assignment was moved to ciscenje-tepiha-hotelski-restoran"
+    "images": [
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-01.webp",
+        "original": "20260909-170648.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-07.webp",
+        "original": "20260909-164048.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-08.webp",
+        "original": "20260909-175047.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-09.webp",
+        "original": "20261004-173755.webp"
+      }
+    ],
+    "videos": [
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-video-01.mp4",
+        "original": "20260909_170725.mp4"
+      }
+    ],
+    "reviewStatus": "User confirmed red chairs on 2026-10-11"
   },
   "ciscenje-800-m2-tepisona-upravna-zgrada": {
     "title": "Upravna zgrada – oko 800 m² uredskih tepisona",
-    "images": [],
-    "videos": [],
-    "reviewStatus": "Awaiting confirmed media after incorrect assignment was moved to ciscenje-konferencijske-dvorane-hodnika-stepenista"
+    "images": [
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-02.webp",
+        "original": "20261003-114053.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-03.webp",
+        "original": "20261003-114015.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-04.webp",
+        "original": "20261003-114042.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-05.webp",
+        "original": "20261003-113958.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-06.webp",
+        "original": "20260909-162449.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-10.webp",
+        "original": "20261003-114017.webp"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-11.webp",
+        "original": "20261003-114122.webp"
+      }
+    ],
+    "videos": [
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepiha-jahta-brod/dubinsko-ciscenje-tepiha-jahta-brod-video-02.mp4",
+        "original": "20261003_121953.mp4"
+      }
+    ],
+    "reviewStatus": "User confirmed corridors and offices with chairs on desks on 2026-10-11"
   },
   "dubinsko-ciscenje-tepiha-jahta-brod": {
     "title": "Tepisi na jahti ili brodu",
