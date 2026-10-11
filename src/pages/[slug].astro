@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+export function getStaticPaths() {
 const sectors = [
   {slug:'ciscenje-hotela',title:'Dubinsko čišćenje hotela i resorta',description:'Čišćenje tepisona, tapeciranih stolica, fotelja, garnitura i madraca u hotelima i resortima, organizirano prema dinamici rada objekta.',audience:'hoteli i resorti',services:['Tepisoni u sobama i hodnicima','Namještaj u lobijima i restoranima','Madraci i tapecirane površine']},
   {slug:'ciscenje-domova-za-starije',title:'Dubinsko čišćenje domova za starije',description:'Organizirano čišćenje većih količina fotelja, stolica, madraca i tekstilnih površina u zajedničkim i smještajnim prostorima.',audience:'domovi za starije',services:['Fotelje i stolice','Madraci u većim količinama','Tepisoni i zajednički prostori']},
@@ -14,8 +15,7 @@ const sectors = [
   {slug:'impregnacija-tekstila',title:'Profesionalna impregnacija tekstilnih površina',description:'Zaštitna obrada prikladnih tekstilnih površina nakon čišćenja i potpunog sušenja ili preventivno na novom namještaju, uz provjeru kompatibilnosti materijala.',audience:'hoteli i poslovni objekti',services:['Garniture u hotelskim lobijima','Fotelje i tapecirane stolice','Preventivna zaštita novih površina']},
   {slug:'suradnja-s-kooperantima',title:'Suradnja s kooperantima za profesionalno čišćenje',description:'Tražimo profesionalne izvođače s odgovarajućom opremom i iskustvom za veće B2B projekte diljem Hrvatske.',audience:'profesionalni kooperanti',services:['Područje rada i kapaciteti','Oprema i iskustvo','Organizacija većih projekata']}
 ];
-export function getStaticPaths(){
-  return sectors.map(sector=>({params:{slug:sector.slug},props:{sector}}));
+return sectors.map(sector => ({params:{slug:sector.slug},props:{sector}}));
 }
 const {sector}=Astro.props;
 const isPartner=sector.slug==='suradnja-s-kooperantima';
