@@ -21,6 +21,20 @@ export const advicePosts = [
         "Kada zatražiti profesionalnu ponudu?",
         "Ako su prometne zone vidljivo zaprljane, tepison zadržava neugodne mirise ili se priprema veća sezona događanja, vrijeme je za pregled površina i plan dubinskog čišćenja."
       ]
+    ],
+    "faq": [
+      [
+        "Može li redovito usisavanje zamijeniti dubinsko čišćenje?",
+        "Ne. Usisavanje je važan dio rutinskog održavanja, a profesionalno dubinsko čišćenje po potrebi obrađuje nakupljena zaprljanja u tekstilnoj oblozi."
+      ],
+      [
+        "Za koje poslovne objekte je usluga namijenjena?",
+        "Za veće površine tepisona u hotelima, konferencijskim centrima, uredima i ustanovama."
+      ]
+    ],
+    "relatedProjects": [
+      "tepisoni-hotelski-hodnici",
+      "ciscenje-800-m2-tepisona-upravna-zgrada"
     ]
   },
   {
@@ -45,6 +59,20 @@ export const advicePosts = [
         "Kako napraviti godišnji plan?",
         "Kod većih objekata preporučujemo obilazak ili procjenu po zonama. Na temelju intenziteta uporabe mogu se odvojiti hotelski hodnici, sobe, lobi i konferencijske dvorane te definirati termini s najmanje ometanja korisnika."
       ]
+    ],
+    "faq": [
+      [
+        "Je li dovoljno dubinsko čišćenje jednom godišnje?",
+        "Ovisi o prometu, mrljama, vrsti tepisona i režimu korištenja. Intenzivno opterećene zone mogu zahtijevati češći tretman."
+      ],
+      [
+        "Trebaju li hotelski hodnici i sobe jednak raspored čišćenja?",
+        "Ne nužno. Prolazni hodnici često se više troše od manje korištenih soba, pa se interval procjenjuje po zonama."
+      ]
+    ],
+    "relatedProjects": [
+      "ciscenje-bijelog-tepiha-500-m2",
+      "dubinsko-ciscenje-tepisona-hotelsko-stepeniste"
     ]
   },
   {
@@ -73,6 +101,20 @@ export const advicePosts = [
         "5. Redovno površinsko održavanje više nije dovoljno",
         "Kad usisavanje i uklanjanje pojedinačnih svježih mrlja više ne daju uredan izgled, potreban je stručni pregled i, gdje materijal dopušta, dubinsko čišćenje."
       ]
+    ],
+    "faq": [
+      [
+        "Čisti li se svaka presvlaka istom metodom?",
+        "Ne. Postupak ovisi o vrsti vlakana, konstrukciji i preporukama proizvođača."
+      ],
+      [
+        "Može li se nakon čišćenja napraviti impregnacija stolica?",
+        "Da, kada je tekstil prikladan i potpuno suh, uz prethodnu provjeru kompatibilnosti zaštitnog sredstva."
+      ]
+    ],
+    "relatedProjects": [
+      "stolice-hotelski-restoran",
+      "impregnacija-550-stolica-konferencijska-dvorana"
     ]
   },
   {
@@ -97,6 +139,20 @@ export const advicePosts = [
         "Može li impregnacija odmah nakon pranja?",
         "Zaštitna impregnacija prikladnog tekstila provodi se tek nakon potpunog sušenja i provjere kompatibilnosti materijala i sredstva."
       ]
+    ],
+    "faq": [
+      [
+        "Koliko sati treba čekati prije korištenja prostora?",
+        "Ne postoji univerzalno trajanje. Ovisi o materijalu, ventilaciji, temperaturi i količini preostale vlage."
+      ],
+      [
+        "Kada se može napraviti impregnacija?",
+        "Tek kada je obrađena tekstilna površina potpuno suha i kada je potvrđena prikladnost zaštitnog tretmana."
+      ]
+    ],
+    "relatedProjects": [
+      "tepisoni-hotelski-hodnici",
+      "stolice-konferencijski-centar"
     ]
   },
   {
@@ -121,6 +177,20 @@ export const advicePosts = [
         "Predvidite vrijeme za sušenje i pregled",
         "Nakon čišćenja potrebno je provjeriti stanje obrađenih površina i pričekati prikladno sušenje. Kod većih projekata korisno je dogovoriti etapno puštanje zona u uporabu."
       ]
+    ],
+    "faq": [
+      [
+        "Treba li isprazniti sve prostorije?",
+        "Ne nužno. Priprema i premještanje opreme dogovaraju se prema prostoru, opsegu posla i načinu pristupa."
+      ],
+      [
+        "Može li se čišćenje organizirati noću ili vikendom?",
+        "Da, termin se može dogovoriti prema mogućnostima izvođača i rasporedu poslovnog objekta."
+      ]
+    ],
+    "relatedProjects": [
+      "uredi-konferencijske-dvorane",
+      "ciscenje-konferencijske-dvorane-hodnika-stepenista"
     ]
   }
 ];
