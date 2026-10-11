@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import {advicePosts} from '../../data/advicePosts.js';
+---
+<Layout title="Savjeti za dubinsko čišćenje tepisona i namještaja | Red Carpet" description="Stručni B2B savjeti za dubinsko čišćenje tepisona, hotelskog namještaja, konferencijskih dvorana i poslovnih površina.">
+<TopBar/><Header/><main id="glavni-sadrzaj"><section class="section"><div class="container"><h1>Savjeti za profesionalno dubinsko čišćenje</h1><p>Praktični vodiči za održavanje velikih tekstilnih površina u hotelima, konferencijskim centrima i poslovnim objektima.</p><div class="advice-grid">{advicePosts.map(p=><article><a href={'/savjeti/'+p.slug+'/'}><img src={p.image} alt={p.title} width="720" height="480" loading="lazy" decoding="async"/><div class="body"><h2>{p.title}</h2><p>{p.description}</p><span>Pročitaj savjet →</span></div></a></article>)}</div></div></section></main><Footer/>
+</Layout>
+<style>.advice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:2rem}.advice-grid article{border:1px solid var(--border);border-radius:8px;overflow:hidden}.advice-grid a{display:block;color:inherit;text-decoration:none}.advice-grid img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}.body{padding:1.2rem}.body h2{font-size:1.2rem}.body p{line-height:1.6}.body span{color:var(--red);font-weight:700}@media(max-width:850px){.advice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.advice-grid{grid-template-columns:1fr}}</style>
