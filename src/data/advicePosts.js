@@ -40,6 +40,18 @@ export const advicePosts = [
       [
         "Što uključiti u upit za ponudu",
         "U upitu navedite vrstu objekta, približnu kvadraturu, raspored prostorija, podlogu ako je poznata, značajna zaprljanja i željeni rok izvođenja. Fotografije prolaza, mrlja i pristupnih mjesta mogu pomoći pri početnoj procjeni. Za hotel je korisno napisati smije li se raditi noću, vikendom ili između dolazaka gostiju. Takve informacije smanjuju naknadna usklađivanja i omogućuju planiranje čišćenja kao poslovnog projekta, a ne kao niza pojedinačnih malih intervencija."
+      ],
+      [
+        "Kako godišnji plan smanjuje zastoje u radu hotela",
+        "Hotelski objekt ne može uvijek zatvoriti sve katove ili hodnike odjednom. Zato ima smisla definirati prioritetne zone, procijeniti koliko vremena treba za pojedinu etažu i uskladiti čišćenje s popunjenošću. U prolazima uz restorane i konferencijske dvorane ponekad je važnije odabrati pravi termin nego čistiti cijelu površinu u jednom zahvatu. Noćni ili vikend rad može se dogovoriti unaprijed. Nakon zahvata potrebno je provjeriti jesu li podne površine dovoljno suhe za sigurno korištenje. Tako hotelsko osoblje zna koje su zone privremeno nedostupne, a gosti ne nailaze na nepotrebne prepreke."
+      ],
+      [
+        "Zašto nije svaka promjena boje obična mrlja",
+        "Na tekstilnoj podnoj oblozi tamniji trag može nastati zbog nakupljenih nečistoća, ali i zbog istrošenosti vlakana ili trajne promjene boje. Dubinsko čišćenje može ukloniti prikladno zaprljanje, no ne može vratiti vlakna koja su mehanički oštećena. Upravo zato profesionalna procjena prije zahvata postavlja realna očekivanja. Ako je tepison na ulazu godinama izložen snažnom trenju, rezultat se mora promatrati drugačije nego kod svježe mrlje u hotelskoj sobi. Redovito održavanje ima najviše smisla prije nego što se pojavi nepovratno trošenje."
+      ],
+      [
+        "Kako usporediti dvije ponude za čišćenje tepisona",
+        "Kod poslovnog čišćenja cijena po četvornom metru nije jedina usporediva stavka. Provjerite uključuje li ponuda obilazak, posebnu obradu mrlja, rad u izvanrednom terminu, pristup teško dostupnim prostorima i plan sušenja. Razlikujte čišćenje ugrađenih tepisona od odvojenih tepiha i jasno definirajte površinu koja se obrađuje. Važno je i tko koordinira otvaranje prostorija, pristup vodi ili struji te završni pregled. Jasno dogovoren opseg smanjuje rizik od nesporazuma i omogućuje naručitelju da procijeni stvarnu vrijednost usluge."
       ]
     ],
     "faq": [
@@ -98,6 +110,18 @@ export const advicePosts = [
       [
         "Kako pratiti je li plan održavanja dobar?",
         "Vodite jednostavnu evidenciju datuma čišćenja, tretiranih kvadratura, ponavljajućih mrlja i zona s najvećim prometom. Fotografije snimljene pod sličnim osvjetljenjem mogu pomoći pri usporedbi kroz sezonu, ali nisu savršena mjera rezultata. Nakon nekoliko ciklusa razmotrite ima li smisla skratiti interval samo za opterećene dijelove, umjesto češćeg pranja cijelog objekta. Cilj je usklađivanje urednog izgleda, stvarnog stanja materijala i neometanog rada objekta."
+      ],
+      [
+        "Što znači intenzivan promet za plan čišćenja",
+        "Broj gostiju ili zaposlenika sam po sebi ne govori sve o potrebi dubinskog čišćenja. Bitno je kuda ljudi prolaze, koliko često ulaze s vanjskih površina te koliko je prostor izložen hrani i piću. Restoranski tepison na prolazu iz kuhinje prema terasi može se vidljivo zaprljati brže od jednako velikog tepisona u mirnoj sali za sastanke. Kod planiranja treba evidentirati upravo te razlike. Ako se tamne prometne staze vraćaju ubrzo nakon čišćenja, vrijedi provjeriti i svakodnevno održavanje, vrstu otirača na ulazima te način uklanjanja svježih mrlja."
+      ],
+      [
+        "Sezonski pregled prije i nakon velikih događanja",
+        "Prije konferencijske ili turističke sezone korisno je pregledati ulaze, stepeništa, hodnike, kongresne dvorane i najčešće korištene zajedničke prostore. Tako se veći radovi mogu dogovoriti prije nego što raspored događanja postane gust. Nakon sezone treba usporediti stanje po zonama i odlučiti treba li cijeli objekt novi tretman ili su dovoljni opterećeni dijelovi. Uvjeti su različiti za hotel s brojnim kratkim boravcima i uredsku zgradu sa stabilnim brojem zaposlenika. Umjesto krutog kalendara, dobar plan povezuje redovite preglede i stvarnu potrebu za čišćenjem."
+      ],
+      [
+        "Praktična evidencija za voditelja objekta",
+        "Jednostavna tablica s datumom pregleda, lokacijom, približnom kvadraturom i uočenim zaprljanjima pomaže u donošenju odluka. Dodajte napomenu o prethodnom čišćenju, mogućim preostalim mrljama i terminu sljedećeg većeg događanja. Ne treba kompliciran softver: bitno je da voditelj održavanja može usporediti iste zone kroz vrijeme. Ako se problem ponavlja na istom prolazu, promjena učestalosti tretmana samo te zone može biti učinkovitija od ponovnog čišćenja svih katova. Takva evidencija također pomaže pri traženju preciznije ponude od izvođača."
       ]
     ],
     "faq": [
@@ -160,6 +184,18 @@ export const advicePosts = [
       [
         "Što poslati pri upitu za veće količine?",
         "Navedite okviran broj stolica, fotelja, garnitura i dužinu tapeciranih separea, kao i raspored po prostorijama. Korisne su fotografije presvlake, posebno zaprljanih sjedala i oznaka materijala kada su dostupne. Za hotel ili restoran navedite termine u kojima se prostor ne koristi i je li potreban rad noću ili vikendom. Takav opis pomaže izvođaču procijeniti trajanje rada, planirati sušenje i predložiti mogući preventivni režim održavanja."
+      ],
+      [
+        "Kako procijeniti stvarno stanje stolica prije sezone",
+        "Pregledajte uzorak stolica iz različitih dijelova prostorije, a ne samo nekoliko komada blizu ulaza. Posebno pogledajte sjedišta, naslone, rukonaslone i spojeve presvlake. Kod restoranskih separea provjerite dužinu zaprljane klupe i dijelove uz stolove gdje nastaju mrlje od hrane. Ako su pojedine presvlake istrošene, treba razlikovati čišćenje od popravka materijala. Sličan izgled tkanina ne znači uvijek jednaku reakciju na vodu ili sredstva. Zbog toga je pri velikim količinama korisno unaprijed potvrditi materijal i uvjete izvođenja prije konačnog rasporeda radova."
+      ],
+      [
+        "Kako uskladiti dubinsko čišćenje s radom restorana",
+        "Hotelski restoran često nema mnogo slobodnih sati između doručka, ručka i večere. Organizacija čišćenja stotina stolica ili više desetaka metara separea zato traži dogovor oko termina, dostupnosti namještaja i vremena potrebnog za sušenje. Ako je moguće, prostor se može podijeliti u skupine koje se postupno obrađuju. Time osoblje zna gdje smije postaviti stolove i kada se sjedala mogu vratiti u uporabu. Vrijeme sušenja nije fiksno jer ovisi o presvlaci, temperaturi i ventilaciji. Posao je završen tek kad su površine prikladne za daljnje korištenje."
+      ],
+      [
+        "Kada se ne preporučuje isti tretman za sav namještaj",
+        "Koža, umjetna koža i tekstilne presvlake zahtijevaju različite pristupe. Osjetljivo bojane ili starije tkanine mogu imati posebna ograničenja, a presvlake s oštećenim šavovima zahtijevaju dodatni oprez. U hotelima i restoranima često se u jednoj prostoriji nalaze različite garniture i fotelje, pa naručitelj treba jasno naznačiti tipove namještaja. Impregnacija je dodatna opcija samo za prikladne tekstilne površine, nakon čišćenja i potpunog sušenja. Takva priprema smanjuje rizik od neprimjerenog postupka i olakšava realnu procjenu rezultata."
       ]
     ],
     "faq": [
@@ -218,6 +254,18 @@ export const advicePosts = [
       [
         "Provjera prije povratka namještaja",
         "Prije vraćanja stolica ili postavljanja predmeta na tretirane površine treba provjeriti da su dovoljno suhe i sigurne za redovitu uporabu. Prerano pokrivanje ili vraćanje osjetljivih predmeta može stvoriti dodatne probleme. Ako je planirana impregnacija, ona je zaseban korak nakon potpunog sušenja i potvrđene prikladnosti presvlake. Za velike objekte korisno je dogovoriti tko obavlja završnu kontrolu i kako se označavaju još nedostupne zone."
+      ],
+      [
+        "Kako procijeniti uvjete u velikom prostoru",
+        "Kada se čisti nekoliko stotina četvornih metara tepisona, uvjeti se mogu razlikovati od hodnika do hodnika. Prostor uz vanjski ulaz možda se provjetrava bolje od zatvorene konferencijske dvorane bez prozora. Isti materijal zato ne mora biti suh u isto vrijeme na svim dijelovima objekta. Tijekom planiranja važno je provjeriti mogućnosti ventilacije, postojeće klimatske sustave i ograničenja pristupa. Ako je sljedeći događaj zakazan vrlo brzo nakon čišćenja, naručitelj treba unaprijed razgovarati s izvođačem o izvedivosti i mogućim alternativnim terminima."
+      ],
+      [
+        "Kako prepoznati da prostor još nije spreman",
+        "Vidljiva suhoća površine nije uvijek dovoljan pokazatelj. Kod pojedinih tekstilnih podloga ili debljeg tapeciranog namještaja može se zadržati vlaga ispod površinskog sloja. Prerano korištenje može izazvati nelagodu ili dodatno zaprljanje, a neprimjereno pokrivanje može usporiti sušenje. Zato završna kontrola treba biti dio dogovorenog posla. U velikim hotelima korisno je odgovornoj osobi jasno prenijeti koje su prostorije spremne, a koje još trebaju vrijeme. Tako se izbjegava vraćanje svih stolica u uporabu samo zato što je čišćenje završilo."
+      ],
+      [
+        "Zašto ne treba obećavati univerzalni broj sati",
+        "Vrijeme sušenja ne može se pouzdano izračunati samo prema površini u četvornim metrima ili broju očišćenih stolica. Različite vrste vlakana i podloga, količina korištene vode te rad ventilacije mogu bitno promijeniti rezultat. Zato tvrdnje poput 'svaka fotelja suha je za dva sata' nisu stručan odgovor za svaki objekt. Kod B2B projekata mnogo je korisnije definirati postupak pregleda i uvjete za ponovno korištenje nego nuditi jedinstveno obećanje. Klijent tako može sigurnije planirati smjenu gostiju, konferenciju ili početak rada u uredu."
       ]
     ],
     "faq": [
@@ -276,6 +324,18 @@ export const advicePosts = [
       [
         "Kontrola nakon izvedbe i plan daljnjeg održavanja",
         "Na kraju većeg projekta korisno je pregledati tretirane zone, zabilježiti tvrdokorne mrlje koje su ostale i osigurati primjerene uvjete za sušenje. Povratak prostorija u uporabu treba biti usklađen sa stvarnim stanjem površina, a ne samo završetkom rada opreme. Za hotele i ustanove s kontinuiranim prometom smislen je i razgovor o redovitom održavanju: pojedine zone možda trebaju češće čišćenje, dok su druge manje opterećene. Cilj je dugoročno uredan prostor uz što manje prekida poslovanja."
+      ],
+      [
+        "Tko treba biti kontakt osoba tijekom radova",
+        "Kod većih hotela, upravnih zgrada i konferencijskih centara korisno je odrediti jednu osobu koja poznaje raspored prostorija, zna gdje su priključci i može odobriti pristup pojedinim zonama. Ta osoba pomaže uskladiti čišćenje s recepcijom, osobljem restorana ili uredskim zaposlenicima. Ako se pojavi ograničen pristup ili dodatna mrlja koja nije bila evidentirana, odluka se može donijeti odmah. Time se izbjegava nepotrebno čekanje i lakše održava dogovoreni raspored. Odgovornu osobu dobro je navesti već u prvom upitu za ponudu."
+      ],
+      [
+        "Kako pripremiti fotografije za procjenu",
+        "Za početni upit fotografirajte širi pogled na prostor, primjer problematične površine i detalj koji pokazuje vrstu presvlake ili tepisona. Ako je moguće, naznačite približne dimenzije ili kvadraturu. Kod konferencijske dvorane korisno je poslati raspored stolica, a za hotelske hodnike okviran broj katova i soba. Fotografije pomažu pripremiti razgovor, ali nisu zamjena za stručni pregled kada su materijali osjetljivi ili je stanje složeno. Izbjegavajte slanje fotografija gostiju i zaposlenika kada nisu potrebne za procjenu posla."
+      ],
+      [
+        "Kratka kontrolna lista prije dolaska izvođača",
+        "Provjerite je li dogovoren točan opseg radova, je li oprema može doći do svih površina te jesu li osigurani priključci prema dogovoru. Obavijestite osoblje o privremeno nedostupnim hodnicima, sobama ili dvoranama i definirajte gdje se mogu odložiti pomični predmeti. Utvrdite termin završnog pregleda i odgovornu osobu koja će potvrditi kada su tretirane površine ponovno dostupne. Ako objekt ima stroga pravila ulaska ili rad noću, pripremite ih unaprijed. Takva organizacija omogućuje da se radovi izvedu uz što manje ometanja poslovanja."
       ]
     ],
     "faq": [
