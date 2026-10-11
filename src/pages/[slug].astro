@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const sectors = [
+  {slug:'ciscenje-hotela',title:'Dubinsko čišćenje hotela i resorta',description:'Čišćenje tepisona, tapeciranih stolica, fotelja, garnitura i madraca u hotelima i resortima, organizirano prema dinamici rada objekta.',audience:'hoteli i resorti',services:['Tepisoni u sobama i hodnicima','Namještaj u lobijima i restoranima','Madraci i tapecirane površine']},
+  {slug:'ciscenje-domova-za-starije',title:'Dubinsko čišćenje domova za starije',description:'Organizirano čišćenje većih količina fotelja, stolica, madraca i tekstilnih površina u zajedničkim i smještajnim prostorima.',audience:'domovi za starije',services:['Fotelje i stolice','Madraci u većim količinama','Tepisoni i zajednički prostori']},
+  {slug:'ciscenje-vrtica-i-skola',title:'Dubinsko čišćenje vrtića i škola',description:'Čišćenje tekstilnih površina, namještaja i opreme u obrazovnim ustanovama uz planiranje termina izvan boravka korisnika.',audience:'vrtići i škole',services:['Tepisi i tepisoni u ustanovama','Tapecirane klupe i stolice','Tekstilni madraci za odmor']},
+  {slug:'ciscenje-poslovnih-prostora',title:'Dubinsko čišćenje poslovnih i uredskih prostora',description:'Profesionalno čišćenje velikih površina tepisona i većih količina uredskih stolica i drugog tapeciranog namještaja.',audience:'poslovne zgrade i uredi',services:['Uredski tepisoni','Konferencijske stolice','Recepcije i čekaonice']},
+  {slug:'ciscenje-tapeciranih-stolica',title:'Dubinsko čišćenje većeg broja tapeciranih stolica',description:'Usluga za dvorane, hotele, restorane, kina i ustanove s većim brojem sjedala, uz dogovor o etapama izvođenja.',audience:'dvorane, restorani i ustanove',services:['Konferencijske dvorane','Restorani i banketne sale','Kina i kazališta']},
+  {slug:'ciscenje-madraca-za-ustanove',title:'Dubinsko čišćenje madraca za ustanove',description:'Planirano čišćenje većih količina madraca u hotelima, domovima i drugim smještajnim objektima.',audience:'smještajni objekti i ustanove',services:['Hotelski madraci','Studentski domovi','Domovi za starije']},
+  {slug:'impregnacija-tekstila',title:'Profesionalna impregnacija tekstilnih površina',description:'Zaštitna obrada prikladnih tekstilnih površina nakon čišćenja i potpunog sušenja ili preventivno na novom namještaju, uz provjeru kompatibilnosti materijala.',audience:'hoteli i poslovni objekti',services:['Garniture u hotelskim lobijima','Fotelje i tapecirane stolice','Preventivna zaštita novih površina']},
+  {slug:'suradnja-s-kooperantima',title:'Suradnja s kooperantima za profesionalno čišćenje',description:'Tražimo profesionalne izvođače s odgovarajućom opremom i iskustvom za veće B2B projekte diljem Hrvatske.',audience:'profesionalni kooperanti',services:['Područje rada i kapaciteti','Oprema i iskustvo','Organizacija većih projekata']}
+];
+export function getStaticPaths(){
+  return sectors.map(sector=>({params:{slug:sector.slug},props:{sector}}));
+}
+const {sector}=Astro.props;
+const isPartner=sector.slug==='suradnja-s-kooperantima';
+const subject=encodeURIComponent((isPartner?'Upit za kooperantsku suradnju':'B2B upit za ponudu')+' – '+sector.title);
+const body=encodeURIComponent('Tvrtka/ustanova: \nLokacija: \nOkvirni opseg (m² / broj komada): \nŽeljeni termin: \nKontakt: \nNapomena: ');
+---
+<Layout title={sector.title+' | Red Carpet'} description={sector.description}>
+  <TopBar />
+  <Header />
+  <main id="glavni-sadrzaj">
+    <section class="section section--light">
+      <div class="container rc-intro">
+        <a href="/" class="rc-back">← Početna</a>
+        <span class="eyebrow">Red Carpet · B2B Hrvatska</span>
+        <h1>{sector.title}</h1>
+        <p>{sector.description}</p>
+        <a class="btn btn-primary" href={`mailto:redcarpet.hrvatska@gmail.com?subject=${subject}&body=${body}`}>{isPartner?'Prijavite suradnju':'Zatražite individualnu ponudu'}</a>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Opseg rada</span><h2>Što obuhvaća usluga</h2><p>Radimo projekte većeg opsega za {sector.audience}; plan rada i metoda određuju se prema površinama i zahtjevima objekta.</p></div>
+        <ul class="rc-grid">{sector.services.map(item=><li class="rc-tile"><h3>{item}</h3><p>Procjena opsega, prikladnosti postupka i potrebnog termina prije izvedbe.</p></li>)}</ul>
+      </div>
+    </section>
+    <section class="section section--light"><div class="container rc-outro"><h2>Treba vam ponuda za više prostora ili objekata?</h2><p>Pošaljite nam lokaciju, kvadraturu ili broj komada te okvirni željeni termin. Ponuda se priprema prema stvarnom opsegu.</p><a class="btn btn-primary" href={`mailto:redcarpet.hrvatska@gmail.com?subject=${subject}&body=${body}`}>Pošaljite B2B upit</a><p class="rc-note">Za sada upit otvara vaš e-mail program. Internetski obrazac još je u pripremi.</p></div></section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+.rc-intro{display:flex;flex-direction:column;align-items:flex-start;gap:1.4rem;max-width:1050px}
+.rc-intro h1{max-width:850px}
+.rc-intro p,.rc-outro p{max-width:750px;font-size:1.1rem}
+.rc-back{font-weight:700;text-decoration:none}
+.rc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+.rc-tile{padding:1.6rem;border:1px solid var(--border);border-top:4px solid var(--red);border-radius:var(--radius)}
+.rc-tile p{margin-top:.75rem}
+.rc-outro{display:flex;align-items:flex-start;flex-direction:column;gap:1.2rem}
+.rc-note{font-size:.85rem!important}
+@media(max-width:760px){.rc-grid{grid-template-columns:1fr}}
+</style>
