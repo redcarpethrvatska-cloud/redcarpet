@@ -110,7 +110,7 @@ const socialLinks = [
 			<button type="submit" class="btn btn-primary contact__submit" disabled={!turnstileSiteKey}>Zatražite ponudu</button>
 
 			<p class="contact__status" id="contact-status" role="status" aria-live="polite"></p>
-            <p class="contact__fallback">Ako obrazac ne radi, pošaljite upit na <a href="mailto:redcarpet.hrvatska@gmail.com">redcarpet.hrvatska@gmail.com</a>.</p>
+            <p class="contact__fallback"><strong>Možete nam pisati i izravno:</strong> <a href="mailto:redcarpet.hrvatska@gmail.com?subject=Upit%20za%20B2B%20ciscenje">redcarpet.hrvatska@gmail.com</a>.</p>
 		</form>
 	</div>
 </section>
@@ -263,6 +263,8 @@ const socialLinks = [
 		align-self: flex-start;
 	}
 
+	.contact__fallback {font-size:1rem;line-height:1.5;padding:.95rem 1rem;border-left:3px solid var(--red);background:#fff;color:var(--black)}
+	.contact__fallback a{font-weight:700;text-decoration:underline;overflow-wrap:anywhere}
 	.contact__status {
 		margin: 0;
 		font-size: 0.9rem;
