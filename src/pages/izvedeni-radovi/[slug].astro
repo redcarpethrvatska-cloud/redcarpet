@@ -20,7 +20,7 @@ const {rad}=Astro.props;
   <h2>Opseg izvedenih radova</h2>
   <ol>{rad.steps.map(step=><li>{step}</li>)}</ol>
   {rad.images.length > 0 && <><h2>Fotografije radova</h2><div class="gallery">{rad.images.map((src,i)=><figure><img src={src} alt={rad.title+ " – fotografija "+(i+1)} loading="lazy" decoding="async" width="800" height="520"/></figure>)}</div></>}
-  {rad.video && <><h2>Video izvedbe</h2><video controls muted playsinline preload="none" poster={rad.images[0] || undefined} src={rad.video}></video></>}
+  {rad.videos.length > 0 && <><h2>Videozapisi izvedbe</h2>{rad.videos.map((src,i) => <figure><video controls muted playsinline preload="none" poster={rad.images[0]} aria-label={rad.title + " – video " + (i+1)}><source src={src} type="video/mp4"/></video><figcaption>Video izvedbe {i+1}</figcaption></figure>)}</>}
   <a class="btn btn-primary" href="/#kontakt">Zatražite B2B ponudu</a>
  </div></article>
 </main><Footer/>

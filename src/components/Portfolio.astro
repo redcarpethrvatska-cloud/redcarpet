@@ -1,24 +1,18 @@
 ---
-const projects = [
- {category:'Hoteli i resorti',title:'Hotelske sobe i hodnici',description:'Dubinsko čišćenje tepisona u smještajnim jedinicama i komunikacijskim prostorima.',photo:'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=960&q=80'},
- {category:'Ugostiteljstvo',title:'Stolice u hotelskom restoranu',description:'Planirano čišćenje većeg broja tapeciranih stolica i sjedećih površina.',photo:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=960&q=80'},
- {category:'Poslovni prostori',title:'Uredi i konferencijske dvorane',description:'Organizirano dubinsko čišćenje tepisona i tapeciranog inventara poslovnih objekata.',photo:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=960&q=80'},
- {category:'Hoteli',title:'Fotelje i garniture u lobiju',description:'Održavanje reprezentativnog tapeciranog namještaja u prostorima s velikim prometom.',photo:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=960&q=80'},
- {category:'Ustanove',title:'Madraci i tekstilna oprema',description:'Usluga za objekte s većim brojem madraca, uz prethodno dogovoren plan rada.',photo:'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=960&q=80'},
- {category:'Poslovni objekti',title:'Tepisoni velikih površina',description:'Strojno dubinsko čišćenje tekstilnih podnih obloga uz prilagodbu radu objekta.',photo:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=960&q=80'}
-];
+import { radovi } from '../data/izvedeniRadovi.js';
+const projects = radovi.slice(0, 6);
 ---
 <section class="section portfolio" id="projekti">
  <div class="container">
-  <div class="section-heading"><h2>Što radimo – primjeri radova i područja primjene</h2><p>Pogledajte vrste većih poslova za koje možete zatražiti ponudu: hotelski tepisoni, stolice, uredski prostori, madraci i tapecirani namještaj. Za sada su prikazane ilustrativne fotografije, a stvarne završene projekte i potvrđene reference dodat ćemo zasebno.</p></div>
+  <div class="section-heading"><h2>Izvedeni radovi za poslovne klijente</h2><p>Pogledajte fotografije i videozapise izvedenih projekata čišćenja u hotelima, restoranima, konferencijskim centrima i poslovnim objektima.</p></div>
   <div class="portfolio__grid">
    {projects.map((project)=>(
     <article class="portfolio__card">
-     <img src={project.photo} alt={'Ilustrativni prikaz: '+project.title} loading="lazy" decoding="async" width="960" height="620"/>
+     <img src={project.images[0]} alt={project.title} loading="lazy" decoding="async" width="960" height="620"/>
      <div class="portfolio__body">
       <span class="portfolio__type">{project.category}</span>
-      <h3>{project.title}</h3><p>{project.description}</p>
-      <span class="portfolio__sample">Ogledni prikaz – fotografija će biti zamijenjena</span>
+      <h3>{project.title}</h3><p>{project.summary}</p>
+      <a class="portfolio__sample" href={"/izvedeni-radovi/"+project.slug+"/"}>Pogledajte projekt →</a>
      </div>
     </article>
    ))}
