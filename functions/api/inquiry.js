@@ -7,7 +7,8 @@ export async function onRequestPost({request,env}){
   if(!env.RESEND_API_KEY||!env.RESEND_FROM||!env.TURNSTILE_SECRET_KEY)return json({error:"Slanje upita trenutačno nije dostupno."},503);
   const origin=request.headers.get("Origin");
   if(origin){try{const host=new URL(origin).hostname;if(host!=="redcarpet.hr"&&host!=="www.redcarpet.hr"&&!host.endsWith(".pages.dev"))return json({error:"Nedopušten izvor."},403)}catch{return json({error:"Neispravan izvor."},403)}}
-  let data;try{data=await request.json()}catch{return json({error:"Neispravan zahtjev."},400)}
+  if(Number(request.headers.get("content-length")||0)>12000)return json({error:"Zahtjev je prevelik."},413);
+  let data;try{const raw=await request.text();if(raw.length>12000)return json({error:"Zahtjev je prevelik."},413);data=JSON.parse(raw)}catch{return json({error:"Neispravan zahtjev."},400)}
   if(!data||typeof data!=="object"||Array.isArray(data))return json({error:"Neispravan zahtjev."},400);
   if(trim(data.website,200))return json({ok:true});
   const fullName=trim(data.fullName,120),company=trim(data.company,160),city=trim(data.city,120),phone=trim(data.phone,40),email=trim(data.email,180),message=trim(data.message,3000),sector=trim(data.sector,180),token=trim(data.turnstileToken,2500);
@@ -17,6 +18,8 @@ export async function onRequestPost({request,env}){
   let verify;
   try{verify=await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({secret:env.TURNSTILE_SECRET_KEY,response:token,remoteip:request.headers.get("CF-Connecting-IP")||undefined})}).then(r=>r.json())}catch{return json({error:"Provjera zaštite nije uspjela."},502)}
   if(!verify.success)return json({error:"Sigurnosna provjera nije uspjela. Pokušajte ponovno."},400);
+  const expectedHost=new URL(request.url).hostname;
+  if(verify.hostname!==expectedHost)return json({error:"Sigurnosna provjera ne odgovara stranici."},403);
   const safe=v=>v.replace(/[<>\r\n]/g," ");
   const textBody=["Novi Red Carpet B2B upit",`Ime: ${fullName}`,`Tvrtka: ${company}`,`Grad: ${city}`,`Telefon: ${phone||"-"}`,`E-mail: ${email||"-"}`,`Usluga: ${sector||"-"}`,"",message].join("\n");
   try{
