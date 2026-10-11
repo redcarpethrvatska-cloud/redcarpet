@@ -4,9 +4,11 @@ import '../styles/global.css';
 interface Props {
 	title?: string;
 	description?: string;
+  noindex?: boolean;
 }
 
 const {
+  noindex = false,
 	title = 'Dubinsko čišćenje hotela i poslovnih prostora | Red Carpet',
 	description = 'Red Carpet pruža profesionalno dubinsko čišćenje tepisona, tapeciranog namještaja i madraca za hotele, tvrtke, vrtiće, domove za starije i ustanove diljem Hrvatske.',
 } = Astro.props;
@@ -44,6 +46,7 @@ const localBusinessJsonLd = {
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 		<link rel="canonical" href={canonicalURL} />
 
 		<meta property="og:type" content="website" />
