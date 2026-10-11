@@ -19,7 +19,7 @@ GA4 Measurement ID: G-1XDT181QDM (koristiti nakon valjane privole); GA4 property
 /ciscenje-hotela, /ciscenje-domova-za-starije, /ciscenje-vrtica-i-skola, /ciscenje-poslovnih-prostora, /ciscenje-tapeciranih-stolica, /ciscenje-madraca-za-ustanove, /impregnacija-tekstila, /suradnja-s-kooperantima.
 
 ## Kontrola prije objave
-Provjeriti je li konačna kanonska domena redcarpet.hr ili postojeći redcarpet.com.hr (trenutačni Layout koristi potonju); provjeriti točnost poslovnih i kontakt podataka. Izrada GDPR dokumenata i funkcionalnog obrasca; testovi builda, pristupačnosti, mobilnog prikaza i SEO migracijske mape; pregled dozvola za objavu referenci i recenzija. Partnerski cjenici nisu javni sadržaj.
+Jedina ciljna kanonska domena je https://redcarpet.hr; ne koristiti redcarpet.com.hr u SEO metapodacima; provjeriti točnost poslovnih i kontakt podataka. Izrada GDPR dokumenata i funkcionalnog obrasca; testovi builda, pristupačnosti, mobilnog prikaza i SEO migracijske mape; pregled dozvola za objavu referenci i recenzija. Partnerski cjenici nisu javni sadržaj.
 
 ## Faze
 1. Dizajn i osnovni B2B sadržaj; 2. Landing stranice i studije slučaja; 3. Obrasci i CRM/Gmail; 4. GDPR + GA4/GTM/GSC; 5. Kooperanti i kampanje.
