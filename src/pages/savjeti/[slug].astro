@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { advicePosts } from '../../data/advicePosts.js';
+import { radovi } from '../../data/izvedeniRadovi.js';
+export function getStaticPaths(){ return advicePosts.map(post=>({params:{slug:post.slug},props:{post}})); }
+const {post}=Astro.props;
+const matchingProjects = radovi.filter(project => post.relatedProjects?.includes(project.slug));
+const faqLd = {'@context':'https://schema.org','@type':'FAQPage',mainEntity:post.faq.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))};
+const ld={'@context':'https://schema.org','@type':'Article',headline:post.title,description:post.description,author:{'@type':'Organization',name:'Red Carpet'},publisher:{'@type':'Organization',name:'Red Carpet'},mainEntityOfPage:'https://redcarpet.hr/savjeti/'+post.slug+'/'};
+---
+<Layout title={post.title+' | Red Carpet'} description={post.description}>
+<TopBar/><Header/>
+<main id="glavni-sadrzaj">
+<article class="section"><div class="container advice">
+<nav aria-label="Putanja"><a href="/">Početna</a> / <a href="/savjeti/">Savjeti</a></nav>
+<span class="eyebrow">Red Carpet · B2B vodič</span>
+<h1>{post.title}</h1><p class="lead">{post.description}</p>
+<img class="cover" src={post.image} alt={post.title} width="1200" height="800" decoding="async" fetchpriority="high" />
+{post.sections.map(([title,body])=><section><h2>{title}</h2><p>{body}</p></section>)}
+<section class="advice__faq"><h2>Česta pitanja</h2>{post.faq.map(([question, answer]) => <div><h3>{question}</h3><p>{answer}</p></div>)}</section>
+{matchingProjects.length > 0 && <section class="advice__references"><h2>Primjeri izvedenih radova Red Carpet</h2><ul>{matchingProjects.map(project => <li><a href={"/izvedeni-radovi/"+project.slug+"/"}>{project.title}</a></li>)}</ul></section>}
+<section class="advice__cta"><h2>Profesionalno čišćenje velikih površina</h2><p>Red Carpet izvodi B2B dubinsko čišćenje tepisona i većih količina tapeciranog namještaja u hotelima, tvrtkama i ustanovama diljem Hrvatske.</p><a href="/dubinsko-ciscenje-tepisona/">Više o dubinskom čišćenju tepisona</a><p><a class="btn btn-primary" href="/#kontakt">Zatražite ponudu</a></p></section>
+<h2>Ostali stručni savjeti</h2><ul>{advicePosts.filter(p=>p.slug!==post.slug).slice(0,4).map(p=><li><a href={'/savjeti/'+p.slug+'/'}>{p.title}</a></li>)}</ul>
+</div></article></main><Footer/>
+<script type="application/ld+json" set:html={JSON.stringify(ld)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</Layout>
+<style>
+.advice{max-width:880px}.advice nav{font-size:.9rem;margin-bottom:1.75rem}.advice h1{margin:.5rem 0 1rem;line-height:1.15}.lead{font-size:1.16rem;line-height:1.7}.cover{width:100%;height:auto;max-height:500px;object-fit:cover;border-radius:9px;margin:1.25rem 0}.advice section{margin:2.4rem 0}.advice p{line-height:1.8}.advice h2{margin:0 0 .9rem}.advice li{margin:.7rem 0}.advice__faq h3{font-size:1.08rem;margin:1.25rem 0 .3rem}.advice__cta{background:#f6f6f6;padding:1.5rem;border-left:4px solid #e31e24}
+</style>
