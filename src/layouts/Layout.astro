@@ -11,7 +11,7 @@ const {
 	description = 'Red Carpet pruža profesionalno dubinsko čišćenje tepisona, tapeciranog namještaja i madraca za hotele, tvrtke, vrtiće, domove za starije i ustanove diljem Hrvatske.',
 } = Astro.props;
 
-const canonicalURL = 'https://redcarpet.com.hr/';
+const canonicalURL = new URL(Astro.url.pathname, 'https://redcarpet.hr').toString();
 
 const localBusinessJsonLd = {
 	'@context': 'https://schema.org',
