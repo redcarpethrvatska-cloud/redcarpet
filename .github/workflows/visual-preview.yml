@@ -16,6 +16,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Package preview build
+        uses: actions/upload-artifact@v4
+        with:
+          name: redcarpet-2026-static-preview
+          path: dist/
       - run: npx --yes playwright install --with-deps chromium
       - name: Capture desktop and mobile
         run: |
