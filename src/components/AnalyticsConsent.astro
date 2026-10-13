@@ -1,7 +1,7 @@
 <div id="consent-panel" class="consent-panel" role="dialog" aria-label="Postavke privatnosti" aria-modal="false" hidden>
   <span class="consent-eyebrow">VAŠA PRIVATNOST</span>
   <h2>Vaš odabir, vaša privatnost.</h2>
-  <p>Nužne tehnologije omogućuju rad i sigurnost stranice. Opcionalna analitika zasad nije aktivna; vaš odabir vrijedit će za njezinu buduću aktivaciju.</p>
+  <p>Nužne tehnologije omogućuju rad i sigurnost stranice. Google Analytics koristimo samo uz vaš pristanak kako bismo razumjeli posjećenost stranice.</p>
   <a class="consent-link" href="/kolacici/">Informacije o privatnosti <span aria-hidden="true">↗</span></a>
   <div class="consent-actions">
     <button id="consent-reject" class="consent-button consent-reject" type="button">Odbij</button>
@@ -32,10 +32,28 @@ const panel=document.getElementById('consent-panel');
 const choiceKey='redcarpet_ga_consent';
 const stored=()=>{try{return localStorage.getItem(choiceKey)}catch{return null}};
 const save=(v)=>{try{localStorage.setItem(choiceKey,v)}catch{}};
-// GA4 se ne učitava dok vlasnik ne potvrdi aktivaciju i mjerni ID.
-const enable=()=>{};
+const enable=()=>{
+ if(document.getElementById('redcarpet-ga'))return;
+ const script=document.createElement('script');
+ script.id='redcarpet-ga';script.async=true;
+ script.src='https://www.googletagmanager.com/gtag/js?id=G-1XDT181QDM';
+ document.head.appendChild(script);
+ window.dataLayer=window.dataLayer||[];
+ window.gtag=function(){window.dataLayer.push(arguments)};
+ window.gtag('js',new Date());
+ window.gtag('config','G-1XDT181QDM',{anonymize_ip:true});
+};
 document.getElementById('consent-accept').addEventListener('click',()=>{save('yes');panel.hidden=true;enable()});
-document.getElementById('consent-reject').addEventListener('click',()=>{save('no');panel.hidden=true});
+const clearAnalyticsCookies=()=>{
+ for(const item of document.cookie.split(';')){
+  const name=item.split('=')[0].trim();
+  if(name==='_ga'||name.startsWith('_ga_')){
+   document.cookie=name+'=; Max-Age=0; Path=/; SameSite=Lax';
+   document.cookie=name+'=; Max-Age=0; Path=/; Domain=.redcarpet.hr; SameSite=Lax';
+  }
+ }
+};
+document.getElementById('consent-reject').addEventListener('click',()=>{save('no');clearAnalyticsCookies();panel.hidden=true;window.location.reload()});
 document.getElementById('consent-open').addEventListener('click',()=>panel.hidden=false);
 if(stored()==='yes')enable();else if(stored()===null)panel.hidden=false;
 </script>
