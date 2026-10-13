@@ -106,14 +106,7 @@ const socialLinks = [
 				<textarea id="message" name="message" rows="4" maxlength="3000" required></textarea>
 			</div>
 
-			<div class="form-row form-row--checkbox">
-				<input type="checkbox" id="gdpr" name="gdpr" required />
-				<label for="gdpr">
-					Potvrđujem da sam pročitao/la <a href="/privatnost">informacije o privatnosti</a> i želim da me kontaktirate u vezi s upitom.
-					<span aria-hidden="true">*</span>
-				</label>
-				<p class="form-error" id="gdpr-error" role="alert" hidden></p>
-			</div>
+			<p class="contact__privacy">Podatke iz obrasca koristimo za odgovor na poslovni upit i pripremu ponude. Pročitajte <a href="/privatnost/">Politiku privatnosti</a>.</p>
 
 			<div class="form-row" hidden aria-hidden="true"><label for="website">Web</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
 			{turnstileSiteKey ? <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div> : <p class="form-error">Obrazac će biti aktivan nakon konfiguracije zaštite od spama. Do tada nam <a href="mailto:redcarpet.hrvatska@gmail.com?subject=B2B%20upit%20za%20ponudu">pošaljite e-mail</a>.</p>}
@@ -314,7 +307,6 @@ const socialLinks = [
 		const fullName = document.getElementById('fullName');
 		const phone = document.getElementById('phone');
 		const email = document.getElementById('email');
-		const gdpr = document.getElementById('gdpr');
 
 		const setError = (field, errorId, message) => {
 			const errorEl = document.getElementById(errorId);
@@ -360,13 +352,6 @@ const socialLinks = [
 				setError(email, 'email-error', null);
 			}
 
-			if (!gdpr.checked) {
-				setError(gdpr, 'gdpr-error', 'Potrebna je suglasnost za obradu podataka.');
-				isValid = false;
-			} else {
-				setError(gdpr, 'gdpr-error', null);
-			}
-
 			if (!isValid) {
 				status.textContent = 'Molimo provjerite označena polja.';
 				status.setAttribute('data-state', 'error');
@@ -396,7 +381,7 @@ const socialLinks = [
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               fullName: fullName.value.trim(), company, city, phone: phone.value.trim(),
-              email: email.value.trim(), message, gdpr: gdpr.checked,
+              email: email.value.trim(), message, gdpr: true,
               website: document.getElementById('website').value,
               turnstileToken: token
             })
