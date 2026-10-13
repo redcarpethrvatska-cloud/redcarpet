@@ -44,7 +44,16 @@ const enable=()=>{
  window.gtag('config','G-1XDT181QDM',{anonymize_ip:true});
 };
 document.getElementById('consent-accept').addEventListener('click',()=>{save('yes');panel.hidden=true;enable()});
-document.getElementById('consent-reject').addEventListener('click',()=>{save('no');panel.hidden=true;window.location.reload()});
+const clearAnalyticsCookies=()=>{
+ for(const item of document.cookie.split(';')){
+  const name=item.split('=')[0].trim();
+  if(name==='_ga'||name.startsWith('_ga_')){
+   document.cookie=name+'=; Max-Age=0; Path=/; SameSite=Lax';
+   document.cookie=name+'=; Max-Age=0; Path=/; Domain=.redcarpet.hr; SameSite=Lax';
+  }
+ }
+};
+document.getElementById('consent-reject').addEventListener('click',()=>{save('no');clearAnalyticsCookies();panel.hidden=true;window.location.reload()});
 document.getElementById('consent-open').addEventListener('click',()=>panel.hidden=false);
 if(stored()==='yes')enable();else if(stored()===null)panel.hidden=false;
 </script>
