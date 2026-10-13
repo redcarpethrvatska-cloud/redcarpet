@@ -1,8 +1,8 @@
 <div id="consent-panel" class="consent-panel" role="dialog" aria-label="Postavke privatnosti" aria-modal="false" hidden>
   <span class="consent-eyebrow">VAŠA PRIVATNOST</span>
   <h2>Vaš odabir, vaša privatnost.</h2>
-  <p>Koristimo opcionalnu analitiku kako bismo poboljšali stranicu. Uključit ćemo je samo ako to dopustite.</p>
-  <a class="consent-link" href="/privatnost">Informacije o privatnosti <span aria-hidden="true">↗</span></a>
+  <p>Nužne tehnologije omogućuju rad i sigurnost stranice. Opcionalna analitika zasad nije aktivna; vaš odabir vrijedit će za njezinu buduću aktivaciju.</p>
+  <a class="consent-link" href="/kolacici/">Informacije o privatnosti <span aria-hidden="true">↗</span></a>
   <div class="consent-actions">
     <button id="consent-reject" class="consent-button consent-reject" type="button">Odbij</button>
     <button id="consent-accept" class="consent-button consent-accept" type="button">Prihvati</button>
@@ -32,18 +32,8 @@ const panel=document.getElementById('consent-panel');
 const choiceKey='redcarpet_ga_consent';
 const stored=()=>{try{return localStorage.getItem(choiceKey)}catch{return null}};
 const save=(v)=>{try{localStorage.setItem(choiceKey,v)}catch{}};
-const enable=()=>{
- if(document.getElementById('redcarpet-ga'))return;
- const script=document.createElement('script');
- script.id='redcarpet-ga';
- script.async=true;
- script.src='https://www.googletagmanager.com/gtag/js?id=G-1XDT181QDM';
- document.head.appendChild(script);
- window.dataLayer=window.dataLayer||[];
- window.gtag=function(){window.dataLayer.push(arguments)};
- window.gtag('js',new Date());
- window.gtag('config','G-1XDT181QDM');
-};
+// GA4 se ne učitava dok vlasnik ne potvrdi aktivaciju i mjerni ID.
+const enable=()=>{};
 document.getElementById('consent-accept').addEventListener('click',()=>{save('yes');panel.hidden=true;enable()});
 document.getElementById('consent-reject').addEventListener('click',()=>{save('no');panel.hidden=true});
 document.getElementById('consent-open').addEventListener('click',()=>panel.hidden=false);
