@@ -47,6 +47,8 @@ const navItems = [
 
 <style>
 	.site-header {
+		position: relative;
+		z-index: 100;
 		background: var(--white);
 		border-bottom: 1px solid var(--border);
 	}
@@ -102,6 +104,9 @@ const navItems = [
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
 		cursor: pointer;
+		position: relative;
+		z-index: 2;
+		touch-action: manipulation;
 	}
 
 	.nav-toggle__bars,
@@ -214,6 +219,7 @@ const navItems = [
 
 		.site-nav {
 			position: absolute;
+			z-index: 1;
 			top: 100%;
 			left: 0;
 			right: 0;
@@ -227,9 +233,6 @@ const navItems = [
 			box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 		}
 
-		.site-header {
-			position: relative;
-		}
 
 		.site-nav.is-open {
 			display: flex;
@@ -288,6 +291,12 @@ const navItems = [
 
 		document.addEventListener('keydown', (event) => {
 			if (event.key === 'Escape') closeMenu();
+		});
+
+		document.addEventListener('pointerdown', (event) => {
+			if (event.target instanceof Node && !toggle.contains(event.target) && !nav.contains(event.target)) {
+				closeMenu();
+			}
 		});
 
 		const mediaQuery = window.matchMedia('(min-width: 1360px)');
