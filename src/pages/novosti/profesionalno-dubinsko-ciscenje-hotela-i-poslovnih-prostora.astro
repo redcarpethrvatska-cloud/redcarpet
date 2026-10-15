@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+const title = 'Profesionalno dubinsko čišćenje hotela i poslovnih prostora | Red Carpet';
+const description = 'Kako organizirati profesionalno dubinsko čišćenje tepisona i tapeciranog namještaja u hotelima, uredima i konferencijskim centrima? B2B savjeti Red Carpet.';
+const articleLd = {
+ '@context':'https://schema.org','@type':'Article',
+ headline:'Profesionalno dubinsko čišćenje hotela i poslovnih prostora – zašto je redovito održavanje važno?',
+ description, datePublished:'2026-10-15', dateModified:'2026-10-15',
+ author:{'@type':'Organization',name:'Red Carpet'},
+ publisher:{'@type':'Organization',name:'Red Carpet'},
+ mainEntityOfPage:'https://redcarpet.hr/novosti/profesionalno-dubinsko-ciscenje-hotela-i-poslovnih-prostora/'
+};
+---
+<Layout title={title} description={description}>
+ <TopBar/><Header/>
+ <main id="glavni-sadrzaj">
+  <article class="section"><div class="container article">
+   <nav aria-label="Putanja"><a href="/">Početna</a> / Novosti</nav>
+   <span class="eyebrow">Novosti · Red Carpet · 15. listopada 2026.</span>
+   <h1>Profesionalno dubinsko čišćenje hotela i poslovnih prostora – zašto je redovito održavanje važno?</h1>
+   <p class="lead">Hoteli, konferencijski centri i poslovne zgrade svakodnevno koriste velike tekstilne površine. Pravovremeno profesionalno čišćenje pomaže održati uredan izgled prostora, a dobar plan radova smanjuje ometanje poslovanja.</p>
+   <h2>Zašto su tepisoni i tapecirani namještaj posebno zahtjevni?</h2>
+   <p>U hotelskim hodnicima, recepcijama, restoranima i uredima tekstilne površine izložene su intenzivnom prometu, prašini i povremenim mrljama od hrane i pića. Redovito usisavanje važno je za svakodnevno održavanje, ali ne zamjenjuje povremeno stručno dubinsko čišćenje prilagođeno materijalu.</p>
+   <h2>Planiranje čišćenja bez nepotrebnih zastoja</h2>
+   <p>Za veće objekte ključno je unaprijed dogovoriti kvadraturu, broj stolica ili drugih sjedala, pristup prostorijama, raspoložive termine i vrijeme potrebno za sušenje. Radovi se mogu organizirati po zonama, katovima ili izvan uobičajenog radnog vremena, ovisno o dogovoru i uvjetima objekta.</p>
+   <h2>Dubinsko čišćenje i zaštita tekstilnih površina</h2>
+   <p>Osim čišćenja ugrađenih tepisona i većih količina tapeciranog namještaja, za prikladne materijale moguće je razmotriti profesionalnu impregnaciju nakon potpunog sušenja. Zaštita može olakšati kasnije održavanje, ali nije trajna i ne jamči otpornost na sve mrlje.</p>
+   <h2>Primjeri iz prakse Red Carpet</h2>
+   <p>Naši izvedeni B2B projekti obuhvaćaju <a href="/izvedeni-radovi/ciscenje-800-m2-tepisona-upravna-zgrada/">čišćenje približno 800 m² tepisona u upravnoj zgradi</a>, <a href="/izvedeni-radovi/stolice-konferencijski-centar/">čišćenje 550 konferencijskih stolica i podnih površina</a> te <a href="/izvedeni-radovi/stolice-hotelski-restoran/">čišćenje 300 stolica i 30 metara separea u hotelskom restoranu</a>. Svaki objekt zahtijeva zasebnu procjenu i plan izvođenja.</p>
+   <h2>Kada zatražiti ponudu?</h2>
+   <p>Najbolje je planirati radove prije intenzivne turističke ili konferencijske sezone, odnosno kada se na prometnim površinama počnu pojavljivati vidljiva zaprljanja. U upitu je korisno navesti vrstu objekta, približnu površinu, broj komada namještaja i željeni termin.</p>
+   <p><strong>Red Carpet</strong> specijaliziran je za profesionalno B2B čišćenje velikih površina i većih količina namještaja u hotelima, tvrtkama i ustanovama diljem Hrvatske.</p>
+   <p><a class="btn btn-primary" href="/#kontakt">Zatražite poslovnu ponudu</a></p>
+   <p><a href="/savjeti/">Pročitajte i stručne savjete o održavanju tepisona →</a></p>
+  </div></article>
+ </main>
+ <Footer/>
+ <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />
+</Layout>
+<style>
+.article{max-width:880px}.article nav{margin-bottom:1.6rem;font-size:.9rem}.article h1{margin:.6rem 0 1.3rem;line-height:1.2}.article h2{margin:2rem 0 .8rem}.article p{line-height:1.8;margin:1rem 0}.lead{font-size:1.2rem}.article a:not(.btn){color:var(--red)}
+</style>
