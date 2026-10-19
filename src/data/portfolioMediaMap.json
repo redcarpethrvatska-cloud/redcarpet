@@ -590,7 +590,16 @@
   },
   "dubinsko-ciscenje-tepisona-hotelski-restoran": {
     "title": "Dubinsko čišćenje tepisona u hotelskom restoranu",
-    "images": [],
+    "images": [
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepisona-hotelski-restoran/20260418_123648.jpg",
+        "original": "20260418_123648.jpg"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-tepisona-hotelski-restoran/20260418_123645.jpg",
+        "original": "20260418_123645.jpg"
+      }
+    ],
     "videos": []
   },
   "dubinsko-ciscenje-tepisona-poslovna-zgrada-istra": {
