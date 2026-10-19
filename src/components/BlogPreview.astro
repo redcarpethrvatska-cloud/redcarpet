@@ -3,7 +3,10 @@ import MediaPlaceholder from './MediaPlaceholder.astro';
 import { mediaExists } from '../utils/media';
 
 import { advicePosts } from '../data/advicePosts.js';
-const posts = advicePosts.map(post => ({ ...post, src: post.image }));
+const posts = [
+  { title: 'Profesionalno dubinsko čišćenje hotela i poslovnih prostora', src: '/images/red-carpet-dubinsko-ciscenje-tepisona-hotel.webp', href: '/novosti/profesionalno-dubinsko-ciscenje-hotela-i-poslovnih-prostora/', type: 'novost' },
+  ...advicePosts.map(post => ({ ...post, src: post.image, href: '/savjeti/' + post.slug + '/', type: 'savjet' }))
+];
 ---
 
 <section class="section section--light blog-preview" id="blog">
@@ -18,7 +21,7 @@ const posts = advicePosts.map(post => ({ ...post, src: post.image }));
 				posts.map((post) => {
 					const exists = mediaExists(post.src);
 					return (
-						<article class="blog-card"><a class="blog-card__link" href={"/savjeti/"+post.slug+"/"} aria-label={"Pročitaj savjet: "+post.title}>
+						<article class="blog-card"><a class="blog-card__link" href={post.href} aria-label={"Pročitaj " + post.type + ": " + post.title}>
 							<div class="blog-card__media">
 								{exists ? (
 									<img src={post.src} alt={post.title} loading="lazy" decoding="async" width="480" height="320" />
@@ -32,7 +35,7 @@ const posts = advicePosts.map(post => ({ ...post, src: post.image }));
 								)}
 							</div>
 							<h3>{post.title}</h3>
-							<span class="blog-card__badge">Pročitaj savjet →</span>
+							<span class="blog-card__badge">{post.type === "novost" ? "Pročitaj novost →" : "Pročitaj savjet →"}</span>
 						</a></article>
 					);
 				})
