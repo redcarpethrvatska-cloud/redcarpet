@@ -21,5 +21,6 @@ const projects = [
 export const radovi = projects.map(project => ({
  ...project,
  images: mediaMap[project.slug].images.map(image => image.path),
+ imageAlts: mediaMap[project.slug].images.map(image => image.alt || project.title),
  videos: mediaMap[project.slug].videos.map(video => video.path),
 }));
