@@ -3,17 +3,20 @@ import MediaPlaceholder from './MediaPlaceholder.astro';
 import { mediaExists } from '../utils/media';
 
 import { advicePosts } from '../data/advicePosts.js';
-const posts = [
-  { title: 'Profesionalno dubinsko čišćenje hotela i poslovnih prostora', src: '/images/red-carpet-dubinsko-ciscenje-tepisona-hotel.webp', href: '/novosti/profesionalno-dubinsko-ciscenje-hotela-i-poslovnih-prostora/', type: 'novost' },
-  ...advicePosts.map(post => ({ ...post, src: post.image, href: '/savjeti/' + post.slug + '/', type: 'savjet' }))
+// Novosti su poredane od najnovije, a savjeti ostaju dostupni ispod njih.
+const newsPosts = [
+  { title: 'Profesionalno dubinsko čišćenje hotela i poslovnih prostora', src: '/images/red-carpet-dubinsko-ciscenje-tepisona-hotel.webp', href: '/novosti/profesionalno-dubinsko-ciscenje-hotela-i-poslovnih-prostora/', type: 'novost', date: '2026-10-15' },
 ];
+const posts = [
+  ...newsPosts.sort((a, b) => b.date.localeCompare(a.date)),
+  ...advicePosts.map(post => ({ ...post, src: post.image, href: '/savjeti/' + post.slug + '/', type: 'savjet' }))
+].slice(0, 6);
 ---
 
 <section class="section section--light blog-preview" id="blog">
 	<div class="container">
 		<div class="section-heading">
 			<h2>Savjeti i novosti</h2>
-			<p><a href="/novosti/profesionalno-dubinsko-ciscenje-hotela-i-poslovnih-prostora/">Novo: Profesionalno dubinsko čišćenje hotela i poslovnih prostora →</a></p>
 		</div>
 
 		<div class="blog-preview__grid">
