@@ -587,5 +587,20 @@
       "reason": "Previous assignment conflicts with user-confirmed correction on 2026-10-11; preserve for review, do not display."
     },
     "reviewStatus": "Corrected from user identification on 2026-10-11"
+  },
+  "dubinsko-ciscenje-tepisona-hotelski-restoran": {
+    "title": "Dubinsko čišćenje tepisona u hotelskom restoranu",
+    "images": [],
+    "videos": []
+  },
+  "dubinsko-ciscenje-tepisona-poslovna-zgrada-istra": {
+    "title": "Dubinsko i kemijsko čišćenje 400 m² tepisona u poslovnoj zgradi u Istri",
+    "images": [],
+    "videos": []
+  },
+  "dubinsko-ciscenje-tepisona-konferencijske-dvorane-hotel-zagreb": {
+    "title": "Čišćenje oko 500 m² tepisona u konferencijskim dvoranama hotela u Zagrebu",
+    "images": [],
+    "videos": []
   }
 }
