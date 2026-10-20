@@ -7,7 +7,7 @@ import { radovi } from '../../data/izvedeniRadovi.js';
 export function getStaticPaths(){return radovi.map(rad=>({params:{slug:rad.slug},props:{rad}}))}
 const {rad}=Astro.props;
 ---
-<Layout noindex={true} title={rad.title+' | Red Carpet'} description={rad.summary}>
+<Layout title={rad.title+' | Red Carpet'} description={rad.summary}>
 <TopBar/><Header/>
 <main id="glavni-sadrzaj">
  <article class="section"><div class="container article">
