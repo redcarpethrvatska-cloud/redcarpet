@@ -10,6 +10,23 @@ export function getStaticPaths() {
 }
 
 const { rad } = Astro.props;
+const projectUrl = `https://redcarpet.hr/izvedeni-radovi/${rad.slug}/`;
+const isChair = /stolice|separe|fotelje|tapeciran|tapaciran/i.test([rad.slug, rad.h1, rad.category].join(' '));
+const isImpregnation = /impregnacij/i.test([rad.slug, rad.h1].join(' '));
+const relevantService = isImpregnation
+  ? { url: '/impregnacija-tekstila/', label: 'Impregnacija i zaštita tekstila' }
+  : isChair
+    ? { url: '/ciscenje-tapeciranih-stolica/', label: 'Dubinsko čišćenje tapeciranih stolica' }
+    : { url: '/dubinsko-ciscenje-tepisona/', label: 'Dubinsko čišćenje tepisona za poslovne objekte' };
+const breadcrumbSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Početna', item: 'https://redcarpet.hr/' },
+  { '@type': 'ListItem', position: 2, name: 'Izvedeni radovi', item: 'https://redcarpet.hr/izvedeni-radovi/' },
+  { '@type': 'ListItem', position: 3, name: rad.h1, item: projectUrl }
+ ]
+};
 
 const relatedOverrides = {
 	'dubinsko-ciscenje-tepisona-poslovna-zgrada-istra': ['ciscenje-800-m2-tepisona-upravna-zgrada'],
@@ -27,6 +44,7 @@ const relatedProjects = [...preferredProjects, ...categoryProjects]
 ---
 
 <Layout title={rad.seoTitle} description={rad.metaDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	<TopBar />
 	<Header />
 	<main id="glavni-sadrzaj">
@@ -115,6 +133,7 @@ const relatedProjects = [...preferredProjects, ...categoryProjects]
 
 				<nav class="project-links" aria-label="Korisne poveznice">
 					<a href="/izvedeni-radovi/">Svi izvedeni radovi</a>
+					<a href={relevantService.url}>{relevantService.label}</a>
 					<a href="/dubinsko-ciscenje-tepisona/">Dubinsko čišćenje tepisona</a>
 					<a href="/#kontakt">Kontakt</a>
 				</nav>
