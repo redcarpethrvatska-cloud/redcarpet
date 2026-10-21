@@ -101,6 +101,27 @@ const socialLinks = [
 				</div>
 			</div>
 
+
+            <div class="form-row form-row--split">
+              <div>
+                <label for="objectType">Vrsta poslovnog objekta *</label>
+                <select id="objectType" name="objectType" required>
+                  <option value="">Odaberite objekt</option>
+                  <option>Hotel ili resort</option><option>Poslovna zgrada ili ured</option>
+                  <option>Restoran ili konferencijski centar</option><option>Ustanova</option>
+                  <option>Ostali poslovni objekti</option>
+                </select>
+              </div>
+              <div>
+                <label for="area">Približna površina (m²) ili broj komada *</label>
+                <input id="area" name="area" type="text" maxlength="80" placeholder="npr. 400 m² ili 250 stolica" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="preferredDate">Željeni termin radova (neobavezno)</label>
+              <input id="preferredDate" name="preferredDate" type="text" maxlength="120" placeholder="npr. studeni 2026., vikendom" />
+            </div>
+
 			<div class="form-row">
 				<label for="message">Kratka poruka</label>
 				<textarea id="message" name="message" rows="4" maxlength="3000" required></textarea>
@@ -228,6 +249,7 @@ const socialLinks = [
 	input[type='text'],
 	input[type='tel'],
 	input[type='email'],
+    select,
 	textarea {
 		width: 100%;
 		padding: 0.7rem 0.85rem;
@@ -376,8 +398,11 @@ const socialLinks = [
 	        const company = document.getElementById('company').value.trim();
         const city = document.getElementById('city').value.trim();
         const message = document.getElementById('message').value.trim();
-        if (!company || !city || !message) {
-          status.textContent = 'Tvrtka, grad i opis posla su obvezni.';
+        const objectType = document.getElementById('objectType').value.trim();
+        const area = document.getElementById('area').value.trim();
+        const preferredDate = document.getElementById('preferredDate').value.trim();
+        if (!company || !city || !message || !objectType || !area) {
+          status.textContent = 'Tvrtka, lokacija, vrsta objekta, opseg i opis posla su obvezni.';
           status.setAttribute('data-state', 'error');
           return;
         }
@@ -396,7 +421,7 @@ const socialLinks = [
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               fullName: fullName.value.trim(), company, city, phone: phone.value.trim(),
-              email: email.value.trim(), message, gdpr: gdpr.checked,
+              email: email.value.trim(), message, objectType, area, preferredDate, gdpr: gdpr.checked,
               website: document.getElementById('website').value,
               turnstileToken: token
             })
