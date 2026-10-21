@@ -429,9 +429,14 @@ const socialLinks = [
           const result = await response.json();
           if (!response.ok || !result.ok) throw new Error(result.error || 'Slanje nije uspjelo.');
           status.textContent = 'Upit je uspješno poslan.';
-          if (typeof window.gtag === 'function' && localStorage.getItem('redcarpet_measurement_consent_v2') === 'yes') {
-            window.gtag('event', 'generate_lead', { lead_type: 'b2b_inquiry' });
-            window.gtag('event', 'conversion', { send_to: 'AW-16646811418/VIYACJ35-aQdEJre6IE-' });
+          // Tracking must never interfere with a successfully delivered inquiry.
+          try {
+            if (typeof window.gtag === 'function' && localStorage.getItem('redcarpet_measurement_consent_v2') === 'yes') {
+              window.gtag('event', 'generate_lead', { lead_type: 'b2b_inquiry' });
+              window.gtag('event', 'conversion', { send_to: 'AW-16646811418/VIYACJ35-aQdEJre6IE-' });
+            }
+          } catch (_) {
+            // Analytics may be blocked by browser privacy settings.
           }
           status.setAttribute('data-state', 'success');
           form.reset();
