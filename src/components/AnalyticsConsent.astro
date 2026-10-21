@@ -8,7 +8,6 @@
     <button id="consent-accept" class="consent-button consent-accept" type="button">Prihvati</button>
   </div>
 </div>
-<button id="consent-open" class="consent-open" type="button" aria-controls="consent-panel">Postavke kolačića</button>
 <style>
 .consent-panel[hidden]{display:none!important}
 .consent-panel{position:fixed;left:24px;bottom:24px;z-index:9999;box-sizing:border-box;width:min(440px,calc(100vw - 32px));padding:26px;background:#fff;border:1px solid #e8e8e8;border-radius:16px;box-shadow:0 22px 70px rgba(0,0,0,.2);color:#171717}
@@ -23,9 +22,7 @@
 .consent-reject:hover{background:#ededed}
 .consent-accept{border:1px solid #e31e24;color:#fff;background:#e31e24}
 .consent-accept:hover{background:#c81920}
-.consent-open{position:fixed;right:13px;bottom:13px;z-index:9998;background:#fff;color:#262626;border:1px solid #dcdcdc;border-radius:999px;box-shadow:0 5px 18px rgba(0,0,0,.12);padding:8px 13px;font-size:.75rem;font-weight:700;cursor:pointer}
-.consent-open:hover{background:#f2f2f2}
-@media(max-width:600px){.consent-panel{left:12px;bottom:12px;width:calc(100vw - 24px);padding:21px;border-radius:13px}.consent-open{right:12px;bottom:12px}}
+@media(max-width:600px){.consent-panel{left:12px;bottom:12px;width:calc(100vw - 24px);padding:21px;border-radius:13px}}
 </style>
 <script>
 const panel=document.getElementById('consent-panel');
