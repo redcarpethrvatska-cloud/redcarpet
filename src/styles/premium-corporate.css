@@ -149,11 +149,6 @@ main > .section--light:last-child:has(.rc-outro, .content > .btn) {
     flex: 0 0 48px;
     pointer-events: auto;
   }
-  #consent-open {
-    right: calc(12px + env(safe-area-inset-right, 0px)) !important;
-    bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
-    left: auto !important;
-  }
   body:has(#consent-panel:not([hidden])) .floating-contact {
     visibility: hidden !important;
     pointer-events: none !important;
