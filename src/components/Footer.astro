@@ -56,6 +56,7 @@ const currentYear = new Date().getFullYear();
 					))
 				}
 			</ul>
+			<button type="button" id="consent-open" class="site-footer__consent" aria-controls="consent-panel">Postavke kolačića</button>
 		</div>
 	</div>
 
@@ -104,6 +105,9 @@ const currentYear = new Date().getFullYear();
 	.site-footer__col a:hover {
 		color: var(--white);
 	}
+
+	.site-footer__consent { margin-top: 1rem; padding: .35rem 0; background: transparent; color: #dedee0; border: 0; border-bottom: 1px solid var(--red); font: inherit; font-size: .87rem; cursor: pointer; text-align: left; }
+	.site-footer__consent:hover, .site-footer__consent:focus-visible { color: #fff; }
 
 	.site-footer__legal {
 		color: #8a8a8a;
