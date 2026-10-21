@@ -1,61 +1,87 @@
-/* Red Carpet Premium Corporate — visual-only layer. No copy, SEO or media changes. */
-:root{--red:#d8af68;--red-dark:#bc914a;--black:#071c2e;--dark:#102b42;--gray:#526173;--light-gray:#f4f6f8;--border:#dce3e9;--white:#fff;--radius:10px;--container-width:1280px;--section-padding-y:5rem}
-body{background:#fff;color:#102439}
-h1,h2,h3,.brand__name{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.025em}
-h1,h2{font-weight:700}
-.section-heading{max-width:900px}
-.section-heading h2{color:#102439}
-.eyebrow{color:#a47734}
-.btn{border-radius:5px;min-height:46px;transition:transform .2s,background-color .2s,border-color .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:#e4ba75;border-color:#e4ba75;color:#081b2d;box-shadow:0 4px 16px #081b2d18}
-.btn-primary:hover{background:#f0cb8e;border-color:#f0cb8e;color:#081b2d}
-.btn-outline-dark{border-color:#102439;color:#102439}
-.btn-outline-dark:hover{background:#102439;color:#fff}
-.section--dark{background:#071c2e}
-.section--dark p{color:#d4dce4}
-.topbar{background:#061625!important;color:#d8e0e9!important}
-.site-header{background:#071c2e!important;border-bottom:1px solid #ffffff24!important;box-shadow:0 8px 24px #06162520}
-.site-header__inner{padding-block:1.1rem!important}
-.brand,.site-nav__list a{color:#fff!important}
-.brand__name{font-weight:600!important;letter-spacing:.01em!important}
-.brand__tagline{color:#d8af68!important;letter-spacing:.11em!important}
-.site-nav__list a{font-size:.91rem!important}
-.site-nav__list a:hover{border-color:#d8af68!important;color:#e8c58b!important}
-.nav-toggle{border-color:#d8af68!important}
-.nav-toggle__bars,.nav-toggle__bars::before,.nav-toggle__bars::after{background:#fff!important}
-.nav-toggle[aria-expanded='true'] .nav-toggle__bars{background:transparent!important}
-.hero{min-height:660px!important;background:#071c2e}
-.hero__overlay{background:linear-gradient(90deg,#061a2ff5 0%,#061a2fe6 34%,#061a2f8c 65%,#061a2f2a 100%)!important}
-.hero__content{max-width:1280px!important;padding-block:5.5rem!important}
-.hero h1{max-width:720px;font-size:clamp(2.35rem,4.3vw,4.6rem)!important;line-height:1.09!important;font-weight:700}
-.hero__subtitle{color:#e5eaf0!important;max-width:640px}
-.hero__highlights li{color:#fff!important}
-.marker-list .marker{background:#d8af68}
-.hero .btn-outline{border-color:#dce5ee;color:#fff}
-.services{background:#fff}
-.services__grid{gap:1.35rem!important}
-.service-card{background:#f5f7f9;border:1px solid #e6ebef;border-radius:9px;overflow:hidden;gap:.7rem!important;padding-bottom:1.25rem;box-shadow:0 9px 30px #071c2e0b;transition:transform .2s,box-shadow .2s}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 15px 36px #071c2e18}
-.service-card__media{border-radius:0!important}
-.service-card__media img{aspect-ratio:1.6!important}
-.service-card h3,.service-card p,.service-card__cta{margin-left:1.1rem;margin-right:1.1rem}
-.service-card h3{font-size:1.25rem;color:#102439!important}
-.service-card p{font-size:.94rem}
-.service-card__cta{align-self:flex-start!important;background:transparent!important;border:0!important;color:#9b6e2c!important;padding:.3rem 0!important;min-height:0}
-.equipment{background:#f1f4f7!important;border-radius:12px!important}
-.portfolio{background:#071c2e!important;color:#fff}
-.portfolio .section-heading h2{color:#fff}
-.portfolio .section-heading p{color:#d4dce4}
-.portfolio__card{background:#102b42!important;border:1px solid #ffffff28!important;box-shadow:0 8px 30px #0003!important}
-.portfolio__body h3{color:#fff}
-.portfolio__body p{color:#dce4ec}
-.portfolio__type{color:#e4ba75!important}
-.portfolio__sample{color:#e4ba75!important}
-.portfolio__card img{height:240px!important}
-.portfolio__card:hover{transform:translateY(-3px);transition:transform .2s}
-#kontakt{scroll-margin-top:2rem}
-input,textarea,select{border-radius:6px}
-@media(max-width:1359px){.site-nav{background:#071c2e!important;border-color:#ffffff33!important}.site-nav__list a{border-color:#ffffff25!important}}
-@media(max-width:640px){:root{--section-padding-y:3.3rem}.site-header__inner{padding-block:.8rem!important}.hero{min-height:610px!important}.hero__content{padding-block:3.5rem!important}.hero h1{font-size:clamp(2.05rem,8vw,3rem)!important}.hero__overlay{background:linear-gradient(180deg,#061a2f65 0%,#061a2fe9 45%,#061a2ff7 100%)!important}.hero__media img{object-position:center!important}.service-card__media img{aspect-ratio:1.7!important}.portfolio__card img{height:210px!important}}
-@media(prefers-reduced-motion:reduce){.btn:hover,.service-card:hover,.portfolio__card:hover{transform:none}}
+/* Red Carpet — crno/bijelo/crveni B2B vizual, bez izmjene sadržaja. */
+:root {
+  --red: #e31e24;
+  --red-dark: #b9151a;
+  --black: #111114;
+  --dark: #19191d;
+  --gray: #62636a;
+  --light-gray: #f4f4f5;
+  --border: #dedee2;
+  --white: #fff;
+  --surface: #fff;
+  --surface-soft: #f5f5f6;
+  --surface-dark: #101012;
+  --radius: 12px;
+  --container-width: 1280px;
+  --section-padding-y: 4.5rem;
+  --shadow-hover: 0 20px 45px rgba(0,0,0,.18);
+}
+body { background: #fff; color: #17171a; }
+h1,h2,h3,.brand__name { font-family: var(--font-sans); letter-spacing: -.03em; }
+h1,h2 { font-weight: 850; }
+.eyebrow { color: var(--red); }
+.section-heading h2 { color: inherit; }
+.section--dark { background: #111114; color: #fff; }
+.section--dark p { color: #d1d1d5; }
+.section--light { background: #f5f5f6; }
+.btn { border-radius: 999px; min-height: 46px; transition: transform .3s ease, background-color .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.btn-primary { background: var(--red); border-color: var(--red); color: #fff; }
+.btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); color: #fff; box-shadow: 0 10px 25px rgba(227,30,36,.24); }
+.btn-outline-dark { border-color: #17171a; color: #17171a; }
+.btn-outline-dark:hover { background: #17171a; color: #fff; }
+.topbar { background: #050506 !important; color: #e8e8eb !important; }
+.site-header { background: #101012 !important; border-bottom: 1px solid rgba(255,255,255,.12) !important; box-shadow: none; }
+.site-header__inner { padding-block: .6rem !important; }
+.brand, .site-nav__list a { color: #f2f2f4 !important; }
+.brand__name { font-weight: 900 !important; letter-spacing: -.045em !important; }
+.brand__tagline, .brand__name span { color: var(--red) !important; }
+.site-nav__list a { transition: color .36s ease, text-shadow .36s ease !important; }
+.site-nav__list a::after { background: var(--red) !important; transition: right .36s cubic-bezier(.22,1,.36,1) !important; }
+.site-nav__list a:hover, .site-nav__list a:focus-visible { color: #fff !important; text-shadow: 0 0 12px rgba(255,255,255,.3); }
+.site-nav__list a:hover::after, .site-nav__list a:focus-visible::after { right: 0; }
+.header-contact { transition: transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease,background-color .3s ease !important; }
+.header-contact:hover { transform: translateY(-3px) scale(1.025); }
+.header-contact--whatsapp { color: #5be58a !important; background: rgba(37,211,102,.13) !important; }
+.header-contact--whatsapp:hover { background: rgba(37,211,102,.22) !important; box-shadow: 0 8px 24px rgba(37,211,102,.12); }
+.header-contact--call { color: #fff !important; background: var(--red) !important; }
+.header-contact--call:hover { background: var(--red-dark) !important; box-shadow: 0 8px 24px rgba(227,30,36,.25); }
+.hero { background: #101012; }
+.hero__overlay { background: linear-gradient(90deg,rgba(6,6,8,.94),rgba(8,8,10,.8) 42%,rgba(8,8,10,.18)) !important; }
+.hero h1 { font-family: var(--font-sans); font-weight: 850; letter-spacing: -.035em; }
+.hero__subtitle { color: #e4e4e7 !important; }
+.hero__highlights li { color: #fff !important; }
+.marker-list .marker { background: var(--red); }
+.services { background: #fff; }
+.service-card { background: #f7f7f8; border: 1px solid #e6e6e8; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,.055); }
+.service-card:hover { box-shadow: var(--shadow-hover); }
+.service-card h3 { color: #17171a !important; }
+.service-card__cta { color: var(--red) !important; }
+.portfolio { background: #101012 !important; color: #fff; }
+.portfolio .section-heading h2 { color: #fff; }
+.portfolio .section-heading p { color: #d1d1d5; }
+.portfolio__card { background: #1c1c20 !important; border: 1px solid rgba(255,255,255,.13) !important; box-shadow: 0 8px 30px rgba(0,0,0,.25) !important; }
+.portfolio__body h3 { color: #fff; }
+.portfolio__body p { color: #d9d9de; }
+.portfolio__type, .portfolio__sample { color: #ff565c !important; }
+.portfolio__card:hover { border-color: rgba(227,30,36,.65) !important; }
+.equipment { background: #f2f2f4 !important; }
+:where(.service-card,.industry-card,.why-us__card,.portfolio__card,.blog-card,.rc-tile,.tiles article,.advice-grid article) {
+  transition: transform .36s cubic-bezier(.22,1,.36,1),box-shadow .36s ease,border-color .36s ease;
+}
+:where(.service-card,.industry-card,.why-us__card,.portfolio__card,.blog-card,.rc-tile,.tiles article,.advice-grid article):hover {
+  transform: translateY(-5px);
+}
+input,textarea,select { border-radius: 8px; }
+#kontakt { scroll-margin-top: 2rem; }
+@media(max-width: 1359px) {
+  .site-nav { background: #101012 !important; border-color: rgba(255,255,255,.15) !important; }
+  .site-nav__list a { border-color: rgba(255,255,255,.12) !important; }
+}
+@media(max-width: 640px) {
+  :root { --section-padding-y: 3.2rem; }
+  .hero__overlay { background: linear-gradient(180deg,rgba(6,6,8,.4),rgba(6,6,8,.92) 56%,#101012) !important; }
+  .hero h1 { font-size: clamp(2.05rem,8vw,3.1rem) !important; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .btn:hover,.header-contact:hover,:where(.service-card,.industry-card,.why-us__card,.portfolio__card,.blog-card,.rc-tile,.tiles article,.advice-grid article):hover { transform: none; }
+}
