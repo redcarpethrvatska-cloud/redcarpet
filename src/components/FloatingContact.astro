@@ -18,4 +18,12 @@
 		.floating-contact { bottom: 0.85rem; right: 0.85rem; gap: 0.5rem; }
 		.floating-contact__link { width: 48px; height: 48px; }
 	}
+/* Keep both mobile contact actions tappable without covering cookie settings. */
+@media (max-width: 640px) {
+  .floating-contact { left: max(12px, env(safe-area-inset-left)); right: auto; bottom: calc(16px + env(safe-area-inset-bottom)); gap: 10px; z-index: 1000; }
+  .floating-contact__link { width: 52px; height: 52px; }
+  .floating-contact__link:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  body:has(#consent-panel:not([hidden])) .floating-contact { visibility: hidden; pointer-events: none; }
+}
+@media (max-width: 380px) { .floating-contact__link { width: 46px; height: 46px; } }
 </style>

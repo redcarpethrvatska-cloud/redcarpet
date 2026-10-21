@@ -85,3 +85,45 @@ input,textarea,select { border-radius: 8px; }
 @media(prefers-reduced-motion: reduce) {
   .btn:hover,.header-contact:hover,:where(.service-card,.industry-card,.why-us__card,.portfolio__card,.blog-card,.rc-tile,.tiles article,.advice-grid article):hover { transform: none; }
 }
+
+
+/* Shared page template: match homepage typography, contrast and B2B CTAs. */
+main > .section--light:first-child:has(.intro, .rc-intro) {
+  background: radial-gradient(ellipse at 85% 70%, rgba(227,30,36,.14), transparent 45%), #101012;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+main > .section--light:first-child:has(.intro, .rc-intro) h1 {
+  max-width: 970px;
+  color: #fff;
+  font-size: clamp(2.2rem,4.8vw,4.5rem);
+  line-height: 1.1;
+}
+main > .section--light:first-child:has(.intro, .rc-intro) p {
+  color: #d9d9df;
+  max-width: 790px;
+}
+main > .section--light:first-child:has(.intro, .rc-intro) .rc-back { color: #f3f3f5; }
+main > .section--light:first-child:has(.intro, .rc-intro) .eyebrow { color: #ff555c; }
+main > .section--light:first-child:has(.intro, .rc-intro) .btn { margin-top: .35rem; }
+main .content, main .rc-outro { line-height: 1.7; }
+main .content h2 { letter-spacing: -.025em; }
+main .service-figure img { border-radius: 14px; }
+main :is(.tiles article,.rc-tile) {
+  background: #fff;
+  border: 1px solid #e3e3e6;
+  border-top: 3px solid var(--red);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.045);
+}
+main :is(.tiles article,.rc-tile):hover {
+  border-color: rgba(227,30,36,.32);
+  box-shadow: 0 16px 35px rgba(0,0,0,.1);
+}
+main > .section--light:last-child:has(.rc-outro, .content > .btn) {
+  background: #f3f3f5;
+}
+@media(max-width:640px){
+  main > .section--light:first-child:has(.intro, .rc-intro) h1 { font-size: clamp(2rem,9vw,3rem); }
+  main > .section--light:first-child:has(.intro, .rc-intro) { padding-block: 3rem; }
+}
