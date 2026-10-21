@@ -4,27 +4,168 @@ import TopBar from '../../components/TopBar.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { radovi } from '../../data/izvedeniRadovi.js';
-export function getStaticPaths(){return radovi.map(rad=>({params:{slug:rad.slug},props:{rad}}))}
-const {rad}=Astro.props;
+
+export function getStaticPaths() {
+	return radovi.map((rad) => ({ params: { slug: rad.slug }, props: { rad } }));
+}
+
+const { rad } = Astro.props;
+
+const relatedOverrides = {
+	'dubinsko-ciscenje-tepisona-poslovna-zgrada-istra': ['ciscenje-800-m2-tepisona-upravna-zgrada'],
+	'ciscenje-800-m2-tepisona-upravna-zgrada': ['dubinsko-ciscenje-tepisona-poslovna-zgrada-istra'],
+	'dubinsko-ciscenje-tepisona-konferencijske-dvorane-hotel-zagreb': ['stolice-konferencijski-centar', 'impregnacija-550-stolica-konferencijska-dvorana'],
+	'stolice-konferencijski-centar': ['dubinsko-ciscenje-tepisona-konferencijske-dvorane-hotel-zagreb', 'ciscenje-konferencijske-dvorane-hodnika-stepenista'],
+};
+
+const preferredSlugs = relatedOverrides[rad.slug] || [];
+const preferredProjects = preferredSlugs.map((slug) => radovi.find((item) => item.slug === slug)).filter(Boolean);
+const categoryProjects = radovi.filter((item) => item.slug !== rad.slug && item.category === rad.category);
+const relatedProjects = [...preferredProjects, ...categoryProjects]
+	.filter((item, index, items) => items.findIndex((candidate) => candidate.slug === item.slug) === index)
+	.slice(0, 3);
 ---
-<Layout title={rad.title+' | Red Carpet'} description={rad.summary}>
-<TopBar/><Header/>
-<main id="glavni-sadrzaj">
- <article class="section"><div class="container article">
-  <p class="article__back"><a href="/izvedeni-radovi/">← Svi primjeri radova</a></p>
-  <span class="eyebrow">{rad.category} · izvedeni rad</span>
-  <h1>{rad.title}</h1>
-  <p class="lead">{rad.summary}</p>
-  {rad.images.length > 0 && <figure><a class="gallery__link" href={rad.images[0]} target="_blank" rel="noopener" aria-label="Otvori naslovnu fotografiju u punoj veličini"><img class="hero-img" src={rad.images[0]} alt={rad.imageAlts[0]} width="1200" height="680" loading="eager" fetchpriority="high" decoding="async"/></a><figcaption>Fotografija izvedenih radova Red Carpet</figcaption></figure>}
-  <h2>Opis posla</h2><p>{rad.description}</p>
-  <h2>Opseg izvedenih radova</h2>
-  <ol>{rad.steps.map(step=><li>{step}</li>)}</ol>
-  {rad.images.length > 0 && <><h2>Fotografije radova</h2><div class="gallery">{rad.images.map((src,i)=><figure><a class="gallery__link" href={src} target="_blank" rel="noopener" aria-label={`Otvori fotografiju ${i+1} u punoj veličini`}><img src={src} alt={rad.imageAlts[i]} loading="lazy" decoding="async" width="800" height="520"/></a></figure>)}</div></>}
-  {rad.videos.length > 0 && <><h2>Videozapisi izvedbe</h2>{rad.videos.map((src,i) => <figure><video controls muted playsinline preload="metadata" poster={rad.images[0]} aria-label={rad.title + " – video " + (i+1)}><source src={src} type="video/mp4"/></video><figcaption>Video izvedbe {i+1}</figcaption></figure>)}</>}
-  <a class="btn btn-primary" href="/#kontakt">Zatražite B2B ponudu</a>
- </div></article>
-</main><Footer/>
+
+<Layout title={rad.seoTitle} description={rad.metaDescription}>
+	<TopBar />
+	<Header />
+	<main id="glavni-sadrzaj">
+		<article class="section project-article">
+			<div class="container article">
+				<nav class="breadcrumb" aria-label="Putanja stranice">
+					<a href="/">Početna</a><span aria-hidden="true">/</span><a href="/izvedeni-radovi/">Izvedeni radovi</a>
+				</nav>
+				<span class="eyebrow">{rad.category} · izvedeni rad</span>
+				<h1>{rad.h1}</h1>
+				<p class="lead">{rad.intro}</p>
+
+				{rad.images.length > 0 && (
+					<figure class="project-hero">
+						<a class="gallery__link" href={rad.images[0]} target="_blank" rel="noopener" aria-label="Otvori naslovnu fotografiju u punoj veličini">
+							<img class="hero-img" src={rad.images[0]} alt={rad.imageAlts[0]} width="1200" height="680" loading="eager" fetchpriority="high" decoding="async" />
+						</a>
+						<figcaption>Fotografija stvarno izvedenih radova Red Carpet</figcaption>
+					</figure>
+				)}
+
+				<section class="content-section">
+					<h2>Opseg radova i posebnosti</h2>
+					<p>{rad.scope}</p>
+					<ul class="scope-list">
+						{rad.steps.map((step) => <li>{step}</li>)}
+					</ul>
+				</section>
+
+				<section class="content-section planning">
+					<h2>Kako planirati sličan projekt</h2>
+					<p>{rad.planning}</p>
+				</section>
+
+				{rad.images.length > 0 && (
+					<section class="content-section">
+						<h2>Fotografije radova</h2>
+						<div class="gallery">
+							{rad.images.map((src, i) => (
+								<figure>
+									<a class="gallery__link" href={src} target="_blank" rel="noopener" aria-label={`Otvori fotografiju ${i + 1} u punoj veličini`}>
+										<img src={src} alt={rad.imageAlts[i]} loading="lazy" decoding="async" width="800" height="520" />
+									</a>
+								</figure>
+							))}
+						</div>
+					</section>
+				)}
+
+				{rad.videos.length > 0 && (
+					<section class="content-section">
+						<h2>Videozapisi izvedbe</h2>
+						<p>Videozapisi prikazuju stvarni tijek rada na ovom projektu.</p>
+						{rad.videos.map((src, i) => (
+							<figure>
+								<video controls muted playsinline preload="metadata" poster={rad.images[0]} aria-label={`${rad.h1} – video ${i + 1}`}>
+									<source src={src} type="video/mp4" />
+								</video>
+								<figcaption>Video izvedbe {i + 1}</figcaption>
+							</figure>
+						))}
+					</section>
+				)}
+
+				{relatedProjects.length > 0 && (
+					<section class="content-section related">
+						<h2>Slični izvedeni radovi</h2>
+						<div class="related__grid">
+							{relatedProjects.map((project) => (
+								<a href={`/izvedeni-radovi/${project.slug}/`}>
+									<span>{project.category}</span>
+									<strong>{project.h1}</strong>
+								</a>
+							))}
+						</div>
+					</section>
+				)}
+
+				<aside class="project-cta">
+					<div>
+						<h2>Trebate čišćenje većeg poslovnog prostora?</h2>
+						<p>Pošaljite lokaciju, okvirnu kvadraturu ili broj komada namještaja za individualnu B2B ponudu.</p>
+					</div>
+					<a class="btn btn-primary" href="/#kontakt">Zatražite individualnu B2B ponudu</a>
+				</aside>
+
+				<nav class="project-links" aria-label="Korisne poveznice">
+					<a href="/izvedeni-radovi/">Svi izvedeni radovi</a>
+					<a href="/dubinsko-ciscenje-tepisona/">Dubinsko čišćenje tepisona</a>
+					<a href="/#kontakt">Kontakt</a>
+				</nav>
+			</div>
+		</article>
+	</main>
+	<Footer />
 </Layout>
+
 <style>
-.article{max-width:920px}.article h1{max-width:820px;margin:.3rem 0 1rem}.article h2{margin:2rem 0 1rem}.article p{line-height:1.7}.article__back{margin-bottom:1.5rem}.lead{font-size:1.2rem;margin-bottom:1.8rem}.article figure{margin:1.5rem 0}.article img{display:block;width:100%;object-fit:cover;border-radius:8px}.hero-img{max-height:480px}.article figcaption{font-size:.83rem;color:#666;margin-top:.5rem}.article ol{list-style:decimal;padding-left:1.5rem}.article li{margin:.65rem 0}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}.gallery__link{display:block;border-radius:8px}.gallery__link:focus-visible{outline:3px solid #e31e24;outline-offset:4px}.gallery img{aspect-ratio:3/2}.notice{background:#f5f5f5;border-left:3px solid #e31e24;padding:1rem;margin:1.5rem 0}.article video{display:block;width:100%;max-height:480px;aspect-ratio:16/9;object-fit:contain;background:#111}.gallery figure{content-visibility:auto;contain-intrinsic-size:auto 320px}@media(max-width:650px){.gallery{grid-template-columns:1fr}}
+	.project-article { background: linear-gradient(180deg, #f5f5f6 0, #fff 24rem); }
+	.article { max-width: 960px; }
+	.breadcrumb { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.5rem; color: var(--gray); font-size: 0.86rem; }
+	.breadcrumb a { text-decoration: none; }
+	.breadcrumb a:hover { color: var(--red); }
+	.article h1 { max-width: 880px; margin: 0.3rem 0 1.2rem; font-size: clamp(2.2rem, 4vw, 3.6rem); }
+	.article h2 { margin: 0 0 1rem; }
+	.article p { line-height: 1.75; }
+	.lead { max-width: 850px; margin-bottom: 2rem; font-size: clamp(1.08rem, 1.6vw, 1.25rem); color: #454545; }
+	.project-hero { margin: 2rem 0 3rem; }
+	.article img { display: block; width: 100%; object-fit: cover; border-radius: 12px; }
+	.hero-img { max-height: 520px; }
+	.article figcaption { margin-top: 0.5rem; color: #666; font-size: 0.83rem; }
+	.content-section { margin-top: 3.25rem; }
+	.scope-list { display: grid; gap: 0.7rem; margin-top: 1.4rem; }
+	.scope-list li { position: relative; padding-left: 1.8rem; color: #333; }
+	.scope-list li::before { content: '✓'; position: absolute; left: 0; color: var(--red); font-weight: 900; }
+	.planning { padding: 1.8rem 2rem; border-left: 4px solid var(--red); border-radius: 0 12px 12px 0; background: var(--light-gray); }
+	.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+	.gallery figure { margin: 0; content-visibility: auto; contain-intrinsic-size: auto 320px; }
+	.gallery__link { display: block; border-radius: 12px; }
+	.gallery__link:focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
+	.gallery img { aspect-ratio: 3/2; transition: transform 0.25s ease; }
+	.gallery__link:hover img { transform: scale(1.015); }
+	.article video { display: block; width: 100%; max-height: 520px; margin-top: 1.25rem; aspect-ratio: 16/9; object-fit: contain; background: #111; border-radius: 12px; }
+	.related__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+	.related__grid a { display: flex; flex-direction: column; gap: 0.45rem; padding: 1.25rem; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; transition: transform 0.2s ease, border-color 0.2s ease; }
+	.related__grid a:hover { transform: translateY(-3px); border-color: var(--red); }
+	.related__grid span { color: var(--red); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+	.related__grid strong { line-height: 1.35; }
+	.project-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 3.5rem; padding: 2rem; border-radius: 14px; background: #111; color: #fff; }
+	.project-cta h2 { margin-bottom: 0.6rem; font-size: 1.55rem; }
+	.project-cta p { max-width: 580px; color: #c8c8c8; }
+	.project-cta .btn { flex: none; }
+	.project-links { display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; margin-top: 1.5rem; font-weight: 700; }
+	.project-links a { color: var(--red); }
+
+	@media (max-width: 760px) {
+		.gallery, .related__grid { grid-template-columns: 1fr; }
+		.project-cta { flex-direction: column; align-items: flex-start; }
+		.project-cta .btn { width: 100%; }
+		.planning { padding: 1.4rem; }
+	}
 </style>

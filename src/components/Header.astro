@@ -12,256 +12,88 @@ const navItems = [
 <header class="site-header">
 	<div class="container site-header__inner">
 		<a href="/" class="brand" aria-label="Red Carpet — početna stranica">
-			<span class="brand__name">RED CARPET</span>
+			<span class="brand__name"><span>RED</span> CARPET</span>
 			<span class="brand__tagline">PROFESSIONAL CHEMICAL CLEANING</span>
 		</a>
 
-		<button
-			type="button"
-			class="nav-toggle"
-			id="nav-toggle"
-			aria-expanded="false"
-			aria-controls="primary-navigation"
-		>
+		<button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">
 			<span class="visually-hidden">Otvori izbornik</span>
 			<span class="nav-toggle__bars" aria-hidden="true"></span>
 		</button>
 
 		<nav class="site-nav" id="primary-navigation" aria-label="Glavna navigacija">
 			<ul class="site-nav__list">
-				{
-					navItems.map((item) => (
-						<li>
-							<a href={item.href}>{item.label}</a>
-						</li>
-					))
-				}
+				{navItems.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
 			</ul>
 
 			<div class="site-nav__actions">
-				<a href="/#kontakt" class="btn btn-primary">Zatražite ponudu</a>
+				<a
+					href="https://wa.me/385913393333?text=Pozdrav%2C%20zanima%20nas%20ponuda%20za%20dubinsko%20%C4%8Di%C5%A1%C4%87enje%20poslovnog%20objekta."
+					class="header-contact header-contact--whatsapp"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Pošaljite Red Carpetu WhatsApp poruku"
+				>
+					<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 3.5A11.5 11.5 0 0 0 2.7 17.4L1 23l5.8-1.5a11.5 11.5 0 0 0 13.7-18ZM12 21a9 9 0 0 1-4.6-1.2l-.3-.2-3.3.8.9-3.2-.2-.3A9 9 0 1 1 12 21Zm5-6.7c-.3-.2-1.7-.9-2-1s-.5-.2-.7.2-.8 1-1 1.1-.3.2-.6 0a7.8 7.8 0 0 1-3.4-3c-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4a3 3 0 0 0-.9 2.1c0 1.2.9 2.3 1 2.5a10.5 10.5 0 0 0 4 4.1c2.5 1.3 3.1 1.2 3.7 1.1.6 0 1.8-.7 2.1-1.5.3-.7.3-1.3.2-1.4Z"/></svg>
+					<span>WhatsApp</span>
+				</a>
+				<a href="tel:+385913393333" class="header-contact header-contact--call">
+					<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2a12 12 0 0 0 3.8.6c.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17.3 17.3 0 0 1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1a12 12 0 0 0 .6 3.8c.1.4 0 .8-.2 1.1l-2.3 2.2Z"/></svg>
+					<span>Nazovite</span>
+				</a>
 			</div>
 		</nav>
 	</div>
 </header>
 
 <style>
-	.site-header {
-		position: relative;
-		z-index: 100;
-		background: var(--white);
-		border-bottom: 1px solid var(--border);
+	.site-header { position: relative; z-index: 100; background: #0d0d0f; color: var(--white); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+	.site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 82px; max-width: 1440px; }
+	.brand { display: flex; flex-direction: column; flex-shrink: 0; text-decoration: none; color: var(--white); line-height: 1.1; white-space: nowrap; }
+	.brand__name { font-size: clamp(1.45rem, 2.1vw, 1.82rem); font-weight: 900; letter-spacing: -0.045em; line-height: 1; }
+	.brand__name span, .brand__tagline { color: var(--red); }
+	.brand__tagline { display: block; margin-top: 0.24rem; font-size: clamp(0.45rem, 0.58vw, 0.56rem); font-weight: 800; letter-spacing: 0.075em; line-height: 1.35; text-align: center; }
+
+	.nav-toggle { display: none; flex: none; width: 48px; height: 48px; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; cursor: pointer; position: relative; z-index: 2; touch-action: manipulation; }
+	.nav-toggle__bars, .nav-toggle__bars::before, .nav-toggle__bars::after { display: block; width: 22px; height: 2px; background: var(--white); position: relative; transition: transform 0.2s ease, opacity 0.2s ease; }
+	.nav-toggle__bars::before, .nav-toggle__bars::after { content: ''; position: absolute; left: 0; }
+	.nav-toggle__bars::before { top: -7px; }
+	.nav-toggle__bars::after { top: 7px; }
+	.nav-toggle[aria-expanded='true'] .nav-toggle__bars { background: transparent; }
+	.nav-toggle[aria-expanded='true'] .nav-toggle__bars::before { top: 0; transform: rotate(45deg); }
+	.nav-toggle[aria-expanded='true'] .nav-toggle__bars::after { top: 0; transform: rotate(-45deg); }
+
+	.site-nav { display: flex; align-items: center; justify-content: flex-end; gap: clamp(1rem, 2vw, 2rem); flex: 1; }
+	.site-nav__list { display: flex; align-items: center; gap: clamp(0.75rem, 1.45vw, 1.45rem); }
+	.site-nav__list a { position: relative; display: inline-block; padding: 0.7rem 0.05rem; text-decoration: none; font-weight: 650; font-size: 0.91rem; color: #d5d5d7; transition: color 0.2s ease; }
+	.site-nav__list a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0.35rem; height: 2px; background: var(--red); transition: right 0.2s ease; }
+	.site-nav__list a:hover { color: var(--white); }
+	.site-nav__list a:hover::after { right: 0; }
+
+	.site-nav__actions { display: flex; align-items: center; flex-shrink: 0; gap: 0.55rem; }
+	.header-contact { display: inline-flex; align-items: center; justify-content: center; gap: 0.42rem; min-height: 42px; padding: 0.68rem 1rem; border-radius: 999px; font-size: 0.83rem; font-weight: 800; line-height: 1; text-decoration: none; transition: transform 0.2s ease, background-color 0.2s ease; }
+	.header-contact:hover { transform: translateY(-2px); }
+	.header-contact svg { width: 17px; height: 17px; fill: currentColor; }
+	.header-contact--whatsapp { color: #5be58a; background: rgba(37, 211, 102, 0.12); }
+	.header-contact--whatsapp:hover { background: rgba(37, 211, 102, 0.2); }
+	.header-contact--call { color: var(--white); background: var(--red); }
+	.header-contact--call:hover { background: var(--red-dark); }
+
+	@media (max-width: 1180px) {
+		.nav-toggle { display: inline-flex; }
+		.site-nav { position: absolute; z-index: 1; top: 100%; left: 0; right: 0; background: #0d0d0f; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.12); padding: 1rem 1.5rem 1.5rem; display: none; flex-direction: column; align-items: stretch; gap: 1rem; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34); }
+		.site-nav.is-open { display: flex; }
+		.site-nav__list { flex-direction: column; align-items: stretch; gap: 0; }
+		.site-nav__list a { display: block; padding: 0.72rem 0.1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+		.site-nav__list a::after { display: none; }
+		.site-nav__actions { align-items: stretch; }
+		.header-contact { flex: 1; }
 	}
 
-	.site-header__inner {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-		padding-block: 1rem;
-		max-width: 1400px;
-	}
-
-	.brand {
-		display: flex;
-		flex-direction: column;
-		flex-shrink: 0;
-		text-decoration: none;
-		color: var(--black);
-		line-height: 1.1;
-		white-space: nowrap;
-	}
-
-	.brand__name {
-		font-family: var(--font-sans);
-		font-size: clamp(1.45rem, 2.1vw, 1.85rem);
-		font-weight: 800;
-		letter-spacing: -0.035em;
-		line-height: 1.04;
-	}
-
-	.brand__tagline {
-		display: block;
-		width: 100%;
-		font-family: var(--font-sans);
-		font-size: clamp(0.47rem, 0.62vw, 0.58rem);
-		font-weight: 700;
-		letter-spacing: 0.075em;
-		line-height: 1.35;
-		text-align: center;
-		color: var(--red);
-	}
-
-	/* Nav toggle (mobile) */
-	.nav-toggle {
-		display: none;
-		flex: none;
-		width: 44px;
-		height: 44px;
-		align-items: center;
-		justify-content: center;
-		background: transparent;
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		cursor: pointer;
-		position: relative;
-		z-index: 2;
-		touch-action: manipulation;
-	}
-
-	.nav-toggle__bars,
-	.nav-toggle__bars::before,
-	.nav-toggle__bars::after {
-		display: block;
-		width: 22px;
-		height: 2px;
-		background: var(--black);
-		position: relative;
-		transition: transform 0.15s ease, opacity 0.15s ease;
-	}
-
-	.nav-toggle__bars::before,
-	.nav-toggle__bars::after {
-		content: '';
-		position: absolute;
-		left: 0;
-	}
-
-	.nav-toggle__bars::before {
-		top: -7px;
-	}
-
-	.nav-toggle__bars::after {
-		top: 7px;
-	}
-
-	.nav-toggle[aria-expanded='true'] .nav-toggle__bars {
-		background: transparent;
-	}
-
-	.nav-toggle[aria-expanded='true'] .nav-toggle__bars::before {
-		top: 0;
-		transform: rotate(45deg);
-	}
-
-	.nav-toggle[aria-expanded='true'] .nav-toggle__bars::after {
-		top: 0;
-		transform: rotate(-45deg);
-	}
-
-	/* Nav */
-	.site-nav__list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem 1.5rem;
-	}
-
-	.site-nav__list a {
-		display: inline-block;
-		padding: 0.4rem 0.1rem;
-		text-decoration: none;
-		font-weight: 600;
-		font-size: 1rem;
-		color: var(--black);
-		border-bottom: 2px solid transparent;
-	}
-
-	.site-nav__list a:hover {
-		border-color: var(--red);
-	}
-
-	.site-nav__actions {
-		display: flex;
-		align-items: center;
-		flex-shrink: 0;
-		gap: 0.6rem;
-	}
-
-	.lang-switch {
-		display: flex;
-		align-items: center;
-		gap: 0.2rem;
-		font-size: 11.5px;
-		font-weight: 700;
-		letter-spacing: 0.02em;
-	}
-
-	.lang-switch__option {
-		color: var(--gray);
-		padding: 0.1rem 0.2rem;
-	}
-
-	.lang-switch__option.is-active {
-		color: var(--black);
-		border-bottom: 2px solid var(--red);
-	}
-
-	.lang-switch__option.is-disabled {
-		cursor: default;
-		opacity: 0.5;
-	}
-
-	@media (min-width: 1360px) {
-		.site-nav {
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-			gap: 0.75rem;
-			flex: 1;
-			margin-left: 0.75rem;
-		}
-	}
-
-	@media (max-width: 1359px) {
-		.nav-toggle {
-			display: inline-flex;
-		}
-
-		.site-nav {
-			position: absolute;
-			z-index: 1;
-			top: 100%;
-			left: 0;
-			right: 0;
-			background: var(--white);
-			border-bottom: 1px solid var(--border);
-			padding: 1.25rem 1.5rem 1.75rem;
-			display: none;
-			flex-direction: column;
-			align-items: stretch;
-			gap: 1.25rem;
-			box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-		}
-
-
-		.site-nav.is-open {
-			display: flex;
-		}
-
-		.site-nav__list {
-			flex-direction: column;
-			gap: 0.25rem;
-		}
-
-		.site-nav__list a {
-			display: block;
-			padding: 0.6rem 0.1rem;
-			border-bottom: 1px solid var(--border);
-		}
-
-		.site-nav__actions {
-			flex-direction: column;
-			align-items: stretch;
-			gap: 1rem;
-		}
-
-		.lang-switch {
-			justify-content: center;
-		}
-
-		.site-nav__actions .btn {
-			width: 100%;
-		}
+	@media (max-width: 520px) {
+		.site-header__inner { min-height: 72px; }
+		.site-nav__actions { flex-direction: column; }
+		.header-contact { width: 100%; }
 	}
 </style>
 
@@ -275,33 +107,16 @@ const navItems = [
 			toggle.setAttribute('aria-expanded', 'false');
 		};
 
-		const openMenu = () => {
-			nav.classList.add('is-open');
-			toggle.setAttribute('aria-expanded', 'true');
-		};
-
 		toggle.addEventListener('click', () => {
-			const isOpen = nav.classList.contains('is-open');
-			isOpen ? closeMenu() : openMenu();
+			const isOpen = nav.classList.toggle('is-open');
+			toggle.setAttribute('aria-expanded', String(isOpen));
 		});
-
-		nav.querySelectorAll('a').forEach((link) => {
-			link.addEventListener('click', closeMenu);
-		});
-
-		document.addEventListener('keydown', (event) => {
-			if (event.key === 'Escape') closeMenu();
-		});
-
+		nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+		document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
 		document.addEventListener('pointerdown', (event) => {
-			if (event.target instanceof Node && !toggle.contains(event.target) && !nav.contains(event.target)) {
-				closeMenu();
-			}
+			if (event.target instanceof Node && !toggle.contains(event.target) && !nav.contains(event.target)) closeMenu();
 		});
-
-		const mediaQuery = window.matchMedia('(min-width: 1360px)');
-		mediaQuery.addEventListener('change', (event) => {
-			if (event.matches) closeMenu();
-		});
+		const mediaQuery = window.matchMedia('(min-width: 1181px)');
+		mediaQuery.addEventListener('change', (event) => { if (event.matches) closeMenu(); });
 	}
 </script>

@@ -1,4 +1,5 @@
 import mediaMap from "./portfolioMediaMap.json" with { type: "json" };
+import { projectSeo } from './izvedeniRadoviSeo.js';
 
 const projects = [
  {"slug":"dubinsko-ciscenje-tepisona-hotelski-restoran","title":"Dubinsko čišćenje tepisona u hotelskom restoranu","category":"Hotelski restorani","summary":"Profesionalno dubinsko čišćenje tepisona u hotelskom restoranu, dokumentirano fotografijama i videosnimkama izvedbe.","description":"Red Carpet izveo je profesionalno dubinsko čišćenje tepisona u hotelskom restoranu. Radovi su obuhvatili tekstilnu podnu oblogu u ugostiteljskom prostoru koji se redovito koristi. Projekt prikazuje specijaliziranu B2B uslugu održavanja hotelskih tepisona.","steps":["Dubinsko čišćenje tepisona u hotelskom restoranu","Obrada podne tekstilne obloge u prostoru za goste","Dokumentacija izvedenih radova"],"images":[],"video":null},
@@ -20,6 +21,8 @@ const projects = [
 
 export const radovi = projects.map(project => ({
  ...project,
+ ...projectSeo[project.slug],
+ title: projectSeo[project.slug]?.h1 || project.title,
  images: mediaMap[project.slug].images.map(image => image.path),
  imageAlts: mediaMap[project.slug].images.map(image => image.alt || project.title),
  videos: mediaMap[project.slug].videos.map(video => video.path),

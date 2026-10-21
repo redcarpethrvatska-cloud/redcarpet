@@ -1,0 +1,21 @@
+<div class="floating-contact" aria-label="Brzi kontakt">
+	<a href="https://wa.me/385913393333?text=Pozdrav%2C%20zanima%20nas%20ponuda%20za%20dubinsko%20%C4%8Di%C5%A1%C4%87enje%20poslovnog%20objekta." class="floating-contact__link floating-contact__link--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Pošaljite WhatsApp poruku">
+		<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 3.5A11.5 11.5 0 0 0 2.7 17.4L1 23l5.8-1.5a11.5 11.5 0 0 0 13.7-18ZM12 21a9 9 0 0 1-4.6-1.2l-.3-.2-3.3.8.9-3.2-.2-.3A9 9 0 1 1 12 21Zm5-6.7c-.3-.2-1.7-.9-2-1s-.5-.2-.7.2-.8 1-1 1.1-.3.2-.6 0a7.8 7.8 0 0 1-3.4-3c-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-.9-2c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4a3 3 0 0 0-.9 2.1c0 1.2.9 2.3 1 2.5a10.5 10.5 0 0 0 4 4.1c2.5 1.3 3.1 1.2 3.7 1.1.6 0 1.8-.7 2.1-1.5.3-.7.3-1.3.2-1.4Z"/></svg>
+	</a>
+	<a href="tel:+385913393333" class="floating-contact__link floating-contact__link--call" aria-label="Nazovite Red Carpet">
+		<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2a12 12 0 0 0 3.8.6c.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17.3 17.3 0 0 1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1a12 12 0 0 0 .6 3.8c.1.4 0 .8-.2 1.1l-2.3 2.2Z"/></svg>
+	</a>
+</div>
+
+<style>
+	.floating-contact { position: fixed; z-index: 90; right: clamp(1rem, 2vw, 1.6rem); bottom: clamp(1rem, 2vw, 1.6rem); display: flex; flex-direction: column; gap: 0.65rem; }
+	.floating-contact__link { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; color: var(--white); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+	.floating-contact__link:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 14px 32px rgba(0, 0, 0, 0.34); }
+	.floating-contact__link svg { width: 24px; height: 24px; fill: currentColor; }
+	.floating-contact__link--whatsapp { background: #16bd61; }
+	.floating-contact__link--call { background: var(--red); }
+	@media (max-width: 640px) {
+		.floating-contact { bottom: 0.85rem; right: 0.85rem; gap: 0.5rem; }
+		.floating-contact__link { width: 48px; height: 48px; }
+	}
+</style>

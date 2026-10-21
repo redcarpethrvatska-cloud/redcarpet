@@ -64,6 +64,48 @@ const localBusinessJsonLd = {
 		<a href="#glavni-sadrzaj" class="skip-link">Preskoči na sadržaj</a>
 		<slot />
 		<AnalyticsConsent />
+		<script>
+			const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			if (!reducedMotion) {
+				document.documentElement.classList.add('motion-ready');
+
+				const revealGroups = [
+					'main > section',
+					'main > article',
+					'.services__grid > *',
+					'.industry-grid > *',
+					'.why-us__grid > *',
+					'.portfolio__grid > *',
+					'.blog-preview__grid > *',
+					'.cases > *',
+					'.references__grid > *',
+					'.rc-grid > *',
+					'.tiles > *',
+					'.advice-grid > *',
+					'.faq-list > *',
+				].join(',');
+
+				const revealItems = Array.from(document.querySelectorAll<HTMLElement>(revealGroups));
+				revealItems.forEach((item, index) => {
+					item.classList.add('reveal-item');
+					item.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+				});
+
+				const revealObserver = new IntersectionObserver(
+					(entries, observer) => {
+						entries.forEach((entry) => {
+							if (!entry.isIntersecting) return;
+							entry.target.classList.add('is-visible');
+							observer.unobserve(entry.target);
+						});
+					},
+					{ rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+				);
+
+				revealItems.forEach((item) => revealObserver.observe(item));
+			}
+		</script>
 	</body>
 </html>
 
