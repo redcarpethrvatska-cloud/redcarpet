@@ -11,8 +11,8 @@ export async function onRequestPost({request,env}){
   let data;try{const raw=await request.text();if(raw.length>12000)return json({error:"Zahtjev je prevelik."},413);data=JSON.parse(raw)}catch{return json({error:"Neispravan zahtjev."},400)}
   if(!data||typeof data!=="object"||Array.isArray(data))return json({error:"Neispravan zahtjev."},400);
   if(trim(data.website,200))return json({ok:true});
-  const fullName=trim(data.fullName,120),company=trim(data.company,160),city=trim(data.city,120),phone=trim(data.phone,40),email=trim(data.email,180),message=trim(data.message,3000),sector=trim(data.sector,180),token=trim(data.turnstileToken,2500);
-  if(!fullName||!company||!city||!message||!data.gdpr||!token||(!phone&&!email))return json({error:"Popunite obvezna polja."},400);
+  const fullName=trim(data.fullName,120),company=trim(data.company,160),city=trim(data.city,120),phone=trim(data.phone,40),email=trim(data.email,180),message=trim(data.message,3000),sector=trim(data.sector,180),objectType=trim(data.objectType,100),area=trim(data.area,80),preferredDate=trim(data.preferredDate,120),token=trim(data.turnstileToken,2500);
+  if(!fullName||!company||!city||!message||!objectType||!area||!data.gdpr||!token||(!phone&&!email))return json({error:"Popunite obvezna polja."},400);
   if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return json({error:"Neispravna e-mail adresa."},400);
   if(phone&&!/^[+\d()\s/-]{6,40}$/.test(phone))return json({error:"Neispravan telefon."},400);
   let verify;
@@ -21,7 +21,7 @@ export async function onRequestPost({request,env}){
   const expectedHost=new URL(request.url).hostname;
   if(verify.hostname!==expectedHost)return json({error:"Sigurnosna provjera ne odgovara stranici."},403);
   const safe=v=>v.replace(/[<>\r\n]/g," ");
-  const textBody=["Novi Red Carpet B2B upit",`Ime: ${fullName}`,`Tvrtka: ${company}`,`Grad: ${city}`,`Telefon: ${phone||"-"}`,`E-mail: ${email||"-"}`,`Usluga: ${sector||"-"}`,"",message].join("\n");
+  const textBody=["Novi Red Carpet B2B upit",`Ime: ${fullName}`,`Tvrtka: ${company}`,`Grad: ${city}`,`Telefon: ${phone||"-"}`,`E-mail: ${email||"-"}`,`Usluga: ${sector||"-"}`,`Vrsta objekta: ${objectType}`,`Površina ili broj komada: ${area}`,`Željeni termin: ${preferredDate||"-"}`,"",message].join("\n");
   try{
     const response=await fetch("https://api.resend.com/emails",{method:"POST",headers:{"Authorization":`Bearer ${env.RESEND_API_KEY}`,"Content-Type":"application/json"},body:JSON.stringify({from:env.RESEND_FROM,to:["redcarpet.hrvatska@gmail.com"],subject:`Red Carpet B2B upit – ${safe(company)}`,text:textBody,...(email?{reply_to:email}:{})})});
     if(!response.ok)return json({error:"Dostava nije uspjela. Kontaktirajte nas izravno e-mailom."},502);
