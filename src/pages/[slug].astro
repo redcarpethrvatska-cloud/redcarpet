@@ -18,8 +18,15 @@ const sectors = [
 return sectors.map(sector => ({params:{slug:sector.slug},props:{sector}}));
 }
 const {sector}=Astro.props;
+const isHotel=sector.slug==='ciscenje-hotela';
+const hotelServices = [
+  'Dubinsko čišćenje ugrađenih tepisona uz procjenu mrlja, prometnih zona i vremena sušenja. Termine usklađujemo s dostupnošću soba i prolazom gostiju.',
+  'Čišćenje većih količina tapeciranih stolica, fotelja, garnitura i separea. Opseg dogovaramo prema materijalu, zaprljanju i rasporedu rada restorana ili lobija.',
+  'Planirano čišćenje većih količina madraca i drugih prikladnih tapeciranih površina uz dogovor o pristupu sobama i vremenu potrebnom za sušenje.',
+];
 const isPartner=sector.slug==='suradnja-s-kooperantima';
 const subject=encodeURIComponent((isPartner?'Upit za kooperantsku suradnju':'B2B upit za ponudu')+' – '+sector.title);
+const inquiryHref = '/#kontakt';
 const body=encodeURIComponent('Tvrtka/ustanova: \nLokacija: \nOkvirni opseg (m² / broj komada): \nŽeljeni termin: \nKontakt: \nNapomena: ');
 ---
 <Layout title={sector.title+' | Red Carpet'} description={sector.description}>
@@ -32,16 +39,26 @@ const body=encodeURIComponent('Tvrtka/ustanova: \nLokacija: \nOkvirni opseg (m²
         <span class="eyebrow">Red Carpet · B2B Hrvatska</span>
         <h1>{sector.title}</h1>
         <p>{sector.description}</p>
-        <a class="btn btn-primary" href={`mailto:redcarpet.hrvatska@gmail.com?subject=${subject}&body=${body}`}>{isPartner?'Prijavite suradnju':'Zatražite individualnu ponudu'}</a>
+        <a class="btn btn-primary" href={isPartner ? `mailto:redcarpet.hrvatska@gmail.com?subject=${subject}&body=${body}` : inquiryHref}>{isPartner?'Prijavite suradnju':'Zatražite individualnu ponudu'}</a>
       </div>
     </section>
     <section class="section">
       <div class="container">
-        <div class="section-heading"><span class="eyebrow">Opseg rada</span><h2>Što obuhvaća usluga</h2><p>Radimo projekte većeg opsega za {sector.audience}; plan rada i metoda određuju se prema površinama i zahtjevima objekta.</p></div>
-        <ul class="rc-grid">{sector.services.map(item=><li class="rc-tile"><h3>{item}</h3><p>Procjena opsega, prikladnosti postupka i potrebnog termina prije izvedbe.</p></li>)}</ul>
+        <div class="section-heading"><span class="eyebrow">Opseg rada</span><h2>Što obuhvaća usluga</h2><p>Namjena: {sector.audience}. Plan rada i metoda određuju se prema površinama i zahtjevima objekta.</p></div>
+        <ul class="rc-grid">{sector.services.map((item, index)=><li class="rc-tile"><h3>{item}</h3><p>{isHotel ? hotelServices[index] : 'Procjena opsega, prikladnosti postupka i potrebnog termina prije izvedbe.'}</p></li>)}</ul>
       </div>
     </section>
-    <section class="section section--light"><div class="container rc-outro"><h2>Treba vam ponuda za više prostora ili objekata?</h2><p>Pošaljite nam lokaciju, kvadraturu ili broj komada te okvirni željeni termin. Ponuda se priprema prema stvarnom opsegu.</p><a class="btn btn-primary" href={`mailto:redcarpet.hrvatska@gmail.com?subject=${subject}&body=${body}`}>Pošaljite B2B upit</a><p class="rc-note">Za sada upit otvara vaš e-mail program. Internetski obrazac još je u pripremi.</p></div></section>
+    {isHotel && <section class="section section--light"><div class="container rc-outro">
+      <h2>Primjeri izvedenih radova u hotelima</h2>
+      <p>Pregledajte dokumentirane projekte i odaberite primjer najsličniji svojem objektu. Radove možemo organizirati u etapama, noću ili vikendom prema dogovoru.</p>
+      <ul>
+        <li><a href="/izvedeni-radovi/tepisoni-hotelski-hodnici/">Čišćenje tepisona u hotelskim sobama i hodnicima</a></li>
+        <li><a href="/izvedeni-radovi/stolice-hotelski-restoran/">Čišćenje približno 300 stolica i 30 m separea</a></li>
+        <li><a href="/izvedeni-radovi/dubinsko-ciscenje-tepisona-konferencijske-dvorane-hotel-zagreb/">Čišćenje oko 500 m² tepisona u hotelskim konferencijskim dvoranama</a></li>
+      </ul>
+      <a href="/dubinsko-ciscenje-tepisona/">Više o dubinskom čišćenju tepisona</a>
+    </div></section>}
+    <section class="section section--light"><div class="container rc-outro"><h2>Treba vam ponuda za više prostora ili objekata?</h2><p>Pošaljite nam lokaciju, kvadraturu ili broj komada te okvirni željeni termin. Ponuda se priprema prema stvarnom opsegu.</p><a class="btn btn-primary" href={isPartner ? `mailto:redcarpet.hrvatska@gmail.com?subject=${subject}&body=${body}` : inquiryHref}>Pošaljite B2B upit</a>{isPartner && <p class="rc-note">Prijava suradnje otvara vaš e-mail program.</p>}</div></section>
   </main>
   <Footer />
 </Layout>
