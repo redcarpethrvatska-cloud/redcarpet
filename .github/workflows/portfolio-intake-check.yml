@@ -1,0 +1,29 @@
+name: Portfolio intake validation
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'intake/**'
+      - 'scripts/validate-portfolio-intake.mjs'
+      - 'public/media/izvedeni-radovi/**'
+      - '.github/workflows/portfolio-intake-check.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate ready intake manifests
+        run: |
+          shopt -s nullglob
+          files=(intake/*.json)
+          for file in "${files[@]}"; do
+            node scripts/validate-portfolio-intake.mjs "$file"
+          done
+      - name: Verify Astro build
+        run: |
+          npm ci
+          npm run build
