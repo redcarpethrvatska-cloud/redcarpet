@@ -10,7 +10,8 @@
     "build": "astro build",
     "test:seo": "node tests/seo-check.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prebuild": "node scripts/assemble-hotel-80-video.mjs"
   },
   "dependencies": {
     "astro": "^7.1.3"

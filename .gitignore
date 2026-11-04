@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Generated from verified Git video parts during Astro build
+public/media/izvedeni-radovi/kemijsko-ciscenje-tepisona-hotel-80-soba/hotel-80-soba-video-web.mp4
