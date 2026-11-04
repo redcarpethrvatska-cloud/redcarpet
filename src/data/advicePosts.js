@@ -143,7 +143,7 @@ export const advicePosts = [
     "slug": "znakovi-za-dubinsko-ciscenje-tapeciranog-namjestaja",
     "title": "Pet znakova da je vrijeme za dubinsko čišćenje tapeciranog namještaja",
     "description": "Prepoznajte pet znakova da hotelske stolice, fotelje, separei ili garniture trebaju profesionalno dubinsko čišćenje u većem opsegu.",
-    "image": "/images/ciscenje-tapaciranog-namjestaja-hotel-restoran.jpg",
+    "image": "/images/red-carpet-znakovi-ciscenje-tapeciranog-namjestaja.webp",
     "sections": [
       [
         "1. Vidljive mrlje na sjedištima i naslonima",
