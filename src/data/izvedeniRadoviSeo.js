@@ -1,4 +1,12 @@
 export const projectSeo = {
+	'kemijsko-ciscenje-tapeciranog-namjestaja-konferencijska-sala-opatija': {
+		seoTitle: 'Kemijsko čišćenje konferencijskih stolica Opatija | Red Carpet',
+		metaDescription: 'Kemijsko čišćenje tapeciranog namještaja i svih stolica u konferencijskoj sali u Opatiji. Pogledajte fotografije i video radova.',
+		h1: 'Kemijsko čišćenje stolica i tapeciranog namještaja u Opatiji',
+		intro: 'U konferencijskoj sali u Opatiji Red Carpet obavio je kemijsko čišćenje tapeciranog namještaja i svih stolica. Projekt prikazuje izvedene radove na tekstilnim presvlakama u prostoru namijenjenom poslovnim događanjima.',
+		scope: 'Obuhvat je uključivao sve konferencijske stolice te ostali tapecirani namještaj u dvorani. Fotografije i video omogućuju uvid u stvarnu izvedbu. Broj stolica i korištena sredstva nisu navedeni jer nisu posebno potvrđeni.',
+		planning: 'Za slično čišćenje konferencijske sale potrebno je utvrditi broj i vrstu stolica, materijal presvlaka, pristup namještaju te raspoloživo vrijeme prije sljedećeg događanja. Red Carpet izrađuje ponudu prema stvarnom opsegu radova.',
+	},
 	'dubinsko-ciscenje-tepisona-hotel-opatija-50-soba': {
 		seoTitle: 'Dubinsko čišćenje tepisona u hotelu Opatija | Red Carpet',
 		metaDescription: 'Dubinsko čišćenje tepisona u 50 hotelskih soba, hodnicima i recepciji hotela u Opatiji. Radovi izvedeni dok hotel nije radio.',
