@@ -42,7 +42,7 @@ const faqs = [
 
 <Layout
 	title="Izvedeni radovi – čišćenje tepisona za hotele | Red Carpet"
-	description="Pogledajte 15 izvedenih B2B projekata čišćenja tepisona, stolica i hotelskih prostora. Reference iz hotela, ureda i konferencijskih dvorana."
+	description={`Pogledajte ${radovi.length} izvedenih B2B projekata čišćenja tepisona, stolica i hotelskih prostora. Reference iz hotela, ureda i konferencijskih dvorana.`}
 >
 	<TopBar />
 	<Header />
@@ -55,7 +55,7 @@ const faqs = [
 					<p>Red Carpet specijaliziran je za profesionalno dubinsko i kemijsko čišćenje tepisona u hotelima, poslovnim zgradama, restoranima, konferencijskim centrima i drugim velikim objektima diljem Hrvatske.</p>
 					<p>Na ovoj stranici predstavljamo stvarne projekte čišćenja velikih površina, od hotelskih hodnika i uredskih prostora do konferencijskih dvorana i tapeciranog namještaja u većim količinama. Među izvedenim projektima nalaze se čišćenje približno 800 m² tepisona u upravnoj zgradi, čišćenje 550 konferencijskih stolica i dubinsko čišćenje 500 m² bijelog tepiha u jednom danu.</p>
 					<p>Svaki prostor ima drukčije zahtjeve. Prije izrade ponude uzimamo u obzir vrstu podne obloge, površinu, raspored prostora i mogućnost pristupa. Radove prema dogovoru organiziramo u etapama, izvan redovnog radnog vremena, noću ili vikendom, uz planiranje potrebnog vremena za sušenje.</p>
-					<p>U galeriji pogledajte 15 stvarnih primjera radova i odaberite projekt najsličniji vašem objektu. Red Carpet usmjeren je na B2B klijente i veće količine, a ne na pojedinačno pranje kućnih tepiha.</p>
+					<p>U galeriji pogledajte {radovi.length} stvarnih primjera radova i odaberite projekt najsličniji vašem objektu. Red Carpet usmjeren je na B2B klijente i veće količine, a ne na pojedinačno pranje kućnih tepiha.</p>
 				</div>
 			</div>
 		</section>
@@ -73,7 +73,7 @@ const faqs = [
 
 		<section class="section section--light projects-section">
 			<div class="container">
-				<div class="section-heading"><span class="eyebrow">15 stvarnih projekata</span><h2>Galerija izvedenih radova</h2></div>
+				<div class="section-heading"><span class="eyebrow">{radovi.length} stvarnih projekata</span><h2>Galerija izvedenih radova</h2></div>
 				<div class="cases">
 					{radovi.map((rad) => (
 						<article class="case">
