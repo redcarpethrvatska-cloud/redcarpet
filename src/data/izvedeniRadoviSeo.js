@@ -1,4 +1,12 @@
 export const projectSeo = {
+	'dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe': {
+		seoTitle: 'Dubinsko čišćenje hotela Zagreb – tepisi i sofe | Red Carpet',
+		metaDescription: 'Čišćenje tepiha u restoranu i recepciji hotela u Zagrebu te sofa i trosjeda u lounge prostoru. Radovi izvedeni nakon 23:00 sata.',
+		h1: 'Dubinsko čišćenje tepiha i sofa u hotelu u Zagrebu',
+		intro: 'U hotelu u Zagrebu Red Carpet izveo je dubinsko čišćenje tepiha u restoranu i na recepciji te dijela sofa i trosjeda u hotelskom caffe/lounge prostoru. Radovi su započeli nakon 23:00 sata kako bi se izbjeglo ometanje redovnog rada hotela.',
+		scope: 'Usluga je obuhvatila različite tekstilne površine u reprezentativnim prostorima hotela: tepihe u restoranu i na recepciji te odabrane tapecirane sjedeće garniture u lounge dijelu. Izvedba je organizirana u noćnom terminu, uz profesionalnu opremu za dubinsko čišćenje.',
+		planning: 'Kod hotela s restoranom, recepcijom i caffe/lounge prostorom važno je uskladiti raspored čišćenja s prometom gostiju, dostupnošću pojedinih zona i vremenom sušenja. Noćni termini omogućuju planiranje radova bez ometanja redovnih aktivnosti objekta.',
+	},
 	'dubinsko-ciscenje-tepisona-hotelski-restoran': {
 		seoTitle: 'Hotelski restoran: profesionalno čišćenje tepisona | Red Carpet',
 		metaDescription: 'Dubinsko čišćenje tepisona u hotelskom restoranu. Pogledajte stvarni B2B projekt Red Carpeta, fotografije i video izvedbe.',
