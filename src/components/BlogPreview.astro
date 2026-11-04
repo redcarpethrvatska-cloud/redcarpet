@@ -7,9 +7,19 @@ import { advicePosts } from '../data/advicePosts.js';
 const newsPosts = [
   { title: 'Profesionalno dubinsko čišćenje hotela i poslovnih prostora', src: '/images/red-carpet-dubinsko-ciscenje-tepisona-hotel.webp', href: '/novosti/profesionalno-dubinsko-ciscenje-hotela-i-poslovnih-prostora/', type: 'novost', date: '2026-10-15' },
 ];
+const featuredAdviceSlugs = [
+  'cijena-dubinskog-ciscenja-tepisona-po-m2-poslovni-objekti',
+  'dubinsko-ciscenje-hotelskih-tepisona-prije-sezone',
+  'ugovorno-ciscenje-tepisona-poslovne-zgrade',
+  'ciscenje-300-tapeciranih-stolica-hoteli-restorani',
+  'profesionalno-ciscenje-konferencijskih-dvorana',
+];
+const featuredAdvice = featuredAdviceSlugs
+  .map(slug => advicePosts.find(post => post.slug === slug))
+  .filter(Boolean);
 const posts = [
   ...newsPosts.sort((a, b) => b.date.localeCompare(a.date)),
-  ...advicePosts.map(post => ({ ...post, src: post.image, href: '/savjeti/' + post.slug + '/', type: 'savjet' }))
+  ...featuredAdvice.map(post => ({ ...post, src: post.image, href: '/savjeti/' + post.slug + '/', type: 'savjet' })),
 ].slice(0, 6);
 ---
 
@@ -44,10 +54,13 @@ const posts = [
 				})
 			}
 		</div>
+    <p class="blog-preview__more"><a href="/savjeti/">Pogledajte sve stručne savjete →</a></p>
 	</div>
 </section>
 
 <style>
+  .blog-preview__more { margin-top: 1.75rem; text-align: center; font-weight: 700; }
+  .blog-preview__more a { color: var(--red); }
 	.blog-preview__grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
