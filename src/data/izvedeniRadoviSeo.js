@@ -1,4 +1,12 @@
 export const projectSeo = {
+  'kemijsko-ciscenje-tepisona-hotel-80-soba': {
+    seoTitle: 'Kemijsko čišćenje tepisona u 80 soba hotela | Red Carpet',
+    metaDescription: 'Četiri dana kemijskog čišćenja tepisona u oko 80 hotelskih soba i hodnicima. Priprema hotela za kategorizaciju. Fotografije i video.',
+    h1: 'Kemijsko čišćenje tepisona u hotelu s oko 80 soba',
+    intro: 'Red Carpet izveo je kompletno kemijsko čišćenje tepisona u približno 80 hotelskih soba i pripadajućim hodnicima. Radovi su trajali četiri dana i bili su dio pripreme hotela za kategorizaciju.',
+    scope: 'Projekt je obuhvatio tepisone u hotelskim sobama te hodnicima, uključujući obradu vidljivih i nakupljenih nečistoća. Radovi su organizirani tako da se tijekom četiri dana obrade različite zone objekta. Fotografije prikazuju hotelske prostore i opremu, a video dokumentira radove. Ne navodimo naziv hotela niti konačnu kategoriju jer nisu potvrđeni.',
+    planning: 'Kod sličnih projekata potrebno je utvrditi broj soba, raspored katova, površinu tepisona, raspoložive termine i uvjete sušenja. Četverodnevna izvedba ovog projekta primjer je planiranja većeg zahvata prije kategorizacije, a trajanje drugih projekata ovisi o opsegu i stanju površina.',
+  },
 	'kemijsko-ciscenje-tapeciranog-namjestaja-konferencijska-sala-opatija': {
 		seoTitle: 'Kemijsko čišćenje konferencijskih stolica Opatija | Red Carpet',
 		metaDescription: 'Kemijsko čišćenje tapeciranog namještaja i svih stolica u konferencijskoj sali u Opatiji. Pogledajte fotografije i video radova.',
