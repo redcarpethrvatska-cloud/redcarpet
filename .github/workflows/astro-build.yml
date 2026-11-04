@@ -24,3 +24,5 @@ jobs:
         run: node tests/inquiry-check.mjs
       - name: Astro build
         run: npm run build
+      - name: SEO and sitemap validation
+        run: npm run test:seo
