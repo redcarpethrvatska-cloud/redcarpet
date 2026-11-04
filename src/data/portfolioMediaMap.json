@@ -742,5 +742,36 @@
         "original": "20260916_040531.mp4"
       }
     ]
+  },
+  "ciscenje-500-m2-tepisona-konferencijska-sala-opatija": {
+    "title": "Opatija – konferencijska sala, 500 m², nečistoće od građevinskih radova",
+    "images": [
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-500-m2-tepisona-konferencijska-sala-opatija/opatija-konferencijska-sala-01.webp",
+        "alt": "Geometrijski tepison konferencijskog prostora u Opatiji s tragovima građevinskih nečistoća"
+      },
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-500-m2-tepisona-konferencijska-sala-opatija/opatija-konferencijska-sala-02.webp",
+        "alt": "Ulaz u konferencijsku salu u Opatiji s ugrađenim tepisonom površine 500 m²"
+      },
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-500-m2-tepisona-konferencijska-sala-opatija/opatija-konferencijska-sala-03.webp",
+        "alt": "Detalj zaprljanog tepisona uz ostakljeni ulaz u konferencijski centar Opatija"
+      },
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-500-m2-tepisona-konferencijska-sala-opatija/opatija-konferencijska-sala-04.webp",
+        "alt": "Konferencijski prostor u Opatiji s geometrijskim tepisonom i staklenim pregradama"
+      }
+    ],
+    "videos": [
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-500-m2-tepisona-konferencijska-sala-opatija/opatija-konferencijska-sala-video-01.mp4",
+        "original": "20250318_152125.mp4"
+      },
+      {
+        "path": "/media/izvedeni-radovi/ciscenje-500-m2-tepisona-konferencijska-sala-opatija/opatija-konferencijska-sala-video-02.mp4",
+        "original": "20250318_190434.mp4"
+      }
+    ]
   }
 }

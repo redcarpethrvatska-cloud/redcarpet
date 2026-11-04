@@ -127,4 +127,12 @@ export const projectSeo = {
 		scope: 'Ova referenca nadopunjuje osnovni B2B portfolio i pokazuje primjenu profesionalnog čišćenja u specifičnom objektu. Metoda i mogućnost sušenja moraju se procijeniti prema materijalu i uvjetima na plovilu.',
 		planning: 'Za upit o većem plovilu pošaljite približnu površinu tekstilne obloge, fotografije, lokaciju veza i mogućnosti pristupa.',
 	},
+	'ciscenje-500-m2-tepisona-konferencijska-sala-opatija': {
+		seoTitle: 'Čišćenje 500 m² tepisona Opatija | Red Carpet',
+		metaDescription: 'Profesionalno čišćenje 500 m² tepisona u konferencijskom prostoru u Opatiji. Uklanjanje nečistoća nakon građevinskih radova.',
+		h1: 'Čišćenje 500 m² tepisona u konferencijskoj sali u Opatiji',
+		intro: 'U Opatiji je izvedeno profesionalno čišćenje približno 500 m² tepisona u konferencijskom prostoru. Poseban izazov bile su nečistoće i tragovi nastali nakon građevinskih radova na tekstilnoj podnoj oblozi s geometrijskim uzorkom.',
+		scope: 'Projekt obuhvaća podne tekstilne površine konferencijske sale i pristupnih zona. Na fotografijama su vidljivi tragovi građevinskih i završnih radova. Čišćenje je organizirano s naglaskom na veći obuhvat i uklanjanje zaostalih nečistoća, bez tvrdnji o postupcima ili rezultatima koje dokumentacija ne potvrđuje.',
+		planning: 'Kod čišćenja tepisona nakon građevinskih radova važno je procijeniti vrstu vlakana, količinu prašine i ostataka materijala te dostupnost prostora. Prije ponude korisno je dostaviti površinu, fotografije i termin planiranog korištenja dvorane.',
+	},
 };
