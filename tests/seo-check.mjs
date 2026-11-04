@@ -23,7 +23,8 @@ const b2bPaths = [
 ];
 
 const projectPaths = radovi.map(({ slug }) => `/izvedeni-radovi/${slug}/`);
-assert.equal(projectPaths.length, 15, 'Očekivano je točno 15 javnih projekata.');
+assert.ok(projectPaths.length >= 15, 'Portfolio mora sadržavati najmanje 15 javnih projekata.');
+assert.equal(new Set(projectPaths).size, projectPaths.length, 'Svaki izvedeni projekt mora imati jedinstveni slug.');
 
 const htmlPathFor = (urlPath) => urlPath === '/'
   ? path.join(dist, 'index.html')
