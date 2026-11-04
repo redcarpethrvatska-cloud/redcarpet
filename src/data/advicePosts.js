@@ -654,7 +654,7 @@ export const advicePosts = [
   "slug": "kako-odabrati-izvodaca-ciscenja-hotelskih-tepisona",
   "title": "Kako odabrati vanjskog izvođača za čišćenje hotelskih tepisona?",
   "description": "Kontrolna lista za hotelsku nabavu: reference, procjena materijala, organizacija, opseg ponude i završna kontrola pri izboru B2B izvođača.",
-  "image": "/images/profesionalno-ciscenje-tepisona-hotelska-soba.jpg",
+  "image": "/images/red-carpet-odabir-izvodaca-hotelski-tepisoni.webp",
   "sections": [
     [
       "Najniža cijena nije dovoljan kriterij",
