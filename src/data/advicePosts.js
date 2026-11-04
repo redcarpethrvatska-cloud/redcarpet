@@ -73,7 +73,7 @@ export const advicePosts = [
     "slug": "koliko-cesto-profesionalno-cistiti-tepisone",
     "title": "Koliko često treba profesionalno čistiti tepisone?",
     "description": "Koliko često prati tepisone u hotelima, uredima i dvoranama? Smjernice za održavanje prema prometu, zaprljanosti i vrsti tekstilne obloge.",
-    "image": "/images/dubinsko-ciscenje-velike-hotelske-sale-red-carpet.jpg",
+    "image": "/images/red-carpet-ucestalost-ciscenja-tepisona.webp",
     "sections": [
       [
         "Ne postoji isti interval za svaki tepison",
