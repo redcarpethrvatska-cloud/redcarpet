@@ -1,4 +1,12 @@
 export const projectSeo = {
+	'dubinsko-ciscenje-tepisona-hotel-opatija-50-soba': {
+		seoTitle: 'Dubinsko čišćenje tepisona u hotelu Opatija | Red Carpet',
+		metaDescription: 'Dubinsko čišćenje tepisona u 50 hotelskih soba, hodnicima i recepciji hotela u Opatiji. Radovi izvedeni dok hotel nije radio.',
+		h1: 'Dubinsko čišćenje tepisona u 50 hotelskih soba u Opatiji',
+		intro: 'Red Carpet izveo je dubinsko čišćenje tepisona u hotelu u Opatiji. Radovi su obuhvatili 50 soba, hotelske hodnike i tepih na recepciji. Izvedba je organizirana u razdoblju kada hotel nije radio, bez ometanja gostiju.',
+		scope: 'Projekt je uključivao čišćenje podnih tekstilnih obloga u smještajnom i zajedničkom dijelu hotela. Zasebne zone — sobe, hodnici i recepcija — zahtijevaju planiranje pristupa, redoslijeda čišćenja i sušenja.',
+		planning: 'Za slične hotelske objekte važno je unaprijed dogovoriti broj soba i katova, pristup hodnicima i recepciji, rok završetka radova te vrijeme potrebno za sušenje. Poslove je moguće organizirati tijekom zatvaranja hotela ili u drugim dogovorenim terminima.',
+	},
 	'dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe': {
 		seoTitle: 'Dubinsko čišćenje hotela Zagreb – tepisi i sofe | Red Carpet',
 		metaDescription: 'Čišćenje tepiha u restoranu i recepciji hotela u Zagrebu te sofa i trosjeda u lounge prostoru. Radovi izvedeni nakon 23:00 sata.',
