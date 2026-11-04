@@ -1,0 +1,43 @@
+{
+  "slug": "dubinsko-ciscenje-tepisona-hotel-opatija-50-soba",
+  "status": "pending-media-processing",
+  "sourceFolderId": "1VvduaWoYb9gImaO7OU-4lv-3qwr6hDaL",
+  "title": "Dubinsko čišćenje tepisona u hotelu u Opatiji – 50 soba, hodnici i recepcija",
+  "location": "Opatija",
+  "category": "Hoteli",
+  "description": "Dubinsko čišćenje tepisona u 50 hotelskih soba i hodnicima te tepiha u recepciji. Radovi su izvedeni dok hotel nije radio.",
+  "seoTitle": "Čišćenje tepisona u hotelu Opatija – 50 soba | Red Carpet",
+  "metaDescription": "Dubinsko čišćenje tepisona u 50 hotelskih soba, hodnicima i recepciji hotela u Opatiji. Radovi izvedeni dok hotel nije radio.",
+  "photos": [
+    {
+      "id": "1KwUjjXhe0FW5vMomCw1gmpSR3GYHj9fV",
+      "name": "20250311_125137.jpg"
+    },
+    {
+      "id": "1dh9uMpcSIXV6NZXcY5_WHrwdG_d_o7a-",
+      "name": "20250311_113159.jpg"
+    },
+    {
+      "id": "1tvhwhF4eoDx8Es4_Zvm1ntTjc97mDqYg",
+      "name": "20250311_111518.jpg"
+    },
+    {
+      "id": "1T1mTjvwoVv9eJMm7ANUxXRB6CLSLYH6k",
+      "name": "20250310_111211.jpg"
+    }
+  ],
+  "videos": [
+    {
+      "id": "1I3fi1N8w1dttz2oDVJkZ58KxKP1bk4JM",
+      "name": "20250310_105632.mp4"
+    }
+  ],
+  "publicationRequirements": [
+    "Uvesti i optimizirati sve fotografije i video u public/media/izvedeni-radovi/<slug>/",
+    "Vizualno provjeriti naslovnu fotografiju i opisati ALT po sadržaju snimke",
+    "Provjeriti da slug ne postoji u src/data/izvedeniRadovi.js i public/sitemap.xml",
+    "Dodati projekt u src/data/izvedeniRadovi.js, SEO u src/data/izvedeniRadoviSeo.js, medije u src/data/portfolioMediaMap.json, URL u public/sitemap.xml",
+    "Izvršiti npm run build i npm run test:seo i provjeriti mobilni prikaz",
+    "Ne objavljivati dok sve datoteke nisu prisutne i provjerene"
+  ]
+}
