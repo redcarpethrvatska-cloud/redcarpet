@@ -1,5 +1,6 @@
 import mediaMap from "./portfolioMediaMap.json" with { type: "json" };
 import { projectSeo } from './izvedeniRadoviSeo.js';
+import automated from './autoIzvedeniRadovi.json' with { type: 'json' };
 
 const projects = [
  {"slug":"dubinsko-ciscenje-tepisona-hotel-opatija-50-soba","title":"Dubinsko čišćenje tepisona u hotelu u Opatiji – 50 soba i hodnici","category":"Hoteli","summary":"Dubinsko čišćenje tepisona u 50 hotelskih soba, hodnicima i recepciji hotela u Opatiji, tijekom razdoblja kada hotel nije radio.","description":"Red Carpet izveo je dubinsko čišćenje tepisona u hotelu u Opatiji. Radovi su obuhvatili 50 hotelskih soba, hodnike te tepih u prostoru recepcije. Izvedba je organizirana u razdoblju kada hotel nije radio, što je omogućilo pristup prostorima bez ometanja gostiju. Projekt dokumentira profesionalno čišćenje podnih tekstilnih obloga u hotelskom objektu.","steps":["Dubinsko čišćenje tepisona u 50 hotelskih soba","Čišćenje tepisona u hotelskim hodnicima","Čišćenje tepiha u prostoru recepcije","Radovi izvedeni u razdoblju kada hotel nije radio"],"images":[],"video":null},
@@ -22,11 +23,11 @@ const projects = [
  {"slug":"dubinsko-ciscenje-tepiha-jahta-brod","title":"Dubinsko kemijsko čišćenje tepiha na jahti i brodu","category":"Plovila","summary":"Stvarni projekt Red Carpeta: profesionalno dubinsko čišćenje tekstilnih podnih obloga na plovilu.","description":"Red Carpet izveo je dubinsko kemijsko čišćenje tepiha na plovilu. Tekstilne podne obloge na jahtama i brodovima zahtijevaju pažljivo čišćenje zbog ograničenog radnog prostora, različitih materijala i potrebe za pravilnim sušenjem. Postupak se prilagođava vrsti i stanju tepiha, pristupu površinama i uvjetima na plovilu. Red Carpet izvodi profesionalne projekte čišćenja tekstilnih površina za poslovne i komercijalne naručitelje.","steps":["Dubinsko kemijsko čišćenje tepiha na plovilu","Pristup prilagođen tekstilnoj oblozi i dostupnosti prostora","Provjera uvjeta za sušenje i daljnje korištenje površina"],"images":[],"video":null}
 ];
 
-export const radovi = projects.map(project => ({
+export const radovi = [...automated.projects, ...projects].map(project => ({
  ...project,
  ...projectSeo[project.slug],
- title: projectSeo[project.slug]?.h1 || project.title,
- images: mediaMap[project.slug].images.map(image => image.path),
- imageAlts: mediaMap[project.slug].images.map(image => image.alt || project.title),
- videos: mediaMap[project.slug].videos.map(video => video.path),
+ title: projectSeo[project.slug]?.h1 || project.h1 || project.title,
+ images: (automated.media[project.slug] || mediaMap[project.slug]).images.map(image => image.path),
+ imageAlts: (automated.media[project.slug] || mediaMap[project.slug]).images.map(image => image.alt || project.title),
+ videos: (automated.media[project.slug] || mediaMap[project.slug]).videos.map(video => video.path),
 }));
