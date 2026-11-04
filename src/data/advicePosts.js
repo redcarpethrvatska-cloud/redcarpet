@@ -217,7 +217,7 @@ export const advicePosts = [
     "slug": "koliko-traje-susenje-nakon-dubinskog-pranja",
     "title": "Koliko traje sušenje nakon dubinskog pranja tepisona i namještaja?",
     "description": "O čemu ovisi sušenje tepisona, hotelskih stolica i fotelja nakon dubinskog čišćenja? Savjeti za planiranje poslovnih prostora.",
-    "image": "/images/suho-ciscenje-osjetljivih-povrsina-tepih.jpg",
+    "image": "/images/red-carpet-susenje-nakon-dubinskog-pranja.webp",
     "sections": [
       [
         "Zašto nije moguće obećati jednako vrijeme sušenja?",
