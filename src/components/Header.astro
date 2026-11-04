@@ -4,6 +4,7 @@ const navItems = [
 	{ label: 'B2B usluge', href: '/#usluge' },
 	{ label: 'Industrije', href: '/#industrije' },
 	{ label: 'Izvedeni radovi', href: '/izvedeni-radovi/' },
+	{ label: 'Savjeti i novosti', href: '/savjeti/' },
 	{ label: 'O nama', href: '/#o-nama' },
 	{ label: 'Kontakt', href: '/#kontakt' },
 ];
@@ -79,7 +80,7 @@ const navItems = [
 	.header-contact--call { color: var(--white); background: var(--red); }
 	.header-contact--call:hover { background: var(--red-dark); }
 
-	@media (max-width: 1180px) {
+	@media (max-width: 1300px) {
 		.nav-toggle { display: inline-flex; }
 		.site-nav { position: absolute; z-index: 1; top: 100%; left: 0; right: 0; background: #0d0d0f; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.12); padding: 1rem 1.5rem 1.5rem; display: none; flex-direction: column; align-items: stretch; gap: 1rem; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34); }
 		.site-nav.is-open { display: flex; }
@@ -116,7 +117,7 @@ const navItems = [
 		document.addEventListener('pointerdown', (event) => {
 			if (event.target instanceof Node && !toggle.contains(event.target) && !nav.contains(event.target)) closeMenu();
 		});
-		const mediaQuery = window.matchMedia('(min-width: 1181px)');
+		const mediaQuery = window.matchMedia('(min-width: 1301px)');
 		mediaQuery.addEventListener('change', (event) => { if (event.matches) closeMenu(); });
 	}
 </script>
