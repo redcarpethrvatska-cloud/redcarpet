@@ -478,7 +478,7 @@ export const advicePosts = [
   "slug": "ugovorno-ciscenje-tepisona-poslovne-zgrade",
   "title": "Ugovorno čišćenje tepisona u poslovnim zgradama: jednom ili dvaput godišnje?",
   "description": "Ugovorno održavanje uredskih tepisona: kada planirati jedan ili dva termina godišnje, kako podijeliti zone i usporediti B2B ponude.",
-  "image": "/media/izvedeni-radovi/ciscenje-800-m2-tepisona-upravna-zgrada/ciscenje-800-m2-tepisona-upravna-zgrada-04.webp",
+  "image": "/media/izvedeni-radovi/dubinsko-ciscenje-tepisona-poslovna-zgrada-istra/poslovna-zgrada-istra-tepison-01.webp",
   "sections": [
     [
       "Ugovor treba pratiti stanje objekta, a ne kalendar",
@@ -536,7 +536,7 @@ export const advicePosts = [
   "slug": "ciscenje-300-tapeciranih-stolica-hoteli-restorani",
   "title": "Čišćenje 300 i više tapeciranih stolica u hotelima i restoranima",
   "description": "Kako isplanirati dubinsko čišćenje stotina hotelskih i restoranskih stolica: pregled presvlaka, rad po zonama, sušenje i ponuda.",
-  "image": "/images/ciscenje-tapaciranog-namjestaja-hotel-restoran.jpg",
+  "image": "/media/izvedeni-radovi/stolice-hotelski-restoran/stolice-hotelski-restoran-01.webp",
   "sections": [
     [
       "Velike količine stolica traže projektni pristup",
