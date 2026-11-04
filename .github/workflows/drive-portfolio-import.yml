@@ -1,0 +1,60 @@
+name: Import new Red Carpet projects from Google Drive
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies and media tools
+        run: |
+          npm ci
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Check Drive OAuth credentials
+        env:
+          GOOGLE_DRIVE_CLIENT_ID: \${{ secrets.GOOGLE_DRIVE_CLIENT_ID }}
+          GOOGLE_DRIVE_CLIENT_SECRET: \${{ secrets.GOOGLE_DRIVE_CLIENT_SECRET }}
+          GOOGLE_DRIVE_REFRESH_TOKEN: \${{ secrets.GOOGLE_DRIVE_REFRESH_TOKEN }}
+        run: |
+          test -n "$GOOGLE_DRIVE_CLIENT_ID"
+          test -n "$GOOGLE_DRIVE_CLIENT_SECRET"
+          test -n "$GOOGLE_DRIVE_REFRESH_TOKEN"
+      - name: Import and optimize new projects
+        env:
+          GOOGLE_DRIVE_CLIENT_ID: \${{ secrets.GOOGLE_DRIVE_CLIENT_ID }}
+          GOOGLE_DRIVE_CLIENT_SECRET: \${{ secrets.GOOGLE_DRIVE_CLIENT_SECRET }}
+          GOOGLE_DRIVE_REFRESH_TOKEN: \${{ secrets.GOOGLE_DRIVE_REFRESH_TOKEN }}
+        run: node scripts/import-drive-portfolio.mjs
+      - name: Validate and build
+        run: |
+          npm run build
+          npm run test:seo
+      - name: Create review pull request for new work only
+        env:
+          GH_TOKEN: \${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain -- src/data/autoIzvedeniRadovi.json public/media/izvedeni-radovi)" ]; then
+            echo "Nothing new to publish."
+            exit 0
+          fi
+          branch="automation/drive-import-$(date +%Y%m%d)-$GITHUB_RUN_ID"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add src/data/autoIzvedeniRadovi.json public/media/izvedeni-radovi
+          git commit -m "Add new Drive portfolio project(s) for review"
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" --draft \
+            --title "New Red Carpet portfolio projects from Drive" \
+            --body "Generated from the Red Carpet private Drive inbox. Review all text, images, videos, identifiers and the preview. Do not merge until approved."
