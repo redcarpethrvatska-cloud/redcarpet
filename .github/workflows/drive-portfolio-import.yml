@@ -23,18 +23,18 @@ jobs:
           sudo apt-get install -y ffmpeg
       - name: Check Drive OAuth credentials
         env:
-          GOOGLE_DRIVE_CLIENT_ID: \${{ secrets.GOOGLE_DRIVE_CLIENT_ID }}
-          GOOGLE_DRIVE_CLIENT_SECRET: \${{ secrets.GOOGLE_DRIVE_CLIENT_SECRET }}
-          GOOGLE_DRIVE_REFRESH_TOKEN: \${{ secrets.GOOGLE_DRIVE_REFRESH_TOKEN }}
+          GOOGLE_DRIVE_CLIENT_ID: ${{ secrets.GOOGLE_DRIVE_CLIENT_ID }}
+          GOOGLE_DRIVE_CLIENT_SECRET: ${{ secrets.GOOGLE_DRIVE_CLIENT_SECRET }}
+          GOOGLE_DRIVE_REFRESH_TOKEN: ${{ secrets.GOOGLE_DRIVE_REFRESH_TOKEN }}
         run: |
           test -n "$GOOGLE_DRIVE_CLIENT_ID"
           test -n "$GOOGLE_DRIVE_CLIENT_SECRET"
           test -n "$GOOGLE_DRIVE_REFRESH_TOKEN"
       - name: Import and optimize new projects
         env:
-          GOOGLE_DRIVE_CLIENT_ID: \${{ secrets.GOOGLE_DRIVE_CLIENT_ID }}
-          GOOGLE_DRIVE_CLIENT_SECRET: \${{ secrets.GOOGLE_DRIVE_CLIENT_SECRET }}
-          GOOGLE_DRIVE_REFRESH_TOKEN: \${{ secrets.GOOGLE_DRIVE_REFRESH_TOKEN }}
+          GOOGLE_DRIVE_CLIENT_ID: ${{ secrets.GOOGLE_DRIVE_CLIENT_ID }}
+          GOOGLE_DRIVE_CLIENT_SECRET: ${{ secrets.GOOGLE_DRIVE_CLIENT_SECRET }}
+          GOOGLE_DRIVE_REFRESH_TOKEN: ${{ secrets.GOOGLE_DRIVE_REFRESH_TOKEN }}
         run: node scripts/import-drive-portfolio.mjs
       - name: Validate and build
         run: |
@@ -42,7 +42,7 @@ jobs:
           npm run test:seo
       - name: Create review pull request for new work only
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [ -z "$(git status --porcelain -- src/data/autoIzvedeniRadovi.json public/media/izvedeni-radovi)" ]; then
             echo "Nothing new to publish."
