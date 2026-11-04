@@ -17,6 +17,8 @@ jobs:
           set -euo pipefail
           cat .tmp/redcarpet-zagreb-video/part-*.bin > /tmp/redcarpet-original.mp4
           echo "07528f457abb92c1f97d50c051b1920c510933c27069a8d6d45c1d25e20b26a4  /tmp/redcarpet-original.mp4" | sha256sum -c -
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
           command -v ffmpeg
           DEST="public/media/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe"
           mkdir -p "$DEST"
