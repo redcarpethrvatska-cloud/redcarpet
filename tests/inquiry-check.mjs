@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { onRequestPost } from '../functions/api/inquiry.js';
 
-const data = {fullName:'Test', company:'Primjer d.o.o.', city:'Rijeka', phone:'+385991234567', email:'test@example.com', message:'Veći poslovni objekt', gdpr:true, turnstileToken:'token'};
+const data = {fullName:'Test', company:'Primjer d.o.o.', city:'Rijeka', objectType:'Hotel', area:'50 soba', phone:'+385991234567', email:'test@example.com', message:'Veći poslovni objekt', gdpr:true, turnstileToken:'token'};
 const secrets = {RESEND_API_KEY:'test', RESEND_FROM:'test@example.com', TURNSTILE_SECRET_KEY:'test'};
 async function request(payload, env=secrets) {
  const req = new Request('https://redcarpet.hr/api/inquiry', {method:'POST', headers:{origin:'https://redcarpet.hr'}, body:JSON.stringify(payload)});
