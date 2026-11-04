@@ -710,7 +710,32 @@
     ]
   },
   "dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe": {
-    "images": [],
+    "images": [
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe/zagreb-hotel-01.jpg",
+        "alt": "Hotelski lounge u hotelu u Zagrebu sa sofama, foteljama i stolovima"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe/zagreb-hotel-02.jpg",
+        "alt": "Hotelski restoran u Zagrebu s tapeciranim foteljama uz blagovaonske stolove"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe/zagreb-hotel-03.jpg",
+        "alt": "Profesionalna oprema Red Carpet za dubinsko čišćenje hotelskih tekstilnih površina"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe/zagreb-hotel-04.jpg",
+        "alt": "Dubinsko čišćenje tepiha uz tapeciranu sofu u hotelskom lounge prostoru"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe/zagreb-hotel-05.jpg",
+        "alt": "Tapecirana sofa u hotelu u Zagrebu tijekom radova na dubinskom čišćenju"
+      },
+      {
+        "path": "/media/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe/zagreb-hotel-06.jpg",
+        "alt": "Čišćenje tapeciranih fotelja u hotelskom lounge prostoru"
+      }
+    ],
     "videos": []
   }
 }
