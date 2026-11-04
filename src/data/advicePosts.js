@@ -3,7 +3,7 @@ export const advicePosts = [
     "slug": "zasto-je-redovito-pranje-tepisona-vazno",
     "title": "Zašto je redovito pranje tepisona važno za poslovne objekte?",
     "description": "Saznajte zašto je redovito dubinsko čišćenje tepisona važno u hotelima, uredima i poslovnim objektima te kako planirati B2B održavanje.",
-    "image": "/images/pranje-tepisona-hotelska-soba-red-carpet.jpg",
+    "image": "/images/red-carpet-redovito-pranje-tepisona-uredi.webp",
     "sections": [
       [
         "Zašto se tepison u poslovnim objektima brže prlja?",
@@ -419,7 +419,7 @@ export const advicePosts = [
   "slug": "dubinsko-ciscenje-hotelskih-tepisona-prije-sezone",
   "title": "Dubinsko čišćenje hotelskih tepisona prije turističke sezone",
   "description": "Kako organizirati čišćenje hotelskih soba, hodnika i zajedničkih prostora prije sezone bez nepotrebnog zatvaranja i uz plan sušenja.",
-  "image": "/media/izvedeni-radovi/dubinsko-ciscenje-tepisona-hotel-opatija-50-soba/20250311_111518.webp",
+  "image": "/images/red-carpet-hotelski-tepisoni-prije-sezone.webp",
   "sections": [
     [
       "Zašto pripremu treba početi pregledom",
