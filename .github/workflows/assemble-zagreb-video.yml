@@ -1,0 +1,44 @@
+name: Assemble Zagreb hotel video once
+on:
+  push:
+    branches: [feature/hotel-zagreb-video-20261104]
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Assemble, verify, compress and link video
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .tmp/redcarpet-zagreb-video/part-*.bin > /tmp/redcarpet-original.mp4
+          echo "07528f457abb92c1f97d50c051b1920c510933c27069a8d6d45c1d25e20b26a4  /tmp/redcarpet-original.mp4" | sha256sum -c -
+          command -v ffmpeg
+          DEST="public/media/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe"
+          mkdir -p "$DEST"
+          ffmpeg -hide_banner -loglevel error -y -i /tmp/redcarpet-original.mp4 -vf "fps=20,scale=854:-2:flags=lanczos" -c:v libx264 -preset medium -crf 29 -maxrate 1700k -bufsize 3000k -pix_fmt yuv420p -movflags +faststart -an "$DEST/zagreb-hotel-video-01.mp4"
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 "$DEST/zagreb-hotel-video-01.mp4"
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const p='src/data/portfolioMediaMap.json';
+          const slug='dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe';
+          const o=JSON.parse(fs.readFileSync(p,'utf8'));
+          if (!o[slug] || o[slug].images.length!==6) throw new Error('Project images missing');
+          o[slug].videos=[{path:'/media/izvedeni-radovi/'+slug+'/zagreb-hotel-video-01.mp4'}];
+          fs.writeFileSync(p,JSON.stringify(o,null,2)+'\n');
+          NODE
+          rm -rf .tmp/redcarpet-zagreb-video
+          rm .github/workflows/assemble-zagreb-video.yml
+      - name: Commit final video, remove temporary chunks and workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "media: add optimized hotel Zagreb video and clean transfer files"
+          git push origin HEAD:feature/hotel-zagreb-video-20261104
