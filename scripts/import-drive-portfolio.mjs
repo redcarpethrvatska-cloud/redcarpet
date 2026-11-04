@@ -51,7 +51,7 @@ const escapeText = value => String(value).trim().replace(/\s+/g, ' ');
 const extensions = /\.(jpe?g|png|webp|heic|heif)$/i;
 const videoExt = /\.(mp4|mov|m4v|avi)$/i;
 const exec = (...args) => execFileSync(args[0], args.slice(1), { stdio:'pipe', timeout:180000 });
-const knownFolders = new Set(database.projects.map(p => p.sourceFolderId));
+const knownFolders = new Set([...(database.ignoredSourceFolderIds || []), ...database.projects.map(p => p.sourceFolderId)]);
 const knownSlugs = new Set([...Object.keys(legacyMap), ...database.projects.map(p => p.slug)]);
 const inbox = await list(rootFolder);
 const folders = inbox.filter(x => x.mimeType === 'application/vnd.google-apps.folder').sort((a,b)=>a.name.localeCompare(b.name));
