@@ -98,6 +98,7 @@ for (const folder of folders) {
       }
       exec('ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1',destination);
       if (fs.statSync(destination).size < 1000) throw new Error('Empty optimized media');
+      if (fs.statSync(destination).size > 90 * 1024 * 1024) throw new Error('Optimized media exceeds safe GitHub size limit');
       fs.unlinkSync(tempFile);
     }
     const summary = description.slice(0,220);
