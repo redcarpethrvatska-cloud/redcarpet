@@ -40,7 +40,7 @@ const posts = [
           {posts.map(post => (
             <article>
               <a href={post.href}>
-                <img src={post.image} alt={post.title} width="720" height="480" loading="lazy" decoding="async" />
+                <div class="advice-grid__media"><img src={post.image} alt={post.title} width="720" height="480" loading="lazy" decoding="async" /></div>
                 <div class="body">
                   <span class="category">{post.category}</span>
                   <h2>{post.title}</h2>
@@ -61,7 +61,8 @@ const posts = [
   .advice-grid article { border:1px solid var(--border); border-radius:8px; overflow:hidden; }
   .advice-grid a { display:block; color:inherit; text-decoration:none; height:100%; }
   .advice-grid a:hover h2 { color:var(--red); }
-  .advice-grid img { width:100%; aspect-ratio:3/2; object-fit:cover; display:block; }
+  .advice-grid__media { width:100%; aspect-ratio:3/2; overflow:hidden; }
+  .advice-grid__media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
   .body { padding:1.2rem; }
   .body h2 { font-size:1.2rem; }
   .body p { line-height:1.6; }
