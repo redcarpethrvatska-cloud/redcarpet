@@ -419,7 +419,7 @@ export const advicePosts = [
   "slug": "dubinsko-ciscenje-hotelskih-tepisona-prije-sezone",
   "title": "Dubinsko čišćenje hotelskih tepisona prije turističke sezone",
   "description": "Kako organizirati čišćenje hotelskih soba, hodnika i zajedničkih prostora prije sezone bez nepotrebnog zatvaranja i uz plan sušenja.",
-  "image": "/images/red-carpet-hotelski-tepisoni-prije-sezone.webp",
+  "image": "/images/dubinsko-ciscenje-hotelskih-tepisona-prije-sezone-puni-kadar.webp",
   "sections": [
     [
       "Zašto pripremu treba početi pregledom",
