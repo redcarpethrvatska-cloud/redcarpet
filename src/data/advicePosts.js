@@ -3,7 +3,7 @@ export const advicePosts = [
     "slug": "zasto-je-redovito-pranje-tepisona-vazno",
     "title": "Zašto je redovito pranje tepisona važno za poslovne objekte?",
     "description": "Saznajte zašto je redovito dubinsko čišćenje tepisona važno u hotelima, uredima i poslovnim objektima te kako planirati B2B održavanje.",
-    "image": "/images/zasto-je-redovito-pranje-tepisona-vazno.webp",
+    "image": "/images/zasto-je-redovito-pranje-tepisona-vazno-puni-kadar.webp",
     "sections": [
       [
         "Zašto se tepison u poslovnim objektima brže prlja?",
