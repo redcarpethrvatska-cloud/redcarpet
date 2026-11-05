@@ -424,6 +424,18 @@ main > article {
 	}
 }
 
+/* Mobile content must never depend on JavaScript scroll-reveal to be visible. */
+@media (max-width: 1024px) {
+	body { animation: none; }
+	.motion-ready .reveal-item,
+	.motion-ready .reveal-item.is-visible {
+		opacity: 1;
+		transform: none;
+		transition: none;
+		will-change: auto;
+	}
+}
+
 /* ---- Responsive type scale for section padding on small screens ------- */
 
 @media (max-width: 640px) {
