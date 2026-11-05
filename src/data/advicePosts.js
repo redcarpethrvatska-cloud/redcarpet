@@ -3,7 +3,7 @@ export const advicePosts = [
     "slug": "zasto-je-redovito-pranje-tepisona-vazno",
     "title": "Zašto je redovito pranje tepisona važno za poslovne objekte?",
     "description": "Saznajte zašto je redovito dubinsko čišćenje tepisona važno u hotelima, uredima i poslovnim objektima te kako planirati B2B održavanje.",
-    "image": "/images/red-carpet-redovito-pranje-tepisona-uredi.webp",
+    "image": "/images/zasto-je-redovito-pranje-tepisona-vazno.webp",
     "sections": [
       [
         "Zašto se tepison u poslovnim objektima brže prlja?",
@@ -143,7 +143,7 @@ export const advicePosts = [
     "slug": "znakovi-za-dubinsko-ciscenje-tapeciranog-namjestaja",
     "title": "Pet znakova da je vrijeme za dubinsko čišćenje tapeciranog namještaja",
     "description": "Prepoznajte pet znakova da hotelske stolice, fotelje, separei ili garniture trebaju profesionalno dubinsko čišćenje u većem opsegu.",
-    "image": "/images/red-carpet-znakovi-ciscenje-tapeciranog-namjestaja.webp",
+    "image": "/images/znakovi-za-dubinsko-ciscenje-tapeciranog-namjestaja.webp",
     "sections": [
       [
         "1. Vidljive mrlje na sjedištima i naslonima",
@@ -217,7 +217,7 @@ export const advicePosts = [
     "slug": "koliko-traje-susenje-nakon-dubinskog-pranja",
     "title": "Koliko traje sušenje nakon dubinskog pranja tepisona i namještaja?",
     "description": "O čemu ovisi sušenje tepisona, hotelskih stolica i fotelja nakon dubinskog čišćenja? Savjeti za planiranje poslovnih prostora.",
-    "image": "/images/red-carpet-susenje-nakon-dubinskog-pranja.webp",
+    "image": "/images/koliko-traje-susenje-nakon-dubinskog-pranja.webp",
     "sections": [
       [
         "Zašto nije moguće obećati jednako vrijeme sušenja?",
@@ -536,7 +536,7 @@ export const advicePosts = [
   "slug": "ciscenje-300-tapeciranih-stolica-hoteli-restorani",
   "title": "Čišćenje 300 i više tapeciranih stolica u hotelima i restoranima",
   "description": "Kako isplanirati dubinsko čišćenje stotina hotelskih i restoranskih stolica: pregled presvlaka, rad po zonama, sušenje i ponuda.",
-  "image": "/media/izvedeni-radovi/stolice-hotelski-restoran/stolice-hotelski-restoran-01.webp",
+  "image": "/images/ciscenje-300-tapeciranih-stolica-hoteli-restorani.webp",
   "sections": [
     [
       "Velike količine stolica traže projektni pristup",
@@ -654,7 +654,7 @@ export const advicePosts = [
   "slug": "kako-odabrati-izvodaca-ciscenja-hotelskih-tepisona",
   "title": "Kako odabrati vanjskog izvođača za čišćenje hotelskih tepisona?",
   "description": "Kontrolna lista za hotelsku nabavu: reference, procjena materijala, organizacija, opseg ponude i završna kontrola pri izboru B2B izvođača.",
-  "image": "/images/red-carpet-odabir-izvodaca-hotelski-tepisoni.webp",
+  "image": "/images/kako-odabrati-izvodaca-ciscenja-hotelskih-tepisona-soba.webp",
   "sections": [
     [
       "Najniža cijena nije dovoljan kriterij",
