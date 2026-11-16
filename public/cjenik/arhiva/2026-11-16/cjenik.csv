@@ -1,0 +1,11 @@
+﻿Šifra usluge;Naziv usluge;Jedinica mjere;Maloprodajna cijena EUR;Bazna cijena EUR;Datum bazne cijene;Posebni oblik prodaje;Naziv posebnog oblika prodaje
+0008;Troškovi puta;km;0,50;0,50;10.09.2026.;ne;
+0020;Pranje podova;m²;4,00;4,00;10.09.2026.;ne;
+0030;Pranje tepisona;m²;4,00;4,00;10.09.2026.;ne;
+070;Dubinsko čišćenje namještaja;kom;40,00;40,00;10.09.2026.;ne;
+080;Dubinsko čišćenje stolice;kom;10,00;10,00;10.09.2026.;ne;
+082;Dubinsko čišćenje fotelje;kom;25,00;25,00;10.09.2026.;ne;
+084;Dubinsko čišćenje dvosjeda;kom;40,00;40,00;10.09.2026.;ne;
+086;Dubinsko čišćenje trosjeda;kom;55,00;55,00;10.09.2026.;ne;
+095;Dubinsko čišćenje – tepih manji;kom;25,00;25,00;10.09.2026.;ne;
+098;Dubinsko čišćenje – tepih veći;kom;40,00;40,00;10.09.2026.;ne;
