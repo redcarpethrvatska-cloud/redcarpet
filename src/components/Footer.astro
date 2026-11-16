@@ -5,7 +5,6 @@ const quickLinks = [
 	{ label: 'Kako radimo', href: '/#kako-radimo' },
 	{ label: 'O nama', href: '/#o-nama' },
 	{ label: 'Savjeti i novosti', href: '/savjeti/' },
-	{ label: 'Cjenik usluga', href: '/cjenik/' },
 	{ label: 'Kontakt', href: '/#kontakt' },
 ];
 
@@ -30,6 +29,7 @@ const currentYear = new Date().getFullYear();
 				<li><a href="tel:+385913393333">+385 91 339 3333</a></li>
 				<li><a href="mailto:redcarpet.hrvatska@gmail.com">redcarpet.hrvatska@gmail.com</a></li>
 				<li>Nova Cesta 24a, 51410 Opatija</li>
+				<li><a class="site-footer__price-link" href="/cjenik/">Cjenik usluga</a></li>
 			</ul>
 		</div>
 
@@ -107,6 +107,7 @@ const currentYear = new Date().getFullYear();
 		color: var(--white);
 	}
 
+	.site-footer__price-link { display: inline-block; padding: .35rem 0; border-bottom: 1px solid var(--red); }
 	.site-footer__consent { margin-top: 1rem; padding: .35rem 0; background: transparent; color: #dedee0; border: 0; border-bottom: 1px solid var(--red); font: inherit; font-size: .87rem; cursor: pointer; text-align: left; }
 	.site-footer__consent:hover, .site-footer__consent:focus-visible { color: #fff; }
 
