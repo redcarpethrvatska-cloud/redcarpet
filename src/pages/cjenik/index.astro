@@ -31,13 +31,10 @@ const archive = [{date:'16.11.2026.',base}];
       </a>
     ))}
    </div>
-   <div class="notice">
-    <p><strong>Napomena:</strong> FERIA je paušalni obrt izvan sustava PDV-a. PDV nije obračunat temeljem članka 90. stavka 1. Zakona o porezu na dodanu vrijednost.</p>
-    <p>Troškovi puta obračunavaju se po kilometru. Za velike površine i specifične uvjete rada priprema se pojedinačna ponuda.</p>
-   </div>
    <section class="archive" aria-labelledby="archive-heading">
     <h2 id="archive-heading">Arhiva cjenika</h2>
     <p>Prethodne verzije ostaju dostupne po datumu objave. Svaka izmjena cijena dobiva zasebnu arhivsku verziju.</p>
+    <div class="archive-head"><span>Datum objave</span><span>Opis</span><span>Preuzmi</span></div>
     {archive.map(entry => (
       <div class="archive-row"><strong>{entry.date}</strong><span>Početna verzija <em>(aktualno)</em></span>
        <a href="#pdf" data-pdf="true" download="RedCarpet-Cjenik-2026-11-16.pdf">PDF ↓</a>
@@ -47,6 +44,11 @@ const archive = [{date:'16.11.2026.',base}];
       </div>
     ))}
    </section>
+   <div class="notice">
+    <p><strong>Napomena:</strong> FERIA je paušalni obrt izvan sustava PDV-a. PDV nije obračunat temeljem članka 90. stavka 1. Zakona o porezu na dodanu vrijednost.</p>
+    <p>Troškovi puta obračunavaju se po kilometru. Za velike površine i specifične uvjete rada priprema se pojedinačna ponuda.</p>
+   </div>
+
   </div></section>
  </main>
  <Footer />
@@ -66,10 +68,13 @@ const archive = [{date:'16.11.2026.',base}];
  .download-card__cta{display:block;font-size:.92rem;color:var(--red);font-weight:700;margin-top:auto;padding:1.1rem 1rem 1.25rem}
  .notice{border-left:3px solid var(--red);background:#f8f8f8;padding:1.1rem 1.4rem;margin:2.5rem 0}.notice p+p{margin-top:.5rem}
  .archive{margin-top:3.5rem}.archive h2{font-size:1.7rem;margin-bottom:.5rem}.archive>p{margin-bottom:1.5rem}
- .archive-row{border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem;background:#fafafa}
- .archive-row span{margin-right:auto;color:var(--gray)} .archive-row em{font-style:normal;color:var(--red);font-weight:700}.archive-row a{color:var(--red);font-weight:700;text-decoration:underline}
- @media(max-width:780px){.download-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
- @media(max-width:430px){.download-grid{gap:.7rem}.download-card{min-height:295px}.download-card__body{padding:.7rem .7rem 0}.download-card__name strong{font-size:1.3rem}.download-card__icon{width:2.2rem;height:2rem;font-size:.53rem}.archive-row span{width:100%}}
+ .archive-head{display:grid;grid-template-columns:150px 1fr 330px;gap:1rem;background:#f1f1f1;border:1px solid var(--border);border-radius:8px 8px 0 0;padding:.8rem 1rem;font-size:.83rem;font-weight:800}
+ .archive-row{border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem;background:#fff}
+ .archive-row span{margin-right:auto;color:var(--gray)} .archive-row em{font-style:normal;color:var(--red);font-weight:700}.archive-row a{color:var(--red);font-weight:700;text-decoration:none;border:1px solid #e7c0c2;border-radius:6px;padding:.25rem .6rem;font-size:.83rem}
+ .archive-row a:hover{background:#fff3f3}
+ .archive-row strong{min-width:134px}
+ @media(max-width:780px){.download-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.archive-head{grid-template-columns:110px 1fr 140px}}
+ @media(max-width:430px){.download-grid{gap:.7rem}.download-card{min-height:295px}.download-card__body{padding:.7rem .7rem 0}.download-card__name strong{font-size:1.3rem}.download-card__icon{width:2.2rem;height:2rem;font-size:.53rem}.archive-row span{width:100%}.archive-head{grid-template-columns:1fr 1fr}.archive-head span:last-child{display:none}}
 </style>
 <script>
  const prices = [
