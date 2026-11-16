@@ -25,7 +25,7 @@ const archive = [{date:'16.11.2026.',base}];
    <div class="download-grid" aria-label="Preuzimanje važećeg cjenika">
     {downloads.map(file => (
       <a class="download-card" href={file.href} download={file.pdf ? undefined : 'RedCarpet-Cjenik-2026-11-16.'+file.format.toLowerCase()} data-pdf={file.pdf ? 'true' : undefined} aria-label={'Preuzmi cjenik '+file.format}>
-       <span class="download-card__media" style={`background-image:url("${photoSprite}");background-position:${file.position}`} aria-hidden="true"></span>
+       <span class="download-card__media" style={`background-image:url("${photoSprite}");background-position:${file.position}`} role="img" aria-label={`Fotografija formata ${file.format}`}></span>
        <span class="download-card__body"><span class="download-card__category">CJENIK</span><span class="download-card__name"><strong>{file.format}</strong><span class="download-card__icon" aria-hidden="true">{file.icon}</span></span><small>{file.detail}</small></span>
        <span class="download-card__cta">Preuzmi ↓</span>
       </a>
@@ -58,7 +58,7 @@ const archive = [{date:'16.11.2026.',base}];
  .download-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.3rem;margin-top:2.2rem}
  .download-card{border:1px solid var(--border);border-radius:9px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;color:var(--black);min-height:345px;transition:border-color .2s,transform .2s,box-shadow .2s}
  .download-card:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.06)}
- .download-card__media{display:block;width:100%;aspect-ratio:1.52;background-repeat:no-repeat;background-size:200% 200%;background-color:#e6e6e6}
+ .download-card__media{display:block;width:100%;aspect-ratio:5/3;background-repeat:no-repeat;background-size:200% 200%;background-color:#e6e6e6;filter:contrast(1.08) saturate(1.08);border-bottom:1px solid var(--border)}
  .download-card__body{display:flex;flex-direction:column;align-items:stretch;gap:.5rem;padding:1rem 1rem 0;flex:1}
  .download-card__category{color:var(--red);font-size:.72rem;font-weight:800;letter-spacing:.06em}
  .download-card__name{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
