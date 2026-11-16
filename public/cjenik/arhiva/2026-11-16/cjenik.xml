@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cjenik verzija="1.0" valuta="EUR">
+  <naziv>FERIA obrt, vl. Igor Stazić – Red Carpet</naziv>
+  <adresa>Nova Cesta 24a, 51410 Opatija</adresa>
+  <oib>72073948409</oib>
+  <datum_objave>2026-11-16</datum_objave>
+  <datum_bazne_cijene>2026-09-10</datum_bazne_cijene>
+  <pdv_napomena>PDV nije obračunat temeljem članka 90. stavka 1. Zakona o porezu na dodanu vrijednost.</pdv_napomena>
+  <usluge>
+    <usluga><sifra>0008</sifra><naziv>Troškovi puta</naziv><jedinica_mjere>km</jedinica_mjere><maloprodajna_cijena>0.50</maloprodajna_cijena><bazna_cijena>0.50</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>0020</sifra><naziv>Pranje podova</naziv><jedinica_mjere>m²</jedinica_mjere><maloprodajna_cijena>4.00</maloprodajna_cijena><bazna_cijena>4.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>0030</sifra><naziv>Pranje tepisona</naziv><jedinica_mjere>m²</jedinica_mjere><maloprodajna_cijena>4.00</maloprodajna_cijena><bazna_cijena>4.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>070</sifra><naziv>Dubinsko čišćenje namještaja</naziv><jedinica_mjere>kom</jedinica_mjere><maloprodajna_cijena>40.00</maloprodajna_cijena><bazna_cijena>40.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>080</sifra><naziv>Dubinsko čišćenje stolice</naziv><jedinica_mjere>kom</jedinica_mjere><maloprodajna_cijena>10.00</maloprodajna_cijena><bazna_cijena>10.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>082</sifra><naziv>Dubinsko čišćenje fotelje</naziv><jedinica_mjere>kom</jedinica_mjere><maloprodajna_cijena>25.00</maloprodajna_cijena><bazna_cijena>25.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>084</sifra><naziv>Dubinsko čišćenje dvosjeda</naziv><jedinica_mjere>kom</jedinica_mjere><maloprodajna_cijena>40.00</maloprodajna_cijena><bazna_cijena>40.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>086</sifra><naziv>Dubinsko čišćenje trosjeda</naziv><jedinica_mjere>kom</jedinica_mjere><maloprodajna_cijena>55.00</maloprodajna_cijena><bazna_cijena>55.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>095</sifra><naziv>Dubinsko čišćenje – tepih manji</naziv><jedinica_mjere>kom</jedinica_mjere><maloprodajna_cijena>25.00</maloprodajna_cijena><bazna_cijena>25.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+    <usluga><sifra>098</sifra><naziv>Dubinsko čišćenje – tepih veći</naziv><jedinica_mjere>kom</jedinica_mjere><maloprodajna_cijena>40.00</maloprodajna_cijena><bazna_cijena>40.00</bazna_cijena><posebni_oblik_prodaje>ne</posebni_oblik_prodaje></usluga>
+  </usluge>
+</cjenik>
