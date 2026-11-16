@@ -5,12 +5,13 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const version = '2026-11-16';
+const photoSprite = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAGRFS1hLP2RYUVhxamR3lvqjloqKlv/b57X6////////////////////////////////////////////////////2wBDAWpxcZaDlv+jo///////////////////////////////////////////////////////////////////////////wAARCAFAAeADASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QAMRAAAgIABQIGAgICAgIDAAAAAAECEQMSITFBUWEEEyJScZEygUKhsfAjYhRygtHx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAGBEBAQEBAQAAAAAAAAAAAAAAABEBITH/2gAMAwEAAhEDEQA/AMlLLWmqKeJ5j9Rm3mG4UrMinhOrRMbsuOK0solOnqgOmE1lomWFnV8krK42txrEcO6JVLCbhKuDp3RzSkpO0bxfpRcREsJSemhk04PU6LM8Rpk3FLdDiSnwUiqpshvUpszYDbIY7E2AhDEAgAAAAAAAKGkUNDBDCATGJgSySmSBWGaPYxctdClN1qVBsyni1ojOTslakqNViOTHJoUKS1JathTRa3M6aNI6gax2MsfY1jsZY2xROGbowgaoBz2MHuXiMhANFAhhBwYYm50cGGLuFTE1wvyMomuFuB0rYAWwMDHF2Kw9icXYvD2Kh8jGAET2Ofk2xHoYog6cPYswhKkap2BwFW6okpEUR/JWb42DlWaO3JjHdHcmmgOPCetHRSlGmZSw6xHWxUJamN9Vk04So6I4mlMmUc0kOUehoUnZMkQm0y7CorUtCY7AZLAW+wCZJeST4GsJ8sQZAbrCjzbKUYrZIsSuZRb2TKWFN9EdACFY+TpvqZVTpnWZ4sLVrcQYjQikFAwAIBMYmBLJZTEBlsaXcSXq9AToIY46CTKSzEQS12JTo0yBk0Ck5JRtiWMlwyMRU0hZe5obrxMV/FkTxozWzRllDKCtYYsY72X58OjOfKwysFbSxYS6/RKnHr/RnlYZWBssSPX+g82PX+jHKwphG/mx6mc2pPRoin0Cn0CrTS5ReHOMXrJGNPoFPoB2LGw/cg87D9yOOmLUDpxJxltJFQxIJayRyAB2+bD3L7H5kPcvs4QA6pyi9pL7M0YgB1RN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';
 const base = '/cjenik/arhiva/' + version + '/';
 const downloads = [
- {format:'PDF',detail:'A4 · za ispis',icon:'▤',href:'#pdf',pdf:true},
- {format:'CSV',detail:'Strojno čitljiv',icon:'▦',href:base+'cjenik.csv'},
- {format:'XML',detail:'Strojno čitljiv',icon:'⌘',href:base+'cjenik.xml'},
- {format:'HTML',detail:'Web dokument',icon:'▣',href:base+'cjenik.html'}
+ {format:'PDF',detail:'Cjeloviti cjenik za ispis i dijeljenje.',icon:'PDF',href:'#pdf',pdf:true,position:'left top'},
+ {format:'CSV',detail:'Cjenik za Excel i tablične programe.',icon:'CSV',href:base+'cjenik.csv',position:'right top'},
+ {format:'XML',detail:'Strojno čitljivi podaci za integracije.',icon:'XML',href:base+'cjenik.xml',position:'left bottom'},
+ {format:'HTML',detail:'Cjenik za pregled u web-pregledniku.',icon:'HTML',href:base+'cjenik.html',position:'right bottom'}
 ];
 const archive = [{date:'16.11.2026.',base}];
 ---
@@ -24,44 +25,56 @@ const archive = [{date:'16.11.2026.',base}];
    <div class="download-grid" aria-label="Preuzimanje važećeg cjenika">
     {downloads.map(file => (
       <a class="download-card" href={file.href} download={file.pdf ? undefined : 'RedCarpet-Cjenik-2026-11-16.'+file.format.toLowerCase()} data-pdf={file.pdf ? 'true' : undefined} aria-label={'Preuzmi cjenik '+file.format}>
-       <span class="download-card__icon" aria-hidden="true">{file.icon}</span>
-       <strong>{file.format}</strong><small>{file.detail}</small>
+       <span class="download-card__media" style={`background-image:url("${photoSprite}");background-position:${file.position}`} aria-hidden="true"></span>
+       <span class="download-card__body"><span class="download-card__category">CJENIK</span><span class="download-card__name"><strong>{file.format}</strong><span class="download-card__icon" aria-hidden="true">{file.icon}</span></span><small>{file.detail}</small></span>
        <span class="download-card__cta">Preuzmi ↓</span>
       </a>
     ))}
    </div>
-   <div class="notice">
-    <p><strong>Napomena:</strong> FERIA je paušalni obrt izvan sustava PDV-a. PDV nije obračunat temeljem članka 90. stavka 1. Zakona o porezu na dodanu vrijednost.</p>
-    <p>Troškovi puta obračunavaju se po kilometru. Za velike površine i specifične uvjete rada priprema se pojedinačna ponuda.</p>
-   </div>
    <section class="archive" aria-labelledby="archive-heading">
     <h2 id="archive-heading">Arhiva cjenika</h2>
     <p>Prethodne verzije ostaju dostupne po datumu objave. Svaka izmjena cijena dobiva zasebnu arhivsku verziju.</p>
+    <div class="archive-head"><span>Datum objave</span><span>Opis</span><span>Preuzmi</span></div>
     {archive.map(entry => (
-      <div class="archive-row"><strong>{entry.date}</strong><span>Početna verzija</span>
+      <div class="archive-row"><strong>{entry.date}</strong><span>Početna verzija <em>(aktualno)</em></span>
+       <a href="#pdf" data-pdf="true" download="RedCarpet-Cjenik-2026-11-16.pdf">PDF ↓</a>
        <a href={entry.base+'cjenik.csv'} download>CSV ↓</a>
        <a href={entry.base+'cjenik.xml'} download>XML ↓</a>
        <a href={entry.base+'cjenik.html'} download>HTML ↓</a>
       </div>
     ))}
    </section>
+   <div class="notice">
+    <p><strong>Napomena:</strong> FERIA je paušalni obrt izvan sustava PDV-a. PDV nije obračunat temeljem članka 90. stavka 1. Zakona o porezu na dodanu vrijednost.</p>
+    <p>Troškovi puta obračunavaju se po kilometru. Za velike površine i specifične uvjete rada priprema se pojedinačna ponuda.</p>
+   </div>
+
   </div></section>
  </main>
  <Footer />
 </Layout>
 <style>
  .prices{max-width:1100px}.lead{max-width:730px;margin:.6rem 0 1.5rem}.meta{display:flex;gap:.55rem;flex-wrap:wrap;font-size:.91rem;margin-bottom:2rem}
- .download-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.3rem}
- .download-card{border:1px solid var(--border);border-radius:9px;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.25rem;padding:1.8rem 1rem;min-height:210px;color:var(--black);transition:border-color .2s,transform .2s}
- .download-card:hover{border-color:var(--red);transform:translateY(-3px)}
- .download-card__icon{font-size:2.3rem;line-height:1;color:var(--red);margin-bottom:.45rem;font-weight:700}
- .download-card strong{font-size:1.25rem}.download-card small{color:var(--gray)}.download-card__cta{font-size:.87rem;color:var(--red);font-weight:700;margin-top:auto;padding-top:.7rem}
+ .download-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.3rem;margin-top:2.2rem}
+ .download-card{border:1px solid var(--border);border-radius:9px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;color:var(--black);min-height:345px;transition:border-color .2s,transform .2s,box-shadow .2s}
+ .download-card:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.06)}
+ .download-card__media{display:block;width:100%;aspect-ratio:1.52;background-repeat:no-repeat;background-size:200% 200%;background-color:#e6e6e6}
+ .download-card__body{display:flex;flex-direction:column;align-items:stretch;gap:.5rem;padding:1rem 1rem 0;flex:1}
+ .download-card__category{color:var(--red);font-size:.72rem;font-weight:800;letter-spacing:.06em}
+ .download-card__name{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+ .download-card__name strong{font-size:1.6rem;line-height:1.1}
+ .download-card__icon{display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:.65rem;width:2.8rem;height:2.6rem;color:var(--red);border:2px solid var(--red);border-radius:4px}
+ .download-card small{color:var(--gray);font-size:.85rem;line-height:1.55}
+ .download-card__cta{display:block;font-size:.92rem;color:var(--red);font-weight:700;margin-top:auto;padding:1.1rem 1rem 1.25rem}
  .notice{border-left:3px solid var(--red);background:#f8f8f8;padding:1.1rem 1.4rem;margin:2.5rem 0}.notice p+p{margin-top:.5rem}
  .archive{margin-top:3.5rem}.archive h2{font-size:1.7rem;margin-bottom:.5rem}.archive>p{margin-bottom:1.5rem}
- .archive-row{border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem 0}
- .archive-row span{margin-right:auto;color:var(--gray)}.archive-row a{color:var(--red);font-weight:700;text-decoration:underline}
- @media(max-width:780px){.download-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
- @media(max-width:430px){.download-grid{gap:.7rem}.download-card{padding:1.25rem .5rem;min-height:185px}.archive-row span{width:100%}}
+ .archive-head{display:grid;grid-template-columns:150px 1fr 330px;gap:1rem;background:#f1f1f1;border:1px solid var(--border);border-radius:8px 8px 0 0;padding:.8rem 1rem;font-size:.83rem;font-weight:800}
+ .archive-row{border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem;background:#fff}
+ .archive-row span{margin-right:auto;color:var(--gray)} .archive-row em{font-style:normal;color:var(--red);font-weight:700}.archive-row a{color:var(--red);font-weight:700;text-decoration:none;border:1px solid #e7c0c2;border-radius:6px;padding:.25rem .6rem;font-size:.83rem}
+ .archive-row a:hover{background:#fff3f3}
+ .archive-row strong{min-width:134px}
+ @media(max-width:780px){.download-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.archive-head{grid-template-columns:110px 1fr 140px}}
+ @media(max-width:430px){.download-grid{gap:.7rem}.download-card{min-height:295px}.download-card__body{padding:.7rem .7rem 0}.download-card__name strong{font-size:1.3rem}.download-card__icon{width:2.2rem;height:2rem;font-size:.53rem}.archive-row span{width:100%}.archive-head{grid-template-columns:1fr 1fr}.archive-head span:last-child{display:none}}
 </style>
 <script>
  const prices = [
