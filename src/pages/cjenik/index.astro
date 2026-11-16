@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const version = '2026-11-16';
+const base = '/cjenik/arhiva/' + version + '/';
+const downloads = [
+ {format:'PDF',detail:'A4 · za ispis',icon:'▤',href:'#pdf',pdf:true},
+ {format:'CSV',detail:'Strojno čitljiv',icon:'▦',href:base+'cjenik.csv'},
+ {format:'XML',detail:'Strojno čitljiv',icon:'⌘',href:base+'cjenik.xml'},
+ {format:'HTML',detail:'Web dokument',icon:'▣',href:base+'cjenik.html'}
+];
+const archive = [{date:'16.11.2026.',base}];
+---
+<Layout title="Cjenik usluga – Red Carpet" description="Važeći cjenik profesionalnog čišćenja Red Carpet. Preuzmite PDF, CSV, XML ili HTML cjenik s baznim cijenama i arhivom.">
+ <TopBar /><Header />
+ <main id="glavni-sadrzaj">
+  <section class="section"><div class="container prices">
+   <h1>Cjenik usluga</h1>
+   <p class="lead">Važeći cjenik profesionalnog čišćenja tepisona i tapeciranog namještaja. Preuzmite cjenik u željenom formatu.</p>
+   <p class="meta">Datum cjenika: <strong>16.11.2026.</strong> <span aria-hidden="true">·</span> Bazne cijene na dan <strong>10.09.2026.</strong></p>
+   <div class="download-grid" aria-label="Preuzimanje važećeg cjenika">
+    {downloads.map(file => (
+      <a class="download-card" href={file.href} download={file.pdf ? undefined : 'RedCarpet-Cjenik-2026-11-16.'+file.format.toLowerCase()} data-pdf={file.pdf ? 'true' : undefined} aria-label={'Preuzmi cjenik '+file.format}>
+       <span class="download-card__icon" aria-hidden="true">{file.icon}</span>
+       <strong>{file.format}</strong><small>{file.detail}</small>
+       <span class="download-card__cta">Preuzmi ↓</span>
+      </a>
+    ))}
+   </div>
+   <div class="notice">
+    <p><strong>Napomena:</strong> FERIA je paušalni obrt izvan sustava PDV-a. PDV nije obračunat temeljem članka 90. stavka 1. Zakona o porezu na dodanu vrijednost.</p>
+    <p>Troškovi puta obračunavaju se po kilometru. Za velike površine i specifične uvjete rada priprema se pojedinačna ponuda.</p>
+   </div>
+   <section class="archive" aria-labelledby="archive-heading">
+    <h2 id="archive-heading">Arhiva cjenika</h2>
+    <p>Prethodne verzije ostaju dostupne po datumu objave. Svaka izmjena cijena dobiva zasebnu arhivsku verziju.</p>
+    {archive.map(entry => (
+      <div class="archive-row"><strong>{entry.date}</strong><span>Početna verzija</span>
+       <a href={entry.base+'cjenik.csv'} download>CSV ↓</a>
+       <a href={entry.base+'cjenik.xml'} download>XML ↓</a>
+       <a href={entry.base+'cjenik.html'} download>HTML ↓</a>
+      </div>
+    ))}
+   </section>
+  </div></section>
+ </main>
+ <Footer />
+</Layout>
+<style>
+ .prices{max-width:1100px}.lead{max-width:730px;margin:.6rem 0 1.5rem}.meta{display:flex;gap:.55rem;flex-wrap:wrap;font-size:.91rem;margin-bottom:2rem}
+ .download-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.3rem}
+ .download-card{border:1px solid var(--border);border-radius:9px;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.25rem;padding:1.8rem 1rem;min-height:210px;color:var(--black);transition:border-color .2s,transform .2s}
+ .download-card:hover{border-color:var(--red);transform:translateY(-3px)}
+ .download-card__icon{font-size:2.3rem;line-height:1;color:var(--red);margin-bottom:.45rem;font-weight:700}
+ .download-card strong{font-size:1.25rem}.download-card small{color:var(--gray)}.download-card__cta{font-size:.87rem;color:var(--red);font-weight:700;margin-top:auto;padding-top:.7rem}
+ .notice{border-left:3px solid var(--red);background:#f8f8f8;padding:1.1rem 1.4rem;margin:2.5rem 0}.notice p+p{margin-top:.5rem}
+ .archive{margin-top:3.5rem}.archive h2{font-size:1.7rem;margin-bottom:.5rem}.archive>p{margin-bottom:1.5rem}
+ .archive-row{border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem 0}
+ .archive-row span{margin-right:auto;color:var(--gray)}.archive-row a{color:var(--red);font-weight:700;text-decoration:underline}
+ @media(max-width:780px){.download-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ @media(max-width:430px){.download-grid{gap:.7rem}.download-card{padding:1.25rem .5rem;min-height:185px}.archive-row span{width:100%}}
+</style>
+<script>
+ const prices = [
+ ['Troškovi puta','km','0,50'], ['Pranje podova','m²','4,00'],['Pranje tepisona','m²','4,00'],
+ ['Dubinsko čišćenje namještaja','kom','40,00'],['Dubinsko čišćenje stolice','kom','10,00'],
+ ['Dubinsko čišćenje fotelje','kom','25,00'],['Dubinsko čišćenje dvosjeda','kom','40,00'],
+ ['Dubinsko čišćenje trosjeda','kom','55,00'],['Dubinsko čišćenje – tepih manji','kom','25,00'],
+ ['Dubinsko čišćenje – tepih veći','kom','40,00']
+ ];
+ // PDF is generated on user click; no third-party services or libraries.
+ function pdfFromJpeg(jpeg, width, height) {
+  const binary=atob(jpeg.split(',')[1]);
+  const image=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)image[i]=binary.charCodeAt(i);
+  const enc=new TextEncoder();const parts=[];let offset=0;const offsets=[0];
+  const append=(v)=>{const b=typeof v==='string'?enc.encode(v):v;parts.push(b);offset+=b.length;};
+  const obj=(id,prefix,suffix='')=>{offsets[id]=offset;append(id+' 0 obj\n'+prefix);append(suffix+'\nendobj\n');};
+  append('%PDF-1.4\n');
+  obj(1,'<< /Type /Catalog /Pages 2 0 R >>');
+  obj(2,'<< /Type /Pages /Kids [3 0 R] /Count 1 >>');
+  obj(3,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>');
+  offsets[4]=offset;append('4 0 obj\n<< /Type /XObject /Subtype /Image /Width '+width+' /Height '+height+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+image.length+' >>\nstream\n');append(image);append('\nendstream\nendobj\n');
+  const content='q 595.28 0 0 841.89 0 0 cm /Im0 Do Q';obj(5,'<< /Length '+content.length+' >>\nstream\n'+content+'\nendstream');
+  const start=offset;append('xref\n0 6\n0000000000 65535 f \n');for(let i=1;i<=5;i++)append(String(offsets[i]).padStart(10,'0')+' 00000 n \n');
+  append('trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n'+start+'\n%%EOF');
+  return new Blob(parts,{type:'application/pdf'});
+ }
+ function makePdf(){
+  const c=document.createElement('canvas');c.width=1240;c.height=1754;const x=c.getContext('2d');if(!x)return;
+  x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
+  x.fillStyle='#d71920';x.fillRect(85,140,1070,6);x.textAlign='left';
+  x.fillStyle='#171717';x.font='bold 62px Arial';x.fillText('RED CARPET',85,120);
+  x.font='bold 52px Arial';x.fillText('CJENIK USLUGA',85,255);
+  x.fillStyle='#555';x.font='26px Arial';x.fillText('Važeći cjenik: 16.11.2026.   |   Bazna cijena: 10.09.2026.',85,310);
+  x.fillStyle='#d71920';x.fillRect(85,368,1070,73);
+  x.fillStyle='#fff';x.font='bold 26px Arial';x.fillText('USLUGA',103,415);x.fillText('J.MJ.',730,415);x.fillText('CIJENA',850,415);x.fillText('BAZNA',1010,415);
+  prices.forEach((p,i)=>{const y=441+i*90;x.fillStyle=i%2?'#fff':'#f5f5f5';x.fillRect(85,y,1070,90);x.fillStyle='#dedede';x.fillRect(85,y+89,1070,1);x.fillStyle='#222';x.font='24px Arial';x.fillText(p[0],103,y+55);x.fillText(p[1],738,y+55);x.fillText(p[2]+' €',856,y+55);x.fillText(p[2]+' €',1015,y+55);});
+  x.font='24px Arial';x.fillStyle='#222';x.fillText('FERIA je paušalni obrt izvan sustava PDV-a.',85,1450);x.fillText('PDV nije obračunat prema čl. 90. st. 1. Zakona o PDV-u.',85,1488);
+  x.fillStyle='#777';x.font='21px Arial';x.fillText('Troškovi puta obračunavaju se zasebno po kilometru.',85,1535);
+  x.fillStyle='#d71920';x.fillRect(85,1612,1070,3);x.fillStyle='#333';x.font='21px Arial';x.fillText('FERIA obrt, vl. Igor Stazić · Nova Cesta 24a, 51410 Opatija',85,1653);x.fillText('www.redcarpet.hr · redcarpet.hrvatska@gmail.com',85,1688);
+  const blob=pdfFromJpeg(c.toDataURL('image/jpeg',.93),c.width,c.height);const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='RedCarpet-Cjenik-2026-11-16.pdf';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);
+ }
+ document.querySelectorAll('[data-pdf]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();makePdf();}));
+</script>
