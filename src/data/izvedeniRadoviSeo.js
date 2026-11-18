@@ -1,4 +1,13 @@
 export const projectSeo = {
+  'dubinsko-ciscenje-tepisona-hotelska-konferencijska-dvorana-hodnici': {
+    seoTitle: 'Dubinsko čišćenje 300 m² tepisona u hotelu | Red Carpet',
+    metaDescription: 'Pogledajte dubinsko i kemijsko čišćenje 300 m² tepisona u hotelskoj konferencijskoj dvorani i hodnicima. Stvarne fotografije i video.',
+    h1: 'Dubinsko čišćenje 300 m² tepisona u hotelskoj konferencijskoj dvorani i hodnicima',
+    intro: 'Red Carpet izveo je profesionalno dubinsko i kemijsko čišćenje približno 300 m² tepisona u hotelskoj konferencijskoj dvorani i pripadajućim hodnicima u Lovranu.',
+    scope: 'Radovi su obuhvatili pripremu prostora, obradu tepisona profesionalnom opremom i strojno dubinsko čišćenje podnih tekstilnih obloga u dvorani i hodnicima. Fotografije dokumentiraju prostor i faze rada.',
+    planning: 'Za slično čišćenje hotelskih konferencijskih dvorana potrebno je uskladiti termin s rasporedom događanja, osigurati pristup cjelokupnoj površini i planirati vrijeme za sušenje prije ponovnog korištenja.',
+  },
+
   'kemijsko-ciscenje-tepisona-hotel-80-soba': {
     seoTitle: 'Kemijsko čišćenje tepisona u 80 soba hotela | Red Carpet',
     metaDescription: 'Četiri dana kemijskog čišćenja tepisona u oko 80 hotelskih soba i hodnicima. Priprema hotela za kategorizaciju. Fotografije i video.',
