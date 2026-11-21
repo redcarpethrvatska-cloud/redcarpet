@@ -4,12 +4,15 @@ import TopBar from '../../components/TopBar.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { advicePosts } from '../../data/advicePosts.js';
+import { advicePublishedDates, adviceReadingMinutes, formatPublishedDate } from '../../lib/articleMeta.js';
 import { radovi } from '../../data/izvedeniRadovi.js';
 export function getStaticPaths(){ return advicePosts.map(post=>({params:{slug:post.slug},props:{post}})); }
 const {post}=Astro.props;
+const published = advicePublishedDates[post.slug];
+const minutes = adviceReadingMinutes(post);
 const matchingProjects = radovi.filter(project => post.relatedProjects?.includes(project.slug));
 const faqLd = {'@context':'https://schema.org','@type':'FAQPage',mainEntity:post.faq.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))};
-const ld={'@context':'https://schema.org','@type':'Article',headline:post.title,description:post.description,author:{'@type':'Organization',name:'Red Carpet'},publisher:{'@type':'Organization',name:'Red Carpet'},mainEntityOfPage:'https://redcarpet.hr/savjeti/'+post.slug+'/'};
+const ld={'@context':'https://schema.org','@type':'Article',headline:post.title,description:post.description,datePublished:published,image:new URL(post.image,'https://redcarpet.hr').toString(),author:{'@type':'Organization',name:'Red Carpet'},publisher:{'@type':'Organization',name:'Red Carpet'},mainEntityOfPage:'https://redcarpet.hr/savjeti/'+post.slug+'/'};
 ---
 <Layout title={post.title+' | Red Carpet'} description={post.description}>
 <TopBar/><Header/>
@@ -17,7 +20,9 @@ const ld={'@context':'https://schema.org','@type':'Article',headline:post.title,
 <article class="section"><div class="container advice">
 <nav aria-label="Putanja"><a href="/">Početna</a> / <a href="/savjeti/">Savjeti</a></nav>
 <span class="eyebrow">Red Carpet · B2B vodič</span>
-<h1>{post.title}</h1><p class="lead">{post.description}</p>
+<h1>{post.title}</h1>
+<div class="article-meta"><span>Autor: Red Carpet</span><span aria-hidden="true">·</span><time datetime={published}>{formatPublishedDate(published)}</time><span aria-hidden="true">·</span><span>{minutes} min čitanja</span></div>
+<p class="lead">{post.description}</p>
 <img class="cover" src={post.image} alt={post.title} width="1200" height="800" decoding="async" fetchpriority="high" />
 {post.sections.map(([title,body])=><section><h2>{title}</h2><p>{body}</p></section>)}
 <section class="advice__faq"><h2>Česta pitanja</h2>{post.faq.map(([question, answer]) => <div><h3>{question}</h3><p>{answer}</p></div>)}</section>
@@ -29,5 +34,5 @@ const ld={'@context':'https://schema.org','@type':'Article',headline:post.title,
 <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
 </Layout>
 <style>
-.advice{max-width:880px}.advice nav{font-size:.9rem;margin-bottom:1.75rem}.advice h1{margin:.5rem 0 1rem;line-height:1.15}.lead{font-size:1.16rem;line-height:1.7}.cover{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center;border-radius:9px;margin:1.25rem 0}.advice section{margin:2.4rem 0}.advice p{line-height:1.8}.advice h2{margin:0 0 .9rem}.advice li{margin:.7rem 0}.advice__faq h3{font-size:1.08rem;margin:1.25rem 0 .3rem}.advice__cta{background:#f6f6f6;padding:1.5rem;border-left:4px solid #e31e24}
+.article-meta{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem;color:#666;font-size:.9rem;margin:.25rem 0 1rem}.article-meta time{font-variant-numeric:tabular-nums}.advice{max-width:880px}.advice nav{font-size:.9rem;margin-bottom:1.75rem}.advice h1{margin:.5rem 0 1rem;line-height:1.15}.lead{font-size:1.16rem;line-height:1.7}.cover{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center;border-radius:9px;margin:1.25rem 0}.advice section{margin:2.4rem 0}.advice p{line-height:1.8}.advice h2{margin:0 0 .9rem}.advice li{margin:.7rem 0}.advice__faq h3{font-size:1.08rem;margin:1.25rem 0 .3rem}.advice__cta{background:#f6f6f6;padding:1.5rem;border-left:4px solid #e31e24}
 </style>
