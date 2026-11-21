@@ -4,6 +4,7 @@ import TopBar from '../../components/TopBar.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { advicePosts } from '../../data/advicePosts.js';
+import { advicePublishedDates, adviceReadingMinutes, formatPublishedDate } from '../../lib/articleMeta.js';
 
 const newsPosts = [
   {
@@ -12,6 +13,8 @@ const newsPosts = [
     image: '/images/profesionalno-dubinsko-ciscenje-hotela-i-poslovnih-prostora.webp',
     href: '/novosti/profesionalno-dubinsko-ciscenje-hotela-i-poslovnih-prostora/',
     category: 'Novosti',
+    published: '2026-10-15',
+    minutes: 2,
   },
 ];
 const posts = [
@@ -22,6 +25,8 @@ const posts = [
     image: post.image,
     href: `/savjeti/${post.slug}/`,
     category: 'Savjeti',
+    published: advicePublishedDates[post.slug],
+    minutes: adviceReadingMinutes(post),
   })),
 ];
 ---
@@ -43,6 +48,7 @@ const posts = [
                 <div class="advice-grid__media"><img src={post.image} alt={post.title} width="720" height="480" loading="lazy" decoding="async" /></div>
                 <div class="body">
                   <span class="category">{post.category}</span>
+                  <div class="post-meta"><time datetime={post.published}>{formatPublishedDate(post.published)}</time><span aria-hidden="true">·</span><span>{post.minutes} min čitanja</span></div>
                   <h2>{post.title}</h2>
                   <p>{post.description}</p>
                   <span>Pročitaj {post.category === 'Novosti' ? 'novost' : 'savjet'} →</span>
@@ -67,7 +73,10 @@ const posts = [
   .body h2 { font-size:1.2rem; }
   .body p { line-height:1.6; }
   .body span { color:var(--red); font-weight:700; }
-  .category { display:inline-block; margin-bottom:.5rem; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; }
+  .category { display:inline-block; margin-bottom:.35rem; font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; }
+  .post-meta { display:flex; align-items:center; flex-wrap:wrap; gap:.4rem; margin-bottom:.75rem; font-size:.84rem; color:#666; }
+  .body .post-meta span { color:inherit; font-weight:400; }
+  .post-meta time { font-variant-numeric:tabular-nums; }
   @media(max-width:850px) { .advice-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
   @media(max-width:600px) { .advice-grid { grid-template-columns:1fr; } }
 </style>
