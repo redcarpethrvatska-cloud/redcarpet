@@ -1,5 +1,6 @@
 import mediaMap from "./portfolioMediaMap.json" with { type: "json" };
 import { projectSeo } from './izvedeniRadoviSeo.js';
+import automated from './autoIzvedeniRadovi.json' with { type: 'json' };
 
 const projects = [
  {"slug":"kemijsko-ciscenje-tepisona-hotel-80-soba","title":"Kemijsko čišćenje tepisona u hotelu s oko 80 soba i hodnicima","category":"Hoteli","summary":"Kompletno kemijsko čišćenje tepisona u približno 80 hotelskih soba i hodnicima tijekom četiri dana, u sklopu pripreme hotela za kategorizaciju.","description":"Red Carpet izveo je četverodnevni projekt kemijskog čišćenja tepisona u hotelu s približno 80 soba. Obuhvaćeni su tepisoni u hotelskim sobama i pripadajućim hodnicima, uz obradu nakupljenih nečistoća na tekstilnim podnim oblogama. Radovi su organizirani kao dio pripreme objekta za kategorizaciju. Fotografije prikazuju sobe, hotelske hodnike i profesionalnu opremu korištenu tijekom izvedbe, a videozapis dokumentira dio procesa.","steps":["Kemijsko čišćenje tepisona u približno 80 hotelskih soba","Čišćenje tekstilnih podnih obloga u hotelskim hodnicima","Obrada nečistoća na tepisonskim površinama","Organizacija i izvedba kompletnog zahvata tijekom četiri dana","Priprema hotelskih prostorija za postupak kategorizacije"],"images":[],"video":null},
@@ -25,11 +26,11 @@ const projects = [
  {"slug":"dubinsko-ciscenje-tepisona-hotelska-konferencijska-dvorana-hodnici","title":"Dubinsko čišćenje 300 m² tepisona u hotelskoj konferencijskoj dvorani i hodnicima","category":"Konferencijski centri","summary":"Dubinsko i kemijsko čišćenje približno 300 m² tepisona u hotelskoj konferencijskoj dvorani i hodnicima u Lovranu.","description":"Red Carpet izveo je profesionalno dubinsko i kemijsko čišćenje tepisona u konferencijskoj dvorani i pripadajućim hodnicima hotela u Lovranu. Obuhvat radova iznosio je približno 300 m² tekstilnih podnih obloga. Fotografije i video prikazuju stvarni prostor, korištenu opremu i postupak čišćenja.","steps":["Priprema konferencijske dvorane i pripadajućih hodnika za čišćenje","Obrada tekstilnih podnih obloga profesionalnom opremom","Strojno dubinsko i kemijsko čišćenje približno 300 m² tepisona","Čišćenje podnih površina u hodnicima i završna obrada"],"images":[],"video":null},
 ];
 
-export const radovi = projects.map(project => ({
+export const radovi = [...automated.projects, ...projects].map(project => ({
  ...project,
  ...projectSeo[project.slug],
- title: projectSeo[project.slug]?.h1 || project.title,
- images: mediaMap[project.slug].images.map(image => image.path),
- imageAlts: mediaMap[project.slug].images.map(image => image.alt || project.title),
- videos: mediaMap[project.slug].videos.map(video => video.path),
+ title: projectSeo[project.slug]?.h1 || project.h1 || project.title,
+ images: (automated.media[project.slug] || mediaMap[project.slug]).images.map(image => image.path),
+ imageAlts: (automated.media[project.slug] || mediaMap[project.slug]).images.map(image => image.alt || project.title),
+ videos: (automated.media[project.slug] || mediaMap[project.slug]).videos.map(video => video.path),
 }));
