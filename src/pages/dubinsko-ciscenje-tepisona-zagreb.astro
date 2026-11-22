@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopBar from '../components/TopBar.astro';
+import Header from '../components/Header.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+import FloatingContact from '../components/FloatingContact.astro';
+
+const faqs = [
+ { q: 'Čistite li tepisone u hotelima u Zagrebu?', a: 'Da. Organiziramo dubinsko čišćenje hotelskih soba, hodnika, recepcija, restorana i konferencijskih dvorana u Zagrebu, uz dogovor o pristupu i rasporedu radova.' },
+ { q: 'Može li se čišćenje izvesti noću ili vikendom?', a: 'Da, prema raspoloživosti i dogovoru moguće je planirati noćne i vikend termine kako bi se smanjili zastoji u poslovanju objekta.' },
+ { q: 'Koliko kvadrata tepisona možete očistiti dnevno?', a: 'Orijentacijski kapacitet je do 500 m² dnevno. Stvarna izvedba ovisi o zaprljanosti, rasporedu prostorija, pristupačnosti i uvjetima sušenja.' },
+ { q: 'Kolika je cijena pranja tepisona u Zagrebu?', a: 'Ponudu izrađujemo prema kvadraturi, stanju i vrsti tepisona, pristupu, terminu i opsegu posla. Pošaljite okvirnu površinu i fotografije kako bismo pripremili konkretnu ponudu.' },
+ { q: 'Radite li s privatnim kućanstvima?', a: 'Ova usluga namijenjena je hotelima, uredima, ustanovama i drugim poslovnim objektima, a ne pojedinačnom pranju privatnih tepiha.' },
+];
+const faqSchema = { '@context':'https://schema.org', '@type':'FAQPage', mainEntity: faqs.map(({q,a})=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}})) };
+---
+<Layout title="Dubinsko čišćenje tepisona Zagreb | Hoteli i uredi – Red Carpet" description="Profesionalno pranje i dubinsko čišćenje tepisona u Zagrebu za hotele, urede i poslovne prostore. Noćni i vikend termini, velike površine, B2B ponuda.">
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <TopBar /><Header />
+ <main id="glavni-sadrzaj">
+  <section class="section section--light">
+   <div class="container intro">
+    <span class="eyebrow">Zagreb i okolica · B2B usluge</span>
+    <h1>Dubinsko čišćenje tepisona Zagreb – hoteli i poslovni prostori</h1>
+    <p class="lead">Red Carpet specijaliziran je za <strong>profesionalno pranje i dubinsko čišćenje tepisona u Zagrebu</strong>. Radimo u hotelima, uredima, poslovnim zgradama i konferencijskim prostorima, s organizacijom radova prilagođenom poslovanju objekta.</p>
+    <div class="actions"><a class="btn btn-primary" href="#kontakt">Zatražite ponudu za Zagreb</a><a class="btn btn-secondary" href="/izvedeni-radovi/">Pogledajte izvedene radove</a></div>
+    <ul class="highlights"><li>Velike poslovne površine</li><li>Noćni i vikend termini po dogovoru</li><li>Do 500 m² dnevno, ovisno o uvjetima</li></ul>
+   </div>
+  </section>
+  <section class="section">
+   <div class="container content">
+    <figure class="hero-photo"><img src="/images/pranje-tepisona-hotelska-soba-red-carpet.jpg" alt="Dubinsko čišćenje hotelskog tepisona – profesionalna B2B usluga Red Carpet" width="1200" height="900" loading="lazy" /><figcaption>Profesionalna oprema i postupci prilagođeni hotelskim i poslovnim tepisonima.</figcaption></figure>
+    <h2>Pranje tepisona u poslovnim prostorima u Zagrebu</h2>
+    <p>Tepisoni u objektima s velikom frekvencijom korisnika svakodnevno skupljaju prašinu, čestice prljavštine i mrlje. Redovito usisavanje dio je održavanja, ali nije zamjena za periodično profesionalno čišćenje tekstilne podne obloge. Prije izvedbe procjenjujemo materijal, stupanj zaprljanja i način korištenja prostora kako bismo odabrali odgovarajući postupak.</p>
+    <p>Za ovu uslugu koriste se i nazivi <strong>čišćenje tapisona Zagreb</strong>, <strong>kemijsko čišćenje tepisona Zagreb</strong> te <strong>dubinsko pranje tepisona</strong>. Ti nazivi ne znače uvijek istu tehniku: kada je prikladno primjenjujemo ekstrakcijsko čišćenje, a metodu biramo prema deklaraciji i stanju obloge. Ne obećavamo uklanjanje svake mrlje niti jednako vrijeme sušenja za sve materijale.</p>
+    <h2>Za koje poslovne objekte radimo?</h2>
+    <div class="tiles">
+     <article><h3>Hoteli i smještajni objekti</h3><p>Tepisoni u sobama, hodnicima, lobijima, recepcijama i hotelskim restoranima. Radove možemo rasporediti po etažama ili zonama, u skladu s popunjenošću objekta.</p></article>
+     <article><h3>Uredi i poslovne zgrade</h3><p>Otvoreni uredski prostori, sobe za sastanke, upravne zgrade, recepcije i komunikacijski hodnici. Termini se usklađuju s radom zaposlenika.</p></article>
+     <article><h3>Konferencijske dvorane i ustanove</h3><p>Dvorane, centri za događanja i drugi poslovni objekti s velikim tekstilnim površinama. Organizacija čišćenja prije ili nakon događanja.</p></article>
+    </div>
+    <h2>Čišćenje izvan radnog vremena – manje prekida poslovanja</h2>
+    <p>U hotelu ili poslovnoj zgradi nije dovoljno samo očistiti tepison: važno je planirati kretanje osoblja, pristup prostorijama i povratak prostora u uporabu. Zato prema dogovoru radimo <strong>noću, rano ujutro ili vikendom</strong>. Moguće je planirati rad po katovima, hodnicima i zasebnim zonama kako se cijeli objekt ne bi istovremeno zatvarao.</p>
+    <p>Orijentacijski kapacitet iznosi <strong>do 500 m² dnevno</strong>, no izvediva kvadratura ovisi o zaprljanosti, rasporedu i dostupnosti površina. Vrijeme sušenja ovisi o vrsti tepisona, ventilaciji, temperaturi i primijenjenoj metodi. Realan raspored potvrđujemo nakon procjene projekta.</p>
+    <h2>Kako organiziramo profesionalno čišćenje?</h2>
+    <ol>
+     <li><strong>Pošaljite upit:</strong> navedite objekt u Zagrebu, približnu kvadraturu u m², fotografije i željeni termin.</li>
+     <li><strong>Procjena i ponuda:</strong> definiramo opseg, postupak, pristup prostoru, moguće faze rada i cijenu.</li>
+     <li><strong>Priprema objekta:</strong> usklađujemo raspored s odgovornom osobom, uključujući pristup namještaju, vodi i struji gdje je potrebno.</li>
+     <li><strong>Izvedba i provjera:</strong> čistimo ugovorene zone te dogovaramo uvjete sušenja i ponovno korištenje prostora.</li>
+    </ol>
+    <h2>Izvedeni radovi – Zagreb i veći B2B projekti</h2>
+    <p>Naša ponuda ne temelji se na generičkim fotografijama. U galeriji su dokumentirani stvarni projekti, uključujući hotelske konferencijske prostore u Zagrebu i čišćenje velikih uredskih površina.</p>
+    <div class="refs">
+     <article><h3>Hotel u Zagrebu – konferencijske dvorane i hodnici</h3><p>Dubinsko čišćenje približno 500 m² tepisona, uz organizaciju radova u hotelskom objektu.</p><a href="/izvedeni-radovi/dubinsko-ciscenje-tepisona-konferencijske-dvorane-hotel-zagreb/">Pogledajte projekt</a></article>
+     <article><h3>Hotelski prostori u Zagrebu</h3><p>Dokumentirano čišćenje restorana, recepcije i tapeciranog namještaja u hotelskom okruženju.</p><a href="/izvedeni-radovi/dubinsko-ciscenje-hotela-zagreb-restoran-recepcija-sofe/">Pogledajte projekt</a></article>
+     <article><h3>Upravna zgrada – 800 m²</h3><p>Primjer organizacije čišćenja tepisona na velikoj poslovnoj površini.</p><a href="/izvedeni-radovi/ciscenje-800-m2-tepisona-upravna-zgrada/">Pogledajte projekt</a></article>
+    </div>
+    <p><a href="/izvedeni-radovi/">Pregledajte sve izvedene radove Red Carpeta</a> ili saznajte više o <a href="/dubinsko-ciscenje-tepisona/">dubinskom čišćenju tepisona u Hrvatskoj</a>.</p>
+    <h2>O čemu ovisi cijena čišćenja tepisona u Zagrebu?</h2>
+    <p>Cijena se ne određuje samo prema broju četvornih metara. Na ponudu utječu vrsta podne obloge, ukupna površina, pristupačnost hodnika i soba, razina zaprljanja, potreba za pomicanjem namještaja te termin izvođenja. Za veće projekte možemo pripremiti etapni plan čišćenja. Pošaljite podatke o objektu kako biste dobili usporedivu i jasnu ponudu, bez proizvoljnih obećanja o jedinstvenoj cijeni za svaki tepison.</p>
+    <h2>Česta pitanja o čišćenju tepisona u Zagrebu</h2>
+    <div class="faq-list">{faqs.map(({q,a})=><details><summary>{q}</summary><p>{a}</p></details>)}</div>
+   </div>
+  </section>
+  <ContactSection />
+ </main>
+ <FloatingContact /><Footer />
+</Layout>
+<style>
+ .intro,.content{max-width:1050px}.intro h1{max-width:980px;margin:.8rem 0 1.25rem}.lead{font-size:clamp(1.08rem,2vw,1.26rem);line-height:1.65;max-width:870px}.actions{display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0}.highlights{display:flex;gap:.7rem 1.8rem;flex-wrap:wrap;list-style:none;padding:0;font-weight:700;font-size:.92rem}.highlights li::before{content:'✓';color:var(--red);margin-right:.4rem}.content h2{margin:2.5rem 0 .9rem}.content p{line-height:1.8}.content ol{list-style:decimal;padding-left:1.5rem}.content ol li{margin:.85rem 0;line-height:1.7}.hero-photo{margin:0 0 2rem}.hero-photo img{display:block;width:100%;max-height:470px;object-fit:cover;border-radius:12px}.hero-photo figcaption{font-size:.85rem;color:#666;margin:.55rem 0}.tiles,.refs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.tiles article,.refs article{border:1px solid var(--border);border-top:3px solid var(--red);padding:1.4rem;border-radius:4px}.tiles h3,.refs h3{margin:0 0 .65rem;font-size:1.12rem}.tiles p,.refs p{margin:.5rem 0}.refs a{font-weight:700}.faq-list details{border-bottom:1px solid var(--border);padding:1rem 0}.faq-list summary{cursor:pointer;font-weight:750}.faq-list p{margin:.7rem 0 0}@media(max-width:760px){.tiles,.refs{grid-template-columns:1fr}.actions .btn{width:100%;text-align:center}.highlights{display:block}.highlights li{margin:.5rem 0}.content h2{margin-top:2rem}}
+</style>
