@@ -16,6 +16,7 @@ const faqs = [
 const faqSchema = { '@context':'https://schema.org', '@type':'FAQPage', mainEntity: faqs.map(({q,a})=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}})) };
 ---
 <Layout title="Dubinsko čišćenje tepisona Zagreb | Hoteli i uredi – Red Carpet" description="Profesionalno pranje i dubinsko čišćenje tepisona u Zagrebu za hotele, urede i poslovne prostore. Noćni i vikend termini, velike površine, B2B ponuda.">
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
  <TopBar /><Header />
  <main id="glavni-sadrzaj">
   <section class="section section--light">
@@ -66,7 +67,6 @@ const faqSchema = { '@context':'https://schema.org', '@type':'FAQPage', mainEnti
   <ContactSection />
  </main>
  <FloatingContact /><Footer />
- <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Layout>
 <style>
  .intro,.content{max-width:1050px}.intro h1{max-width:980px;margin:.8rem 0 1.25rem}.lead{font-size:clamp(1.08rem,2vw,1.26rem);line-height:1.65;max-width:870px}.actions{display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0}.highlights{display:flex;gap:.7rem 1.8rem;flex-wrap:wrap;list-style:none;padding:0;font-weight:700;font-size:.92rem}.highlights li::before{content:'✓';color:var(--red);margin-right:.4rem}.content h2{margin:2.5rem 0 .9rem}.content p{line-height:1.8}.content ol{list-style:decimal;padding-left:1.5rem}.content ol li{margin:.85rem 0;line-height:1.7}.hero-photo{margin:0 0 2rem}.hero-photo img{display:block;width:100%;max-height:470px;object-fit:cover;border-radius:12px}.hero-photo figcaption{font-size:.85rem;color:#666;margin:.55rem 0}.tiles,.refs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.tiles article,.refs article{border:1px solid var(--border);border-top:3px solid var(--red);padding:1.4rem;border-radius:4px}.tiles h3,.refs h3{margin:0 0 .65rem;font-size:1.12rem}.tiles p,.refs p{margin:.5rem 0}.refs a{font-weight:700}.faq-list details{border-bottom:1px solid var(--border);padding:1rem 0}.faq-list summary{cursor:pointer;font-weight:750}.faq-list p{margin:.7rem 0 0}@media(max-width:760px){.tiles,.refs{grid-template-columns:1fr}.actions .btn{width:100%;text-align:center}.highlights{display:block}.highlights li{margin:.5rem 0}.content h2{margin-top:2rem}}
