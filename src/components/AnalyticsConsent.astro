@@ -1,7 +1,7 @@
 <div id="consent-panel" class="consent-panel" role="dialog" aria-label="Postavke privatnosti" aria-modal="false" hidden>
   <span class="consent-eyebrow">VAŠA PRIVATNOST</span>
   <h2>Vaš odabir, vaša privatnost.</h2>
-  <p>Nužne tehnologije omogućuju rad i sigurnost stranice. Google Analytics koristimo za analitiku, a Google Ads za mjerenje uspješno poslanih poslovnih upita. Obje opcionalne tehnologije uključujemo samo uz vaš pristanak.</p>
+  <p>Nužne tehnologije omogućuju rad i sigurnost stranice. Google Analytics i Metricool koristimo za analitiku, a Google Ads za mjerenje uspješno poslanih poslovnih upita. Sve opcionalne tehnologije uključujemo samo uz vaš pristanak.</p>
   <a class="consent-link" href="/kolacici/">Informacije o privatnosti <span aria-hidden="true">↗</span></a>
   <div class="consent-actions">
     <button id="consent-reject" class="consent-button consent-reject" type="button">Odbij</button>
@@ -26,10 +26,21 @@
 </style>
 <script>
 const panel=document.getElementById('consent-panel');
-const choiceKey='redcarpet_measurement_consent_v2';
+const choiceKey='redcarpet_measurement_consent_v3';
 const stored=()=>{try{return localStorage.getItem(choiceKey)}catch{return null}};
 const save=(v)=>{try{localStorage.setItem(choiceKey,v)}catch{}};
 const enable=()=>{
+ if(!document.getElementById('redcarpet-metricool')){
+  const metricool=document.createElement('script');
+  metricool.id='redcarpet-metricool';
+  metricool.async=true;
+  metricool.src='https://tracker.metricool.com/resources/be.js';
+  metricool.onload=()=>{
+   const tracker=(window as Window & {beTracker?: {t: (options: {hash: string}) => void}}).beTracker;
+   tracker?.t({hash:'d87460f5c8ad118d617e59a02b882cb6'});
+  };
+  document.head.appendChild(metricool);
+ }
  if(document.getElementById('redcarpet-ga'))return;
  const script=document.createElement('script');
  script.id='redcarpet-ga';script.async=true;
